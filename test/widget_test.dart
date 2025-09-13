@@ -1,32 +1,30 @@
+// This is a basic Flutter widget test.
+//
+// To perform an interaction with a widget in your test, use the WidgetTester
+// utility in the flutter_test package. For example, you can send tap and scroll
+// gestures. You can also use WidgetTester to find child widgets in the widget
+// tree, read text, and verify that the values of widget properties are correct.
+
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:bock/main.dart';
+import 'package:bockchain/main.dart';
 
 void main() {
-  testWidgets('App loads and displays Binance title', (WidgetTester tester) async {
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const BinanceApp());
+    await tester.pumpWidget(MyApp());
 
-    // Verify that the app loads and shows the Binance title
-    expect(find.text('Binance'), findsOneWidget);
-    
-    // Verify that key elements are present
-    expect(find.text('Total Balance'), findsOneWidget);
-    expect(find.text('Top Cryptocurrencies'), findsOneWidget);
-  });
+    // Verify that our counter starts at 0.
+    expect(find.text('0'), findsOneWidget);
+    expect(find.text('1'), findsNothing);
 
-  testWidgets('Bottom navigation works', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const BinanceApp());
+    // Tap the '+' icon and trigger a frame.
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pump();
 
-    // Test navigation (this assumes your bottom nav has specific icons/text)
-    // You'll need to adjust based on your actual bottom navigation implementation
-    
-    // Find and tap on different navigation items
-    // Example: await tester.tap(find.byIcon(Icons.wallet));
-    // await tester.pump();
-    
-    // Verify navigation worked
-    // expect(find.text('Spot Wallet'), findsOneWidget);
+    // Verify that our counter has incremented.
+    expect(find.text('0'), findsNothing);
+    expect(find.text('1'), findsOneWidget);
   });
 }

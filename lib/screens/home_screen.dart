@@ -1,17 +1,7 @@
-//import 'package:bock/screens/profile_screen.dart';
-import 'package:bock/screens/account_security_screen.dart';
-import 'package:bock/screens/payment_methods_screen.dart';
-import 'package:bock/screens/notification_settings_screen.dart';
-import 'package:bock/screens/help_support_screen.dart';
-import 'package:bock/screens/about_screen.dart';
 import 'package:flutter/material.dart';
-import '../widgets/custom_app_bar.dart';
-import '../widgets/crypto_card.dart';
-import '../widgets/market_stats_card.dart';
-import '../widgets/enhanced_trading_section.dart';
-import '../widgets/bottom_nav_bar.dart';
-import '../models/crypto_data.dart';
-//import '../utils/app_theme.dart' hide AppColors;
+import '../widgets/top_navigation_bar.dart';
+import '../widgets/app_footer.dart';
+import '../widgets/bottom_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,584 +11,525 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentIndex = 0;
-  final List<CryptoData> _cryptoList = SampleData.getCryptoList();
+  int _currentBottomNavIndex = 0;
+  bool _isDarkMode = true;
+  String _selectedLanguage = 'en';
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 768;
+
     return Scaffold(
-      appBar: CustomAppBar(
-        title: 'Binance',
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.notifications_outlined),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.qr_code_scanner),
-          ),
-        ],
+      backgroundColor: _isDarkMode ? const Color(0xFF0D0D1A) : Colors.grey[100],
+      appBar: TopNavigationBar(
+        isDarkMode: _isDarkMode,
+        onThemeToggle: (bool darkMode) {
+          setState(() {
+            _isDarkMode = darkMode;
+          });
+        },
+        selectedLanguage: _selectedLanguage,
+        onLanguageChange: (String languageCode) {
+          setState(() {
+            _selectedLanguage = languageCode;
+          });
+        },
       ),
-      body: _buildBody(),
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: _currentIndex,
-        onTap: (index) => setState(() => _currentIndex = index),
+      bottomNavigationBar: isMobile
+          ? AppBottomNavigationBar(
+              currentIndex: _currentBottomNavIndex,
+              onTap: (index) {
+                setState(() {
+                  _currentBottomNavIndex = index;
+                });
+              },
+            )
+          : null,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Main Content Section
+            Container(
+              padding: EdgeInsets.symmetric(
+                horizontal: isMobile ? 20 : 55,
+                vertical: isMobile ? 30 : 60,
+              ),
+              child: isMobile
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildLeftContent(isMobile),
+                        const SizedBox(height: 40),
+                        _buildRightContent(isMobile),
+                      ],
+                    )
+                  : Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Left Content
+                        Expanded(
+                          flex: 3,
+                          child: _buildLeftContent(isMobile),
+                        ),
+                        
+                        const SizedBox(width: 60),
+                        
+                        // Right Content
+                        Expanded(
+                          flex: 2,
+                          child: _buildRightContent(isMobile),
+                        ),
+                      ],
+                    ),
+            ),
+            
+            // Footer
+            const AppFooter(),
+          ],
+        ),
       ),
     );
   }
 
-  Widget _buildBody() {
-    switch (_currentIndex) {
-      case 0:
-        return _buildHomeTab();
-      case 1:
-        return _buildMarketsTab();
-      case 2:
-        return _buildTradeTab();
-      case 3:
-        return _buildWalletTab();
-      case 4:
-        return _buildProfileTab();
-      default:
-        return _buildHomeTab();
-    }
-  }
-
-  Widget _buildHomeTab() {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Portfolio balance section
-          Container(
-            width: double.infinity,
-            margin: const EdgeInsets.all(16),
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  AppColors.primary.withOpacity(0.1),
-                  AppColors.primary.withOpacity(0.05),
-                ],
-              ),
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                color: AppColors.primary.withOpacity(0.2),
-              ),
+  Widget _buildLeftContent(bool isMobile) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Main Headline
+        RichText(
+          text: TextSpan(
+            style: TextStyle(
+              fontSize: isMobile ? 32 : 48,
+              fontWeight: FontWeight.bold,
+              height: 1.2,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextSpan(
+                text: 'Get Verified',
+                style: TextStyle(
+                  color: const Color.fromARGB(255, 122, 79, 223), // Binance yellow
+                ),
+              ),
+              TextSpan(
+                text: ' and\nStart Your Crypto\nJourney',
+                style: TextStyle(
+                  color: _isDarkMode ? Colors.white : Colors.black87,
+                ),
+              ),
+            ],
+          ),
+        ),
+        
+        SizedBox(height: isMobile ? 30 : 40),
+        
+        // Balance Section
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
               children: [
-                const Text(
-                  'Total Balance',
+                Text(
+                  'Your Estimated Balance',
                   style: TextStyle(
-                    color: AppColors.textSecondary,
-                    fontSize: 14,
+                    color: _isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-                const SizedBox(height: 8),
-                const Text(
-                  '\$24,586.43',
+                const SizedBox(width: 8),
+                Icon(
+                  Icons.help_outline,
+                  size: 16,
+                  color: _isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            
+            // Balance Display
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  '0.00',
                   style: TextStyle(
-                    color: AppColors.textPrimary,
-                    fontSize: 32,
+                    color: _isDarkMode ? Colors.white : Colors.black87,
+                    fontSize: isMobile ? 36 : 42,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 4),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.trending_up,
-                      color: AppColors.success,
-                      size: 16,
+                const SizedBox(width: 8),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    'BTC',
+                    style: TextStyle(
+                      color: _isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
                     ),
-                    const SizedBox(width: 4),
-                    const Text(
-                      '+2.45% (+\$586.43)',
-                      style: TextStyle(
-                        color: AppColors.success,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
+                  ),
+                ),
+                const SizedBox(width: 4),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    '≈ \$0.00',
+                    style: TextStyle(
+                      color: _isDarkMode ? Colors.grey[500] : Colors.grey[500],
+                      fontSize: 14,
                     ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-
-          // Quick actions
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Row(
-              children: [
-                Expanded(
-                  child: _buildQuickActionButton(
-                    'Deposit',
-                    Icons.add,
-                    AppColors.success,
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: _buildQuickActionButton(
-                    'Withdraw',
-                    Icons.remove,
-                    AppColors.error,
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: _buildQuickActionButton(
-                    'Trade',
-                    Icons.swap_horiz,
-                    AppColors.primary,
                   ),
                 ),
               ],
             ),
-          ),
-
-          const SizedBox(height: 24),
-
-          // Market stats
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Row(
-              children: [
-                Expanded(
-                  child: MarketStatsCard(
-                    title: '24h Volume',
-                    value: '\$45.2B',
-                    subtitle: '+12.5%',
-                    valueColor: AppColors.textPrimary,
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: MarketStatsCard(
-                    title: 'Market Cap',
-                    value: '\$1.8T',
-                    subtitle: '+3.2%',
-                    valueColor: AppColors.textPrimary,
-                  ),
-                ),
-              ],
-            ),
-          ),
-
-          const SizedBox(height: 24),
-
-          // Top cryptocurrencies
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Text(
-              'Top Cryptocurrencies',
+            const SizedBox(height: 8),
+            
+            Text(
+              'Today\'s PnL  \$0.00 (0.00%)',
               style: TextStyle(
-                color: AppColors.textPrimary,
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
+                color: _isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                fontSize: 14,
               ),
             ),
-          ),
-
-          const SizedBox(height: 12),
-
-          // Crypto list
-          ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: _cryptoList.length,
-            itemBuilder: (context, index) {
-              return CryptoCard(
-                crypto: _cryptoList[index],
-                onTap: () {
-                  // Navigate to crypto details
-                },
-              );
-            },
-          ),
-
-          const SizedBox(height: 100), // Bottom padding for nav bar
-        ],
-      ),
-    );
-  }
-
-  Widget _buildMarketsTab() {
-    return Column(
-      children: [
-        // Search bar
-        Container(
-          margin: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: AppColors.surface,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: TextField(
-            style: const TextStyle(color: AppColors.textPrimary),
-            decoration: InputDecoration(
-              hintText: 'Search cryptocurrencies',
-              hintStyle: const TextStyle(color: AppColors.textSecondary),
-              prefixIcon: const Icon(
-                Icons.search,
-                color: AppColors.textSecondary,
-              ),
-              border: InputBorder.none,
-              contentPadding: const EdgeInsets.symmetric(
-                vertical: 12,
-                horizontal: 16,
-              ),
-            ),
-          ),
+          ],
         ),
-
-        // Markets list
-        Expanded(
-          child: ListView.builder(
-            itemCount: _cryptoList.length * 2, // Show more items
-            itemBuilder: (context, index) {
-              final crypto = _cryptoList[index % _cryptoList.length];
-              return CryptoCard(
-                crypto: crypto,
-                onTap: () {},
-              );
-            },
-          ),
+        
+        SizedBox(height: isMobile ? 30 : 40),
+        
+        // Action Buttons
+        Row(
+          children: [
+            // Verify Now Button
+            Container(
+              height: 48,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 122, 79, 223), // Binance yellow
+                borderRadius: BorderRadius.circular(6),
+              ),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Verify action
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                ),
+                child: const Text(
+                  'Verify Now',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ),
+            
+            const SizedBox(width: 16),
+            
+            // Watch Tutorial Button
+            TextButton.icon(
+              onPressed: () {
+                // Watch tutorial action
+              },
+              icon: Container(
+                width: 32,
+                height: 32,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: _isDarkMode ? Colors.grey[600]! : Colors.grey[400]!,
+                    width: 1.5,
+                  ),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Icon(
+                  Icons.play_arrow,
+                  color: _isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                  size: 16,
+                ),
+              ),
+              label: Text(
+                'Watch Tutorial',
+                style: TextStyle(
+                  color: _isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );
   }
 
-  Widget _buildTradeTab() {
-    return const SingleChildScrollView(
-      child: Column(
-        children: [
-          EnhancedTradingSection(),
-          SizedBox(height: 100), // Bottom padding
+  Widget _buildRightContent(bool isMobile) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Popular/New Listing Tabs
+        Row(
+          children: [
+            _buildTab('Popular', true),
+            const SizedBox(width: 24),
+            _buildTab('New Listing', false),
+            const Spacer(),
+            if (!isMobile)
+              TextButton(
+                onPressed: () {
+                  // View all coins action
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'View All 350+ Coins',
+                      style: TextStyle(
+                        color: _isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                        fontSize: 14,
+                      ),
+                    ),
+                    const SizedBox(width: 4),
+                    Icon(
+                      Icons.arrow_forward,
+                      color: _isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                      size: 14,
+                    ),
+                  ],
+                ),
+              ),
+          ],
+        ),
+        
+        const SizedBox(height: 20),
+        
+        // Crypto List
+        Column(
+          children: [
+            _buildCryptoItem('BTC', 'Bitcoin', '\$110,357.76', '-0.78%', false, Icons.currency_bitcoin, const Color(0xFFF7931A)),
+            _buildCryptoItem('ETH', 'Ethereum', '\$4,435.55', '-3.01%', false, Icons.diamond, const Color(0xFF627EEA)),
+            _buildCryptoItem('BNB', 'BNB', '\$844.97', '-1.17%', false, Icons.hexagon, const Color(0xFFF0B90B)),
+            _buildCryptoItem('XRP', 'XRP', '\$2.92', '-0.42%', false, Icons.water_drop, const Color(0xFF00AAE4)),
+            _buildCryptoItem('SOL', 'Solana', '\$189.54', '-4.59%', false, Icons.wb_sunny, const Color(0xFF9945FF)),
+          ],
+        ),
+        
+        const SizedBox(height: 40),
+        
+        // News Section
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'News',
+                  style: TextStyle(
+                    color: _isDarkMode ? Colors.white : Colors.black87,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    // View all news action
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'View All News',
+                        style: TextStyle(
+                          color: _isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                          fontSize: 14,
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      Icon(
+                        Icons.arrow_forward,
+                        color: _isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                        size: 14,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            
+            const SizedBox(height: 16),
+            
+            // News Items
+            Column(
+              children: [
+                _buildNewsItem(
+                  'Ethereum Holdings Impact Valuation of SharpLink and Bitmine',
+                ),
+                const SizedBox(height: 12),
+                _buildNewsItem(
+                  'Ethereum(ETH) Drops Below 4,400 USDT with a 5.10% Decrease in 24 Hours',
+                ),
+                const SizedBox(height: 12),
+                _buildNewsItem(
+                  'Bitcoin Faces Potential Volatility Amid Market Sentiment',
+                ),
+              ],
+            ),
+          ],
+        ),
+        
+        if (isMobile) ...[
+          const SizedBox(height: 30),
+          Center(
+            child: TextButton(
+              onPressed: () {
+                // View all coins action
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'View All 350+ Coins',
+                    style: TextStyle(
+                      color: _isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                      fontSize: 14,
+                    ),
+                  ),
+                  const SizedBox(width: 4),
+                  Icon(
+                    Icons.arrow_forward,
+                    color: _isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                    size: 14,
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
-      ),
+      ],
     );
   }
 
-  Widget _buildWalletTab() {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Wallet balance
+  Widget _buildTab(String text, bool isActive) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          text,
+          style: TextStyle(
+            color: isActive
+                ? (_isDarkMode ? Colors.white : Colors.black87)
+                : (_isDarkMode ? Colors.grey[400] : Colors.grey[600]),
+            fontSize: 16,
+            fontWeight: isActive ? FontWeight.w600 : FontWeight.normal,
+          ),
+        ),
+        if (isActive) ...[
+          const SizedBox(height: 4),
           Container(
-            width: double.infinity,
-            margin: const EdgeInsets.all(16),
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: AppColors.surface,
-              borderRadius: BorderRadius.circular(12),
+            height: 2,
+            width: 40,
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 122, 79, 223), // Binance yellow
             ),
+          ),
+        ],
+      ],
+    );
+  }
+
+  Widget _buildCryptoItem(String symbol, String name, String price, String change, bool isPositive, IconData iconData, Color iconColor) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Row(
+        children: [
+          // Icon
+          Container(
+            width: 32,
+            height: 32,
+            decoration: BoxDecoration(
+              color: iconColor.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Icon(
+              iconData,
+              color: iconColor,
+              size: 18,
+            ),
+          ),
+          
+          const SizedBox(width: 12),
+          
+          // Symbol and Name
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Spot Wallet',
+                  symbol,
                   style: TextStyle(
-                    color: AppColors.textSecondary,
+                    color: _isDarkMode ? Colors.white : Colors.black87,
                     fontSize: 14,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
-                const SizedBox(height: 8),
-                const Text(
-                  '\$12,486.43',
+                Text(
+                  name,
                   style: TextStyle(
-                    color: AppColors.textPrimary,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    Expanded(
-                      child: _buildQuickActionButton(
-                        'Deposit',
-                        Icons.add,
-                        AppColors.success,
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: _buildQuickActionButton(
-                        'Withdraw',
-                        Icons.remove,
-                        AppColors.error,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-
-          // Holdings list
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Text(
-              'Holdings',
-              style: TextStyle(
-                color: AppColors.textPrimary,
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-
-          const SizedBox(height: 12),
-
-          ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: _cryptoList.length,
-            itemBuilder: (context, index) {
-              return CryptoCard(
-                crypto: _cryptoList[index],
-                onTap: () {},
-              );
-            },
-          ),
-
-          const SizedBox(height: 100), // Bottom padding
-        ],
-      ),
-    );
-  }
-
-  Widget _buildProfileTab() {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          // Profile header
-          Container(
-            width: double.infinity,
-            margin: const EdgeInsets.all(16),
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: AppColors.surface,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Column(
-              children: [
-                CircleAvatar(
-                  radius: 40,
-                  backgroundColor: AppColors.primary,
-                  child: const Icon(
-                    Icons.person,
-                    size: 40,
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                const Text(
-                  'Rupa Shree S',
-                  style: TextStyle(
-                    color: AppColors.textPrimary,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                const Text(
-                  'rupashree@gmail.com',
-                  style: TextStyle(
-                    color: AppColors.textSecondary,
-                    fontSize: 14,
+                    color: _isDarkMode ? Colors.grey[400] : Colors.grey[600],
+                    fontSize: 12,
                   ),
                 ),
               ],
             ),
           ),
-
-          // Profile menu items with navigation
-          _buildProfileMenuItem(
-            'Account Security',
-            Icons.security,
-            () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const AccountSecurityScreen(),
+          
+          // Price and Change
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                price,
+                style: TextStyle(
+                  color: _isDarkMode ? Colors.white : Colors.black87,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
                 ),
-              );
-            },
-          ),
-          _buildProfileMenuItem(
-            'Payment Methods',
-            Icons.payment,
-            () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const PaymentMethodsScreen(),
+              ),
+              Text(
+                change,
+                style: TextStyle(
+                  color: isPositive ? const Color(0xFF0ECB81) : const Color(0xFFF6465D),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
                 ),
-              );
-            },
-          ),
-          _buildProfileMenuItem(
-            'Notification Settings',
-            Icons.notifications,
-            () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const NotificationSettingsScreen(),
-                ),
-              );
-            },
-          ),
-          _buildProfileMenuItem(
-            'Help & Support',
-            Icons.help,
-            () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const HelpSupportScreen(),
-                ),
-              );
-            },
-          ),
-          _buildProfileMenuItem(
-            'About',
-            Icons.info,
-            () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const AboutScreen(),
-                ),
-              );
-            },
-          ),
-          _buildProfileMenuItem(
-            'Logout',
-            Icons.logout,
-            () {
-              _showLogoutDialog(context);
-            },
-            isDestructive: true,
-          ),
-
-          const SizedBox(height: 100), // Bottom padding
-        ],
-      ),
-    );
-  }
-
-  Widget _buildQuickActionButton(String title, IconData icon, Color color) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 12),
-      decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          color: color.withOpacity(0.3),
-        ),
-      ),
-      child: Column(
-        children: [
-          Icon(
-            icon,
-            color: color,
-            size: 24,
-          ),
-          const SizedBox(height: 4),
-          Text(
-            title,
-            style: TextStyle(
-              color: color,
-              fontSize: 12,
-              fontWeight: FontWeight.w500,
-            ),
+              ),
+            ],
           ),
         ],
       ),
     );
   }
 
-  Widget _buildProfileMenuItem(
-    String title,
-    IconData icon,
-    VoidCallback onTap, {
-    bool isDestructive = false,
-  }) {
+  Widget _buildNewsItem(String title) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      decoration: BoxDecoration(
-        color: AppColors.surface,
-        borderRadius: BorderRadius.circular(8),
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Text(
+        title,
+        style: TextStyle(
+          color: _isDarkMode ? Colors.grey[300] : Colors.black87,
+          fontSize: 14,
+          height: 1.4,
+        ),
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
       ),
-      child: ListTile(
-        leading: Icon(
-          icon,
-          color: isDestructive ? AppColors.error : AppColors.textSecondary,
-        ),
-        title: Text(
-          title,
-          style: TextStyle(
-            color: isDestructive ? AppColors.error : AppColors.textPrimary,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        trailing: Icon(
-          Icons.arrow_forward_ios,
-          size: 16,
-          color: isDestructive ? AppColors.error : AppColors.textSecondary,
-        ),
-        onTap: onTap,
-      ),
-    );
-  }
-
-  // Logout dialog
-  void _showLogoutDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          backgroundColor: AppColors.surface,
-          title: const Text(
-            'Logout',
-            style: TextStyle(color: AppColors.textPrimary),
-          ),
-          content: const Text(
-            'Are you sure you want to logout?',
-            style: TextStyle(color: AppColors.textSecondary),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text(
-                'Cancel',
-                style: TextStyle(color: AppColors.textSecondary),
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-                // Add your logout logic here
-                // For example: AuthService.logout();
-                // Navigator.pushReplacementNamed(context, '/login');
-              },
-              child: const Text(
-                'Logout',
-                style: TextStyle(color: AppColors.error),
-              ),
-            ),
-          ],
-        );
-      },
     );
   }
 }

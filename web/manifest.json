@@ -1,6 +1,6 @@
 {
-    "name": "bock",
-    "short_name": "bock",
+    "name": "bockchain",
+    "short_name": "bockchain",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
