@@ -120,7 +120,7 @@ class _Mobile0FeeScreenState extends State<Mobile0FeeScreen> {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFF0B90B),
+                backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                 foregroundColor: Colors.black,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(
@@ -193,7 +193,7 @@ class _Mobile0FeeScreenState extends State<Mobile0FeeScreen> {
                     Text(
                       'JOIN FREE',
                       style: TextStyle(
-                        color: Color(0xFFF0B90B),
+                        color: Color.fromARGB(255, 122, 79, 223),
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
@@ -284,7 +284,7 @@ class _Mobile0FeeScreenState extends State<Mobile0FeeScreen> {
             width: 24,
             height: 24,
             decoration: BoxDecoration(
-              color: const Color(0xFFF0B90B),
+              color: const Color.fromARGB(255, 122, 79, 223),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Center(
@@ -378,7 +378,7 @@ class _Mobile0FeeScreenState extends State<Mobile0FeeScreen> {
             width: 6,
             height: 6,
             decoration: const BoxDecoration(
-              color: Color(0xFFF0B90B),
+              color: Color.fromARGB(255, 122, 79, 223),
               shape: BoxShape.circle,
             ),
           ),
@@ -451,7 +451,7 @@ class _Mobile0FeeScreenState extends State<Mobile0FeeScreen> {
               '• Visit our Help Center\n'
               '• Contact Customer Support',
               style: TextStyle(
-                color: Color(0xFFF0B90B),
+                color: Color.fromARGB(255, 122, 79, 223),
                 fontSize: 13,
                 decoration: TextDecoration.underline,
                 height: 1.5,

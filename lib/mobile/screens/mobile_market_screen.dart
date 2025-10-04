@@ -2,6 +2,7 @@ import 'package:bockchain/mobile/screens/mobile_alpha_sceen.dart';
 import 'package:bockchain/mobile/screens/mobile_data_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_grow_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_markets_screen.dart';
+import 'package:bockchain/mobile/screens/mobile_square_screen.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:math';
@@ -202,6 +203,15 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
     );
   }
 
+  void _navigateToSquareScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MobileSquareScreen(),
+      ),
+    );
+  }
+
   void _onTabTapped(int index) {
     switch (index) {
       case 0:
@@ -216,10 +226,10 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
       case 3:
         _navigateToGrowScreen();
         break;
-      /*case 4:
-        _navigateToSquareScreen();
-        break;*/
       case 4:
+        _navigateToSquareScreen();
+        break;
+      case 5:
         _navigateToDataScreen();
         break;
     }
@@ -287,7 +297,7 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
                   Tab(text: 'Market'),
                   Tab(text: 'Alpha'),
                   Tab(text: 'Grow'),
-                  //Tab(text: 'Square'),
+                  Tab(text: 'Square'),
                   Tab(text: 'Data'),
                 ],
               ),

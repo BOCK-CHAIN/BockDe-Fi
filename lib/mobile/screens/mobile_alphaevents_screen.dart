@@ -42,7 +42,7 @@ class MobileNewListingScreen extends StatelessWidget {
             const Text(
               'LATEST NEW LISTING\nPROMOTIONS',
               style: TextStyle(
-                color: Color(0xFFFDB913),
+                color: Color.fromARGB(255, 122, 79, 223),
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
                 height: 1.2,
@@ -55,7 +55,7 @@ class MobileNewListingScreen extends StatelessWidget {
               title: 'SHARE 20M+ \$HEMI',
               subtitle: 'Spot',
               icon: Icons.star,
-              iconColor: const Color(0xFFFDB913),
+              iconColor: const Color.fromARGB(255, 122, 79, 223),
               gradientColors: [
                 const Color(0xFF2A2A2A),
                 const Color(0xFF1A1A1A),
@@ -139,7 +139,7 @@ class MobileNewListingScreen extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: const Color(0xFFFDB913).withOpacity(0.3),
+          color: const Color.fromARGB(255, 122, 79, 223).withOpacity(0.3),
           width: 1,
         ),
       ),
@@ -153,7 +153,7 @@ class MobileNewListingScreen extends StatelessWidget {
               color: const Color(0xFF1A1A1A),
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
-                color: const Color(0xFFFDB913),
+                color: const Color.fromARGB(255, 122, 79, 223),
                 width: 2,
               ),
             ),
@@ -166,13 +166,13 @@ class MobileNewListingScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: const Color(0xFFFDB913),
+                      color: const Color.fromARGB(255, 122, 79, 223),
                       width: 2,
                     ),
                   ),
                   child: const Icon(
                     Icons.star,
-                    color: Color(0xFFFDB913),
+                    color: Color.fromARGB(255, 122, 79, 223),
                     size: 20,
                   ),
                 ),
@@ -186,7 +186,7 @@ class MobileNewListingScreen extends StatelessWidget {
                       height: 4,
                       margin: const EdgeInsets.symmetric(horizontal: 1),
                       decoration: const BoxDecoration(
-                        color: Color(0xFFFDB913),
+                        color: Color.fromARGB(255, 122, 79, 223),
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -200,7 +200,7 @@ class MobileNewListingScreen extends StatelessWidget {
             'NEW LISTINGS,\nNEW REWARDS',
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Color(0xFFFDB913),
+              color: Color.fromARGB(255, 122, 79, 223),
               fontSize: 32,
               fontWeight: FontWeight.bold,
               height: 1.1,
@@ -264,7 +264,7 @@ class MobileNewListingScreen extends StatelessWidget {
                         color: const Color(0xFF2A2A2A),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
-                          color: const Color(0xFFFDB913).withOpacity(0.3),
+                          color: const Color.fromARGB(255, 122, 79, 223).withOpacity(0.3),
                           width: 1,
                         ),
                       ),
@@ -380,7 +380,7 @@ class MobileNewListingScreen extends StatelessWidget {
                         // Handle join now action
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFFDB913),
+                        backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                         foregroundColor: Colors.black,
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(

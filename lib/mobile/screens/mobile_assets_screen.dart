@@ -233,7 +233,7 @@ class _MobileAssetsScreenState extends State<MobileAssetsScreen> {
                                   width: 32,
                                   height: 32,
                                   decoration: const BoxDecoration(
-                                    color: Color(0xFFF7931A),
+                                    color: Color.fromARGB(255, 122, 79, 223),
                                     shape: BoxShape.circle,
                                   ),
                                   child: const Center(
@@ -355,7 +355,7 @@ class _MobileAssetsScreenState extends State<MobileAssetsScreen> {
                                   width: 32,
                                   height: 32,
                                   decoration: const BoxDecoration(
-                                    color: Color(0xFFF0B90B),
+                                    color: Color.fromARGB(255, 122, 79, 223),
                                     shape: BoxShape.circle,
                                   ),
                                   child: const Center(

@@ -142,7 +142,7 @@ class _MobileSolStakingScreenState extends State<MobileSolStakingScreen> {
               Expanded(
                 child: _buildActionButton(
                   'Subscribe',
-                  const Color(0xFFFFC107),
+                  const Color.fromARGB(255, 122, 79, 223),
                   Colors.black,
                   () => _pageController.animateToPage(
                     2,
@@ -244,7 +244,7 @@ class _MobileSolStakingScreenState extends State<MobileSolStakingScreen> {
               'Learn more about BNSOL',
               style: TextStyle(
                 fontSize: 16,
-                color: Color(0xFFFFC107),
+                color: Color.fromARGB(255, 122, 79, 223),
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -267,7 +267,7 @@ class _MobileSolStakingScreenState extends State<MobileSolStakingScreen> {
             Icons.account_balance,
             'Binance Loans',
             'Use as collateral to borrow crypto',
-            const Color(0xFFFFC107),
+            const Color.fromARGB(255, 122, 79, 223),
           ),
           
           _buildUtilityCard(
@@ -281,14 +281,14 @@ class _MobileSolStakingScreenState extends State<MobileSolStakingScreen> {
             Icons.hexagon,
             'DeFi Protocols',
             'Interact with DeFi Protocols on chain for additional yields',
-            const Color(0xFFFFC107),
+            const Color.fromARGB(255, 122, 79, 223),
           ),
           
           _buildUtilityCard(
             Icons.swap_horiz,
             'Spot Trading',
             'Trade against SOL, and more',
-            const Color(0xFFFFC107),
+            const Color.fromARGB(255, 122, 79, 223),
           ),
           
           const SizedBox(height: 32),
@@ -308,7 +308,7 @@ class _MobileSolStakingScreenState extends State<MobileSolStakingScreen> {
               Expanded(
                 child: _buildActionButton(
                   'Subscribe',
-                  const Color(0xFFFFC107),
+                  const Color.fromARGB(255, 122, 79, 223),
                   Colors.black,
                   () => _pageController.animateToPage(
                     2,
@@ -409,7 +409,7 @@ class _MobileSolStakingScreenState extends State<MobileSolStakingScreen> {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
-                        color: const Color(0xFFFFC107),
+                        color: const Color.fromARGB(255, 122, 79, 223),
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: const Text(
@@ -456,7 +456,7 @@ class _MobileSolStakingScreenState extends State<MobileSolStakingScreen> {
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                         decoration: BoxDecoration(
-                          color: const Color(0xFFFFC107),
+                          color: const Color.fromARGB(255, 122, 79, 223),
                           borderRadius: BorderRadius.circular(16),
                         ),
                         child: const Row(
@@ -485,7 +485,7 @@ class _MobileSolStakingScreenState extends State<MobileSolStakingScreen> {
           const SizedBox(height: 24),
           
           // Info rows
-          _buildInfoRow('Receive', '0 BNSOL', const Color(0xFFFFC107)),
+          _buildInfoRow('Receive', '0 BNSOL', const Color.fromARGB(255, 122, 79, 223)),
           _buildInfoRow('Conversion Ratio', '1 SOL ≈ 0.93008974 BNSOL'),
           _buildInfoRow('Reference APR', '5.43%', Colors.green),
           _buildInfoRow('Monthly Est. Rewards', '0 SOL'),
@@ -500,7 +500,7 @@ class _MobileSolStakingScreenState extends State<MobileSolStakingScreen> {
                 decoration: const BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
-                      color: Color(0xFFFFC107),
+                      color: Color.fromARGB(255, 122, 79, 223),
                       width: 2,
                     ),
                   ),
@@ -539,7 +539,7 @@ class _MobileSolStakingScreenState extends State<MobileSolStakingScreen> {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFFFC107),
+                backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),

@@ -89,7 +89,7 @@ class _MobileCopyTradingScreenState extends State<MobileCopyTradingScreen> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF0B90B),
+                  color: const Color.fromARGB(255, 122, 79, 223),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Text(
@@ -120,7 +120,7 @@ class _MobileCopyTradingScreenState extends State<MobileCopyTradingScreen> {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFF0B90B),
+                      color: const Color.fromARGB(255, 122, 79, 223),
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: const Text(
@@ -170,7 +170,7 @@ class _MobileCopyTradingScreenState extends State<MobileCopyTradingScreen> {
             Container(
               height: 2,
               width: 40,
-              color: const Color(0xFFF0B90B),
+              color: const Color.fromARGB(255, 122, 79, 223),
             ),
         ],
       ),
@@ -393,7 +393,7 @@ class _MobileCopyTradingScreenState extends State<MobileCopyTradingScreen> {
                             child: const Text(
                               'API',
                               style: TextStyle(
-                                color: Colors.orange,
+                                color: Color.fromARGB(255, 122, 79, 223),
                                 fontSize: 10,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -439,7 +439,7 @@ class _MobileCopyTradingScreenState extends State<MobileCopyTradingScreen> {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFF0B90B),
+                      color: const Color.fromARGB(255, 122, 79, 223),
                       borderRadius: BorderRadius.circular(6),
                     ),
                     child: const Text(
@@ -618,7 +618,7 @@ class _MobileCopyTradingScreenState extends State<MobileCopyTradingScreen> {
                 Text(
                   'Apply Now',
                   style: TextStyle(
-                    color: Color(0xFFF0B90B),
+                    color: Color.fromARGB(255, 122, 79, 223),
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.underline,

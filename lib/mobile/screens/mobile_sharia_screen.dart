@@ -169,7 +169,7 @@ class _MobileShariaScreenState extends State<MobileShariaScreen>
                                 TextSpan(
                                   text: 'View More',
                                   style: TextStyle(
-                                    color: Color(0xFFF59E0B),
+                                    color: Color.fromARGB(255, 122, 79, 223),
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -224,7 +224,7 @@ class _MobileShariaScreenState extends State<MobileShariaScreen>
               },
               labelColor: Colors.black,
               unselectedLabelColor: Colors.grey[500],
-              indicatorColor: const Color(0xFFF59E0B),
+              indicatorColor: const Color.fromARGB(255, 122, 79, 223),
               indicatorWeight: 3,
               labelStyle: const TextStyle(
                 fontSize: 16,
@@ -284,7 +284,7 @@ class _MobileShariaScreenState extends State<MobileShariaScreen>
               width: 16,
               height: 16,
               decoration: const BoxDecoration(
-                color: Color(0xFFF59E0B),
+                color: Color.fromARGB(255, 122, 79, 223),
                 shape: BoxShape.circle,
               ),
               child: const Icon(

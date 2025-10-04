@@ -68,7 +68,7 @@ class _MobileSpotColoScreenState extends State<MobileSpotColoScreen> {
       decoration: BoxDecoration(
         color: const Color(0xFF1A1D21),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: const Color(0xFFF0B90B), width: 1),
+        border: Border.all(color: const Color.fromARGB(255, 122, 79, 223), width: 1),
       ),
       child: Column(
         children: [
@@ -77,12 +77,12 @@ class _MobileSpotColoScreenState extends State<MobileSpotColoScreen> {
             width: 60,
             height: 60,
             decoration: BoxDecoration(
-              color: const Color(0xFFF0B90B).withOpacity(0.1),
+              color: const Color.fromARGB(255, 122, 79, 223).withOpacity(0.1),
               shape: BoxShape.circle,
             ),
             child: const Icon(
               Icons.account_balance,
-              color: Color(0xFFF0B90B),
+              color: Color.fromARGB(255, 122, 79, 223),
               size: 32,
             ),
           ),
@@ -139,7 +139,7 @@ class _MobileSpotColoScreenState extends State<MobileSpotColoScreen> {
       {
         'title': 'JOIN HEM NEW LISTING CAMPAIGN',
         'icon': Icons.monetization_on,
-        'iconColor': Color(0xFFF0B90B),
+        'iconColor': Color.fromARGB(255, 122, 79, 223),
         'backgroundColor': Color(0xFF2B1B0C),
         'prizePool': '50,000 HEM (≈274,000)',
         'endDate': 'Ends at 2024-10-09 11:59 UTC',
@@ -230,7 +230,7 @@ class _MobileSpotColoScreenState extends State<MobileSpotColoScreen> {
         color: const Color(0xFF1A1D21),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: isOngoing ? const Color(0xFFF0B90B).withOpacity(0.3) : const Color(0xFF2C2F33),
+          color: isOngoing ? const Color.fromARGB(255, 122, 79, 223).withOpacity(0.3) : const Color(0xFF2C2F33),
           width: 1,
         ),
       ),
@@ -267,7 +267,7 @@ class _MobileSpotColoScreenState extends State<MobileSpotColoScreen> {
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                             decoration: BoxDecoration(
-                              color: const Color(0xFFF0B90B),
+                              color: const Color.fromARGB(255, 122, 79, 223),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: const Text(

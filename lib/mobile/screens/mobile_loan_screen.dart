@@ -119,7 +119,7 @@ class _MobileLoanScreenState extends State<MobileLoanScreen> {
                   child: ElevatedButton(
                     onPressed: _navigateToBorrowingScreen,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.yellow.shade600,
+                      backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                       padding: EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -328,7 +328,7 @@ class _MobileLoanScreenState extends State<MobileLoanScreen> {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
-                    color: Colors.yellow.shade600,
+                    color: const Color.fromARGB(255, 122, 79, 223),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Text(
@@ -345,7 +345,7 @@ class _MobileLoanScreenState extends State<MobileLoanScreen> {
                   width: 24,
                   height: 24,
                   decoration: BoxDecoration(
-                    color: Colors.yellow.shade600,
+                    color: const Color.fromARGB(255, 122, 79, 223),
                     shape: BoxShape.circle,
                   ),
                   child: Center(
@@ -387,7 +387,7 @@ class _MobileLoanScreenState extends State<MobileLoanScreen> {
               children: [
                 Icon(
                   Icons.info_outline,
-                  color: Colors.orange.shade700,
+                  color: const Color.fromARGB(255, 122, 79, 223),
                   size: 20,
                 ),
                 SizedBox(width: 12),
@@ -491,7 +491,7 @@ class _MobileLoanScreenState extends State<MobileLoanScreen> {
                     _agreementAccepted = value ?? false;
                   });
                 },
-                activeColor: Colors.yellow.shade600,
+                activeColor: const Color.fromARGB(255, 122, 79, 223),
               ),
               Expanded(
                 child: RichText(
@@ -501,12 +501,12 @@ class _MobileLoanScreenState extends State<MobileLoanScreen> {
                       TextSpan(text: 'By continuing, you have read and agree to '),
                       TextSpan(
                         text: 'Binance Loan Service Agreement',
-                        style: TextStyle(color: Colors.yellow.shade700),
+                        style: TextStyle(color: const Color.fromARGB(255, 122, 79, 223)),
                       ),
                       TextSpan(text: ' and '),
                       TextSpan(
                         text: 'Binance Simple Earn Service Agreement',
-                        style: TextStyle(color: Colors.yellow.shade700),
+                        style: TextStyle(color: const Color.fromARGB(255, 122, 79, 223)),
                       ),
                       TextSpan(text: '.'),
                     ],
@@ -524,7 +524,7 @@ class _MobileLoanScreenState extends State<MobileLoanScreen> {
             child: ElevatedButton(
               onPressed: _agreementAccepted ? () {} : null,
               style: ElevatedButton.styleFrom(
-                backgroundColor: _agreementAccepted ? Colors.yellow.shade600 : Colors.grey.shade300,
+                backgroundColor: _agreementAccepted ? const Color.fromARGB(255, 122, 79, 223) : Colors.grey.shade300,
                 padding: EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -562,7 +562,7 @@ class _MobileLoanScreenState extends State<MobileLoanScreen> {
             children: [
               Icon(icon, size: 24, color: Colors.grey.shade600),
               SizedBox(width: 8),
-              Icon(Icons.link, size: 16, color: Colors.yellow.shade600),
+              Icon(Icons.link, size: 16, color: const Color.fromARGB(255, 122, 79, 223)),
             ],
           ),
           SizedBox(height: 12),

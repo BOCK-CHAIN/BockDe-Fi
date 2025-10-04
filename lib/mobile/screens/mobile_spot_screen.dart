@@ -700,14 +700,14 @@ class _MobileSpotScreenState extends State<MobileSpotScreen>
       children: [
         Icon(
           icon,
-          color: isSelected ? Colors.orange : Colors.grey,
+          color: isSelected ? const Color.fromARGB(255, 122, 79, 223) : Colors.grey,
           size: 24,
         ),
         SizedBox(height: 4),
         Text(
           label,
           style: TextStyle(
-            color: isSelected ? Colors.orange : Colors.grey,
+            color: isSelected ? const Color.fromARGB(255, 122, 79, 223) : Colors.grey,
             fontSize: 10,
           ),
         ),

@@ -589,11 +589,11 @@ class _CoinDetailScreenState extends State<CoinDetailScreen> with TickerProvider
                     SizedBox(height: 8),
                     Row(
                       children: [
-                        Text('POW', style: TextStyle(color: Colors.amber, fontSize: 12)),
+                        Text('POW', style: TextStyle(color: const Color.fromARGB(255, 122, 79, 223), fontSize: 12)),
                         SizedBox(width: 16),
-                        Text('Vol', style: TextStyle(color: Colors.amber, fontSize: 12)),
+                        Text('Vol', style: TextStyle(color: const Color.fromARGB(255, 122, 79, 223), fontSize: 12)),
                         SizedBox(width: 16),
-                        Text('Price Protection', style: TextStyle(color: Colors.amber, fontSize: 12)),
+                        Text('Price Protection', style: TextStyle(color: const Color.fromARGB(255, 122, 79, 223), fontSize: 12)),
                       ],
                     ),
                   ],
@@ -627,7 +627,7 @@ class _CoinDetailScreenState extends State<CoinDetailScreen> with TickerProvider
           TabBar(
             controller: _detailTabController,
             isScrollable: true,
-            indicatorColor: Colors.yellow[700],
+            indicatorColor: const Color.fromARGB(255, 122, 79, 223),
             indicatorWeight: 2,
             labelColor: Colors.black,
             unselectedLabelColor: Colors.grey[600],
@@ -912,7 +912,7 @@ class SimpleChartPainter extends CustomPainter {
     if (data.isEmpty) return;
     
     final paint = Paint()
-      ..color = Colors.yellow[700]!
+      ..color = const Color.fromARGB(255, 122, 79, 223)!
       ..strokeWidth = 2
       ..style = PaintingStyle.stroke;
     
@@ -986,7 +986,7 @@ class SimpleChartPainter extends CustomPainter {
     
     canvas.drawRect(
       labelRect,
-      Paint()..color = Colors.yellow[700]!,
+      Paint()..color = const Color.fromARGB(255, 122, 79, 223)!,
     );
     
     textPainter.paint(

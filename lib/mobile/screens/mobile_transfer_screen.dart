@@ -297,7 +297,7 @@ class _MobileTransferScreenState extends State<MobileTransferScreen> {
                   'Max',
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.orange,
+                    color: Color.fromARGB(255, 122, 79, 223),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -327,7 +327,7 @@ class _MobileTransferScreenState extends State<MobileTransferScreen> {
           // Handle confirm transfer
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.orange,
+          backgroundColor: const Color.fromARGB(255, 122, 79, 223),
           padding: const EdgeInsets.symmetric(vertical: 16),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -427,7 +427,7 @@ class _MobileTransferScreenState extends State<MobileTransferScreen> {
           color: isCurrentlySelected ? Colors.grey.shade100 : Colors.white,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isCurrentlySelected ? Colors.orange : Colors.grey.shade200,
+            color: isCurrentlySelected ? const Color.fromARGB(255, 122, 79, 223) : Colors.grey.shade200,
             width: isCurrentlySelected ? 2 : 1,
           ),
         ),
@@ -481,7 +481,7 @@ class _MobileTransferScreenState extends State<MobileTransferScreen> {
             if (isCurrentlySelected)
               const Icon(
                 Icons.check_circle,
-                color: Colors.orange,
+                color: Color.fromARGB(255, 122, 79, 223),
                 size: 20,
               )
             else if (option.isInactive)

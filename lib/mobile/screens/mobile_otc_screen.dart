@@ -73,7 +73,7 @@ class _MobileOtcScreenState extends State<MobileOtcScreen>
           color: Colors.white,
           child: TabBar(
             controller: _tradeTabController,
-            indicatorColor: Colors.amber,
+            indicatorColor: const Color.fromARGB(255, 122, 79, 223),
             indicatorWeight: 3,
             labelColor: Colors.black,
             unselectedLabelColor: Colors.grey,
@@ -160,7 +160,7 @@ class _MobileOtcScreenState extends State<MobileOtcScreen>
                           fontWeight: FontWeight.w300,
                         ),
                       ),
-                      Text('MAX', style: TextStyle(color: Colors.amber)),
+                      Text('MAX', style: TextStyle(color: const Color.fromARGB(255, 122, 79, 223))),
                     ],
                   ),
                 ],
@@ -207,7 +207,7 @@ class _MobileOtcScreenState extends State<MobileOtcScreen>
                   Container(
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: Colors.orange,
+                      color: const Color.fromARGB(255, 122, 79, 223),
                       shape: BoxShape.circle,
                     ),
                     child: Text('₿', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
@@ -623,7 +623,7 @@ class _MobileOtcScreenState extends State<MobileOtcScreen>
                   Container(
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: Colors.orange,
+                      color: const Color.fromARGB(255, 122, 79, 223),
                       shape: BoxShape.circle,
                     ),
                     child: Text('₿', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
@@ -767,7 +767,7 @@ class _MobileOtcScreenState extends State<MobileOtcScreen>
                             Container(
                               padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                               decoration: BoxDecoration(
-                                color: index % 2 == 0 ? Colors.green : Colors.orange,
+                                color: index % 2 == 0 ? Colors.green : const Color.fromARGB(255, 122, 79, 223),
                                 borderRadius: BorderRadius.circular(4),
                               ),
                               child: Text(

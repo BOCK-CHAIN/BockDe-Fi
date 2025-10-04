@@ -70,7 +70,7 @@ class _MobileRewardsScreenState extends State<MobileRewardsScreen> {
                 Expanded(
                   child: _buildStatCard(
                     icon: Icons.monetization_on_outlined,
-                    iconColor: const Color(0xFFFFA726),
+                    iconColor: const Color.fromARGB(255, 122, 79, 223),
                     title: 'Points',
                     value: points.toString(),
                     subtitle: 'Rewards Shop',
@@ -81,7 +81,7 @@ class _MobileRewardsScreenState extends State<MobileRewardsScreen> {
                 Expanded(
                   child: _buildStatCard(
                     icon: Icons.card_giftcard,
-                    iconColor: const Color(0xFFFFA726),
+                    iconColor: const Color.fromARGB(255, 122, 79, 223),
                     title: 'Vouchers',
                     value: vouchers.toString(),
                     subtitle: 'My Vouchers',
@@ -114,7 +114,7 @@ class _MobileRewardsScreenState extends State<MobileRewardsScreen> {
                     const Icon(
                       Icons.card_giftcard,
                       size: 60,
-                      color: Color(0xFFFFA726),
+                      color: Color.fromARGB(255, 122, 79, 223),
                     ),
                     // Crown/diamond on top
                     Positioned(
@@ -123,7 +123,7 @@ class _MobileRewardsScreenState extends State<MobileRewardsScreen> {
                         width: 30,
                         height: 20,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFFFA726),
+                          color: const Color.fromARGB(255, 122, 79, 223),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: const Icon(
@@ -193,7 +193,7 @@ class _MobileRewardsScreenState extends State<MobileRewardsScreen> {
               height: 4,
               width: 60,
               decoration: BoxDecoration(
-                color: const Color(0xFFFFA726),
+                color: const Color.fromARGB(255, 122, 79, 223),
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
@@ -356,7 +356,7 @@ class _MobileRewardsScreenState extends State<MobileRewardsScreen> {
               const Icon(
                 Icons.card_giftcard,
                 size: 16,
-                color: Color(0xFFFFA726),
+                color: Color.fromARGB(255, 122, 79, 223),
               ),
               const SizedBox(width: 4),
               Expanded(
@@ -422,7 +422,7 @@ class _MobileRewardsScreenState extends State<MobileRewardsScreen> {
                     _handleTaskAction(task);
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFFA726),
+                    backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     shape: RoundedRectangleBorder(

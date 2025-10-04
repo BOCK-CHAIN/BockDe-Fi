@@ -247,7 +247,7 @@ class _MobileBuyScreenState extends State<MobileBuyScreen> {
                     width: 20,
                     height: 15,
                     decoration: BoxDecoration(
-                      color: Colors.orange,
+                      color: const Color.fromARGB(255, 122, 79, 223),
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),

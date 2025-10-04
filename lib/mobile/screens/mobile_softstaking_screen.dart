@@ -200,7 +200,7 @@ class _MobileSoftStakingScreenState extends State<MobileSoftStakingScreen> {
                   'What is Soft Staking',
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.orange,
+                    color: Color.fromARGB(255, 122, 79, 223),
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -209,7 +209,7 @@ class _MobileSoftStakingScreenState extends State<MobileSoftStakingScreen> {
                   width: 20,
                   height: 20,
                   decoration: BoxDecoration(
-                    color: Colors.orange,
+                    color: const Color.fromARGB(255, 122, 79, 223),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: const Icon(
@@ -293,7 +293,7 @@ class _MobileSoftStakingScreenState extends State<MobileSoftStakingScreen> {
                   });
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: isActivated ? Colors.green.shade100 : Colors.orange.shade400,
+                  backgroundColor: isActivated ? Colors.green.shade100 : const Color.fromARGB(255, 122, 79, 223),
                   foregroundColor: isActivated ? Colors.green.shade700 : Colors.black,
                   elevation: 0,
                   shape: RoundedRectangleBorder(

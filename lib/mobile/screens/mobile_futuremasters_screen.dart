@@ -90,14 +90,14 @@ class _MobileFutureMastersScreenState extends State<MobileFutureMastersScreen>
         children: [
           Icon(
             isSelected ? filledIcon : outlinedIcon,
-            color: isSelected ? const Color(0xFFF0B90B) : Colors.grey,
+            color: isSelected ? const Color.fromARGB(255, 122, 79, 223) : Colors.grey,
             size: isTablet ? 26 : 22,
           ),
           const SizedBox(height: 4),
           Text(
             label,
             style: TextStyle(
-              color: isSelected ? const Color(0xFFF0B90B) : Colors.grey,
+              color: isSelected ? const Color.fromARGB(255, 122, 79, 223) : Colors.grey,
               fontSize: isTablet ? 11 : 9,
               fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
             ),
@@ -153,9 +153,9 @@ class ArenaTab extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    const Color(0xFFFFD700),
-                    const Color(0xFFB8860B).withOpacity(0.8),
-                    const Color(0xFF8B7355),
+                    const Color.fromARGB(255, 150, 107, 250),
+                    const Color.fromARGB(255, 122, 79, 223).withOpacity(0.8),
+                    const Color.fromARGB(255, 54, 46, 73),
                   ],
                 ),
               ),
@@ -243,7 +243,7 @@ class ArenaTab extends StatelessWidget {
                               const TextSpan(
                                 text: '1,000,000',
                                 style: TextStyle(
-                                  color: Color(0xFFF0B90B),
+                                  color: Color.fromARGB(255, 122, 79, 223),
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -290,7 +290,7 @@ class ArenaTab extends StatelessWidget {
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFFF0B90B),
+                              backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                               foregroundColor: Colors.black,
                               padding: EdgeInsets.symmetric(vertical: isTablet ? 16 : 14),
                               shape: RoundedRectangleBorder(
@@ -418,7 +418,7 @@ class ArenaTab extends StatelessWidget {
                     style: TextStyle(
                       fontSize: isTablet ? 32 : 28,
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xFFF0B90B),
+                      color: const Color.fromARGB(255, 122, 79, 223),
                     ),
                   ),
                   
@@ -470,8 +470,8 @@ class ArenaTab extends StatelessWidget {
                   icon: const Icon(Icons.share, size: 18),
                   label: const Text('Share'),
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: const Color(0xFFF0B90B),
-                    side: const BorderSide(color: Color(0xFFF0B90B)),
+                    foregroundColor: const Color.fromARGB(255, 122, 79, 223),
+                    side: const BorderSide(color: Color.fromARGB(255, 122, 79, 223)),
                     padding: EdgeInsets.symmetric(vertical: isTablet ? 16 : 14),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -667,7 +667,7 @@ class _BattlefieldTabState extends State<BattlefieldTab> {
       prizePool: 'Up to 100,000 USDT',
       timeLeft: '5D : 12 : 45 : 23',
       status: 'ONGOING',
-      tokenColor: Colors.orange,
+      tokenColor: const Color.fromARGB(255, 122, 79, 223),
       isNew: false,
     ),
     BattleChallenge(
@@ -830,7 +830,7 @@ class _BattlefieldTabState extends State<BattlefieldTab> {
                           width: 8,
                           height: 8,
                           decoration: const BoxDecoration(
-                            color: Color(0xFFF0B90B),
+                            color: Color.fromARGB(255, 122, 79, 223),
                             shape: BoxShape.circle,
                           ),
                         ),
@@ -842,7 +842,7 @@ class _BattlefieldTabState extends State<BattlefieldTab> {
                           width: 6,
                           height: 6,
                           decoration: BoxDecoration(
-                            color: const Color(0xFFF0B90B).withOpacity(0.6),
+                            color: const Color.fromARGB(255, 122, 79, 223).withOpacity(0.6),
                             shape: BoxShape.circle,
                           ),
                         ),
@@ -854,7 +854,7 @@ class _BattlefieldTabState extends State<BattlefieldTab> {
                           width: 4,
                           height: 4,
                           decoration: const BoxDecoration(
-                            color: Color(0xFFF0B90B),
+                            color: Color.fromARGB(255, 122, 79, 223),
                             shape: BoxShape.circle,
                           ),
                         ),
@@ -875,8 +875,8 @@ class _BattlefieldTabState extends State<BattlefieldTab> {
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
-                              const Color(0xFFF0B90B).withOpacity(0.3),
-                              const Color(0xFFF0B90B).withOpacity(0.1),
+                              const Color.fromARGB(255, 122, 79, 223).withOpacity(0.3),
+                              const Color.fromARGB(255, 122, 79, 223).withOpacity(0.1),
                             ],
                           ),
                           borderRadius: BorderRadius.circular(8),
@@ -890,7 +890,7 @@ class _BattlefieldTabState extends State<BattlefieldTab> {
                           color: challenge.tokenColor,
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: const Color(0xFFF0B90B),
+                            color: const Color.fromARGB(255, 122, 79, 223),
                             width: 3,
                           ),
                         ),
@@ -917,7 +917,7 @@ class _BattlefieldTabState extends State<BattlefieldTab> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                       decoration: BoxDecoration(
-                        color: const Color(0xFFF0B90B),
+                        color: const Color.fromARGB(255, 122, 79, 223),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Text(
@@ -986,7 +986,7 @@ class _BattlefieldTabState extends State<BattlefieldTab> {
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFF0B90B),
+                      backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                       foregroundColor: Colors.black,
                       padding: EdgeInsets.symmetric(vertical: isTablet ? 16 : 14),
                       shape: RoundedRectangleBorder(
@@ -1027,7 +1027,7 @@ class _BattlefieldTabState extends State<BattlefieldTab> {
           value,
           style: TextStyle(
             fontSize: isTablet ? 16 : 14,
-            color: isCountdown ? const Color(0xFFF0B90B) : Colors.black,
+            color: isCountdown ? const Color.fromARGB(255, 122, 79, 223) : Colors.black,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -1074,7 +1074,7 @@ class RankingTab extends StatelessWidget {
           controller: tabController,
           labelColor: Colors.black,
           unselectedLabelColor: Colors.grey,
-          indicatorColor: const Color(0xFFF0B90B),
+          indicatorColor: const Color.fromARGB(255, 122, 79, 223),
           indicatorWeight: 3,
           tabs: const [
             Tab(text: 'Masters ranking'),
@@ -1108,7 +1108,7 @@ class RankingTab extends StatelessWidget {
                       child: const Text(
                         'View Prize Pool Allocation',
                         style: TextStyle(
-                          color: Color(0xFFF0B90B),
+                          color: Color.fromARGB(255, 122, 79, 223),
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                           decoration: TextDecoration.underline,
@@ -1123,7 +1123,7 @@ class RankingTab extends StatelessWidget {
                   child: const Text(
                     'View Ranking History',
                     style: TextStyle(
-                      color: Color(0xFFF0B90B),
+                      color: Color.fromARGB(255, 122, 79, 223),
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                       decoration: TextDecoration.underline,
@@ -1251,7 +1251,7 @@ class RankingTab extends StatelessWidget {
     
     switch (rank) {
       case 1:
-        rankColor = const Color(0xFFFFD700);
+        rankColor = const Color.fromARGB(255, 122, 79, 223);
         rankIcon = Icons.emoji_events;
         break;
       case 2:
@@ -1321,7 +1321,7 @@ class RankingTab extends StatelessWidget {
           children: [
             const Icon(
               Icons.star,
-              color: Color(0xFFF0B90B),
+              color: Color.fromARGB(255, 122, 79, 223),
               size: 14,
             ),
             const SizedBox(width: 2),
@@ -1330,7 +1330,7 @@ class RankingTab extends StatelessWidget {
               style: TextStyle(
                 fontSize: isTablet ? 14 : 12,
                 fontWeight: FontWeight.bold,
-                color: const Color(0xFFF0B90B),
+                color: const Color.fromARGB(255, 122, 79, 223),
               ),
             ),
           ],
@@ -1435,7 +1435,7 @@ class RankingTab extends StatelessWidget {
             children: [
               const Icon(
                 Icons.star,
-                color: Color(0xFFF0B90B),
+                color: Color.fromARGB(255, 122, 79, 223),
                 size: 16,
               ),
               const SizedBox(width: 4),
@@ -1444,7 +1444,7 @@ class RankingTab extends StatelessWidget {
                 style: TextStyle(
                   fontSize: isTablet ? 16 : 14,
                   fontWeight: FontWeight.bold,
-                  color: const Color(0xFFF0B90B),
+                  color: const Color.fromARGB(255, 122, 79, 223),
                 ),
               ),
             ],
@@ -1465,7 +1465,7 @@ class RankingTab extends StatelessWidget {
   Color _getRankColor(int rank) {
     switch (rank) {
       case 1:
-        return const Color(0xFFFFD700); // Gold
+        return const Color.fromARGB(255, 122, 79, 223); // Gold
       case 2:
         return const Color(0xFFC0C0C0); // Silver
       case 3:
@@ -1598,12 +1598,12 @@ class RegularTasksTab extends StatelessWidget {
                 width: isTablet ? 50 : 40,
                 height: isTablet ? 50 : 40,
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF0B90B).withOpacity(0.1),
+                  color: const Color.fromARGB(255, 122, 79, 223).withOpacity(0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Icon(
                   task.icon,
-                  color: const Color(0xFFF0B90B),
+                  color: const Color.fromARGB(255, 122, 79, 223),
                   size: isTablet ? 24 : 20,
                 ),
               ),
@@ -1639,7 +1639,7 @@ class RegularTasksTab extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF0B90B).withOpacity(0.2),
+                  color: const Color.fromARGB(255, 122, 79, 223).withOpacity(0.2),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
@@ -1647,14 +1647,14 @@ class RegularTasksTab extends StatelessWidget {
                   children: [
                     const Icon(
                       Icons.star,
-                      color: Color(0xFFF0B90B),
+                      color: Color.fromARGB(255, 122, 79, 223),
                       size: 12,
                     ),
                     const SizedBox(width: 2),
                     Text(
                       '×${task.points}',
                       style: TextStyle(
-                        color: const Color(0xFFF0B90B),
+                        color: const Color.fromARGB(255, 122, 79, 223),
                         fontSize: isTablet ? 12 : 10,
                         fontWeight: FontWeight.bold,
                       ),
@@ -1734,7 +1734,7 @@ class RegularTasksTab extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFF0B90B),
+                backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                 foregroundColor: Colors.black,
                 padding: EdgeInsets.symmetric(vertical: isTablet ? 16 : 14),
                 shape: RoundedRectangleBorder(

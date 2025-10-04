@@ -1,3 +1,4 @@
+import 'package:bockchain/mobile/screens/mobile_dualinvest_screen.dart';
 import 'package:flutter/material.dart';
 
 class MobileEarnScreen extends StatefulWidget {
@@ -114,7 +115,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         decoration: BoxDecoration(
-                          color: Colors.amber,
+                          color: const Color.fromARGB(255, 122, 79, 223),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(
@@ -152,7 +153,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
                   ),
                   child: Row(
                     children: [
-                      Icon(Icons.star, color: Colors.amber, size: 20),
+                      Icon(Icons.star, color: const Color.fromARGB(255, 122, 79, 223), size: 20),
                       SizedBox(width: 8),
                       Expanded(
                         child: Column(
@@ -170,7 +171,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
                               'View more',
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.amber[700],
+                                color: const Color.fromARGB(255, 122, 79, 223),
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -213,7 +214,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
                             height: 3,
                             width: 60,
                             decoration: BoxDecoration(
-                              color: Colors.amber,
+                              color: const Color.fromARGB(255, 122, 79, 223),
                               borderRadius: BorderRadius.circular(2),
                             ),
                           ),
@@ -244,7 +245,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
                             height: 3,
                             width: 80,
                             decoration: BoxDecoration(
-                              color: Colors.amber,
+                              color: const Color.fromARGB(255, 122, 79, 223),
                               borderRadius: BorderRadius.circular(2),
                             ),
                           ),
@@ -399,7 +400,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
                   Text(
                     label,
                     style: TextStyle(
-                      color: Colors.amber[700],
+                      color: const Color.fromARGB(255, 122, 79, 223),
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
                     ),
@@ -420,7 +421,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               decoration: BoxDecoration(
-                color: Colors.amber,
+                color: const Color.fromARGB(255, 122, 79, 223),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Text(
@@ -446,7 +447,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => MobileDualinvestScreen()),
+              MaterialPageRoute(builder: (context) => MobileDualInvestScreen()),
             );
           },
           child: Container(
@@ -677,7 +678,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
             decoration: BoxDecoration(
-              color: Colors.amber,
+              color: const Color.fromARGB(255, 122, 79, 223),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(
@@ -707,7 +708,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: Colors.orange,
+              color: const Color.fromARGB(255, 122, 79, 223),
               shape: BoxShape.circle,
             ),
             child: Stack(
@@ -718,7 +719,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
                     width: 20,
                     height: 20,
                     decoration: BoxDecoration(
-                      color: Colors.orange,
+                      color: const Color.fromARGB(255, 122, 79, 223),
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -758,7 +759,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
             decoration: BoxDecoration(
-              color: Colors.amber,
+              color: const Color.fromARGB(255, 122, 79, 223),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(
@@ -788,7 +789,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: name.contains('BTC') ? Colors.orange : Colors.purple,
+              color: name.contains('BTC') ? const Color.fromARGB(255, 122, 79, 223) : Colors.purple,
               shape: BoxShape.circle,
             ),
             child: Stack(
@@ -837,7 +838,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
             decoration: BoxDecoration(
-              color: Colors.amber,
+              color: const Color.fromARGB(255, 122, 79, 223),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(
@@ -1069,7 +1070,7 @@ class _USDTSubscribeDialogState extends State<USDTSubscribeDialog> {
                         Text(
                           'Special Offer',
                           style: TextStyle(
-                            color: Colors.amber[700],
+                            color: const Color.fromARGB(255, 122, 79, 223),
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
                           ),
@@ -1099,7 +1100,7 @@ class _USDTSubscribeDialogState extends State<USDTSubscribeDialog> {
                                 autoSubscribe = value ?? false;
                               });
                             },
-                            activeColor: Colors.amber,
+                            activeColor: const Color.fromARGB(255, 122, 79, 223),
                           ),
                           Text(
                             'Auto-Subscribe',
@@ -1133,7 +1134,7 @@ class _USDTSubscribeDialogState extends State<USDTSubscribeDialog> {
                       Text(
                         'Max',
                         style: TextStyle(
-                          color: Colors.amber[700],
+                          color: const Color.fromARGB(255, 122, 79, 223),
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
                         ),
@@ -1162,7 +1163,7 @@ class _USDTSubscribeDialogState extends State<USDTSubscribeDialog> {
                         child: Text(
                           'Top up',
                           style: TextStyle(
-                            color: Colors.amber[700],
+                            color: const Color.fromARGB(255, 122, 79, 223),
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
                           ),
@@ -1179,7 +1180,7 @@ class _USDTSubscribeDialogState extends State<USDTSubscribeDialog> {
                         padding: EdgeInsets.only(bottom: 8),
                         decoration: BoxDecoration(
                           border: Border(
-                            bottom: BorderSide(color: Colors.amber, width: 2),
+                            bottom: BorderSide(color: const Color.fromARGB(255, 122, 79, 223), width: 2),
                           ),
                         ),
                         child: Text(
@@ -1315,7 +1316,7 @@ class _USDTSubscribeDialogState extends State<USDTSubscribeDialog> {
                             agreedToTerms = value ?? false;
                           });
                         },
-                        activeColor: Colors.amber,
+                        activeColor: const Color.fromARGB(255, 122, 79, 223),
                       ),
                       Expanded(
                         child: RichText(
@@ -1328,7 +1329,7 @@ class _USDTSubscribeDialogState extends State<USDTSubscribeDialog> {
                               TextSpan(
                                 text: 'Binance Simple Earn Service Agreement',
                                 style: TextStyle(
-                                  color: Colors.amber[700],
+                                  color: const Color.fromARGB(255, 122, 79, 223),
                                   fontSize: 14,
                                   decoration: TextDecoration.underline,
                                 ),
@@ -1349,7 +1350,7 @@ class _USDTSubscribeDialogState extends State<USDTSubscribeDialog> {
                         Navigator.pop(context);
                       } : null,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: agreedToTerms ? Colors.amber : Colors.grey[300],
+                        backgroundColor: agreedToTerms ? const Color.fromARGB(255, 122, 79, 223) : Colors.grey[300],
                         padding: EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),

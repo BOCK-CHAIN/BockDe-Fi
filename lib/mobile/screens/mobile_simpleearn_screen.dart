@@ -93,7 +93,7 @@ class _MobileSimpleEarnScreenState extends State<MobileSimpleEarnScreen>
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         decoration: BoxDecoration(
-                          color: Colors.amber,
+                          color: const Color.fromARGB(255, 122, 79, 223),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: const Text(
@@ -170,7 +170,7 @@ class _MobileSimpleEarnScreenState extends State<MobileSimpleEarnScreen>
                           ],
                         ),
                       ),
-                      Icon(Icons.card_giftcard, color: Colors.orange, size: 40),
+                      Icon(Icons.card_giftcard, color: const Color.fromARGB(255, 122, 79, 223), size: 40),
                     ],
                   ),
                 ),
@@ -217,7 +217,7 @@ class _MobileSimpleEarnScreenState extends State<MobileSimpleEarnScreen>
               controller: _tabController,
               labelColor: Colors.black,
               unselectedLabelColor: Colors.grey,
-              indicatorColor: Colors.amber,
+              indicatorColor: const Color.fromARGB(255, 122, 79, 223),
               indicatorWeight: 3,
               tabs: const [
                 Tab(text: 'Flexible'),
@@ -407,7 +407,7 @@ class _MobileSimpleEarnScreenState extends State<MobileSimpleEarnScreen>
                       'Special Offer',
                       style: TextStyle(
                         fontSize: 10,
-                        color: Colors.orange,
+                        color: Color.fromARGB(255, 122, 79, 223),
                       ),
                     ),
                   ),
@@ -604,7 +604,7 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                             autoSubscribe = value ?? false;
                           });
                         },
-                        activeColor: Colors.amber,
+                        activeColor: const Color.fromARGB(255, 122, 79, 223),
                       ),
                       const Text(
                         'Auto-Subscribe',
@@ -640,7 +640,7 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                         ),
                         const Text(
                           'Max',
-                          style: TextStyle(color: Colors.amber),
+                          style: TextStyle(color: Color.fromARGB(255, 122, 79, 223)),
                         ),
                       ],
                     ),
@@ -662,7 +662,7 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                         child: const Text(
                           '+ Top up',
                           style: TextStyle(
-                            color: Colors.orange,
+                            color: Color.fromARGB(255, 122, 79, 223),
                             fontSize: 12,
                           ),
                         ),
@@ -779,7 +779,7 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                           agreedToTerms = value ?? false;
                         });
                       },
-                      activeColor: Colors.amber,
+                      activeColor: const Color.fromARGB(255, 122, 79, 223),
                     ),
                     const Expanded(
                       child: Text.rich(
@@ -790,7 +790,7 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                             TextSpan(
                               text: 'Binance Simple Earn Service Agreement',
                               style: TextStyle(
-                                color: Colors.orange,
+                                color: Color.fromARGB(255, 122, 79, 223),
                                 decoration: TextDecoration.underline,
                               ),
                             ),
@@ -806,7 +806,7 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                   child: ElevatedButton(
                     onPressed: agreedToTerms ? () {} : null,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: agreedToTerms ? Colors.amber : Colors.grey[300],
+                      backgroundColor: agreedToTerms ? const Color.fromARGB(255, 122, 79, 223) : Colors.grey[300],
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),

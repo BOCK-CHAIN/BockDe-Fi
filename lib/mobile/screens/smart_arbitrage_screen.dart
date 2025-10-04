@@ -124,7 +124,7 @@ class _SmartArbitrageScreenState extends State<SmartArbitrageScreen>
         ],
         bottom: TabBar(
           controller: _tabController,
-          indicatorColor: Colors.amber,
+          indicatorColor: const Color.fromARGB(255, 122, 79, 223),
           labelColor: Colors.black,
           unselectedLabelColor: Colors.grey,
           tabs: const [

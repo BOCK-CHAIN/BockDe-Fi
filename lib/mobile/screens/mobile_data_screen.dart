@@ -172,7 +172,7 @@ class _MobileDataScreenState extends State<MobileDataScreen>
       margin: EdgeInsets.only(right: 16),
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        border: isSelected ? Border(bottom: BorderSide(color: Colors.orange, width: 2)) : null,
+        border: isSelected ? Border(bottom: BorderSide(color: const Color.fromARGB(255, 122, 79, 223), width: 2)) : null,
       ),
       child: Text(
         title,

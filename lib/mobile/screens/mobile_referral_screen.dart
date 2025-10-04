@@ -47,9 +47,9 @@ class MobileReferralScreen extends StatelessWidget {
                 children: const [
                   Text(
                     'Time-Limited',
-                    style: TextStyle(color: Color(0xFFFFD700), fontSize: 12),
+                    style: TextStyle(color: Color.fromARGB(255, 122, 79, 223), fontSize: 12),
                   ),
-                  Icon(Icons.keyboard_arrow_down, color: Color(0xFFFFD700), size: 16),
+                  Icon(Icons.keyboard_arrow_down, color: Color.fromARGB(255, 122, 79, 223), size: 16),
                 ],
               ),
             ),
@@ -107,7 +107,7 @@ class MobileReferralScreen extends StatelessWidget {
                     value: 0.44,
                     strokeWidth: 8,
                     backgroundColor: const Color(0xFF2A2A2A),
-                    valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFFFFD700)),
+                    valueColor: const AlwaysStoppedAnimation<Color>(Color.fromARGB(255, 122, 79, 223)),
                   ),
                 ),
                 Column(
@@ -141,7 +141,7 @@ class MobileReferralScreen extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                       decoration: BoxDecoration(
-                        color: const Color(0xFFFFD700),
+                        color: const Color.fromARGB(255, 122, 79, 223),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Text(
@@ -187,7 +187,7 @@ class MobileReferralScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFFD700),
+                  backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25),
                   ),
@@ -278,7 +278,7 @@ class MobileReferralScreen extends StatelessWidget {
                                 const Text(
                                   '\$100',
                                   style: TextStyle(
-                                    color: Color(0xFFFFD700),
+                                    color: Color.fromARGB(255, 122, 79, 223),
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -322,7 +322,7 @@ class MobileReferralScreen extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFFFD700),
+                            backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
@@ -457,7 +457,7 @@ class MobileReferralScreen extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFFFD700),
+                            backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
@@ -499,7 +499,7 @@ class MobileReferralScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFFD700),
+                  backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25),
                   ),
@@ -527,10 +527,10 @@ class MobileReferralScreen extends StatelessWidget {
       width: 50,
       height: 60,
       decoration: BoxDecoration(
-        color: isActive ? const Color(0xFFFFD700) : const Color(0xFF2A2A2A),
+        color: isActive ? const Color.fromARGB(255, 122, 79, 223) : const Color(0xFF2A2A2A),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: isActive ? const Color(0xFFFFD700) : const Color(0xFF4A4A4A),
+          color: isActive ? const Color.fromARGB(255, 122, 79, 223) : const Color(0xFF4A4A4A),
         ),
       ),
       child: Column(

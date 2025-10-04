@@ -132,7 +132,7 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
                   width: 40,
                   height: 40,
                   decoration: const BoxDecoration(
-                    color: Color(0xFFFFC107),
+                    color: Color.fromARGB(255, 122, 79, 223),
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(Icons.home, color: Colors.black, size: 20),
@@ -145,7 +145,7 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
                   width: 35,
                   height: 35,
                   decoration: BoxDecoration(
-                    color: const Color(0xFFFFC107),
+                    color: const Color.fromARGB(255, 122, 79, 223),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Icon(Icons.diamond, color: Colors.black, size: 18),
@@ -183,7 +183,7 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
               TextSpan(text: 'Your One-Stop Earn Campaign Center.\n'),
               TextSpan(
                 text: 'Over \$1,000,000 in Rewards Up For Grabs!',
-                style: TextStyle(color: Color(0xFFFFC107), fontWeight: FontWeight.bold),
+                style: TextStyle(color: Color.fromARGB(255, 122, 79, 223), fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -229,7 +229,7 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
       decoration: BoxDecoration(
         color: const Color(0xFF2D2D2D),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFFFFC107), width: 1),
+        border: Border.all(color: const Color.fromARGB(255, 122, 79, 223), width: 1),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -269,12 +269,12 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
                 const Positioned(
                   left: 15,
                   bottom: 0,
-                  child: Icon(Icons.trending_up, color: Color(0xFFFFC107), size: 24),
+                  child: Icon(Icons.trending_up, color: Color.fromARGB(255, 122, 79, 223), size: 24),
                 ),
                 const Positioned(
                   right: 15,
                   bottom: 0,
-                  child: Icon(Icons.trending_up, color: Color(0xFFFFC107), size: 24),
+                  child: Icon(Icons.trending_up, color: Color.fromARGB(255, 122, 79, 223), size: 24),
                 ),
               ],
             ),
@@ -309,7 +309,7 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFFFC107),
+                backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -356,8 +356,8 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        Colors.yellow[700]!,
-                        Colors.orange[600]!,
+                        const Color.fromARGB(255, 122, 79, 223)!,
+                        const Color.fromARGB(255, 47, 22, 105)!,
                       ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
@@ -425,7 +425,7 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFFFC107),
+                backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -470,7 +470,7 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
                   width: 120,
                   height: 120,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.orange[400]!, width: 2),
+                    border: Border.all(color: const Color.fromARGB(255, 122, 79, 223)!, width: 2),
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -479,7 +479,7 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
                   width: 80,
                   height: 80,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.orange[300]!, width: 1.5),
+                    border: Border.all(color: const Color.fromARGB(255, 138, 91, 247)!, width: 1.5),
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -488,7 +488,7 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.orange[200]!, width: 1),
+                    border: Border.all(color: const Color.fromARGB(255, 156, 116, 248)!, width: 1),
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -558,7 +558,7 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
                     width: 14,
                     height: 14,
                     decoration: const BoxDecoration(
-                      color: Colors.orange,
+                      color: Color.fromARGB(255, 122, 79, 223),
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -627,7 +627,7 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFFFC107),
+                backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),

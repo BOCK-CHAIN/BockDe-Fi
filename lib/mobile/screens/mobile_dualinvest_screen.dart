@@ -147,7 +147,7 @@ class _MobileDualInvestScreenState extends State<MobileDualInvestScreen>
                           controller: _tabController,
                           labelColor: Colors.black,
                           unselectedLabelColor: Colors.grey,
-                          indicatorColor: Colors.amber,
+                          indicatorColor: const Color.fromARGB(255, 122, 79, 223),
                           indicatorWeight: 3,
                           labelStyle: const TextStyle(
                             fontWeight: FontWeight.w600,
@@ -200,10 +200,10 @@ class _MobileDualInvestScreenState extends State<MobileDualInvestScreen>
                     width: 70,
                     margin: const EdgeInsets.only(right: 12, top: 8, bottom: 8),
                     decoration: BoxDecoration(
-                      color: isSelected ? Colors.amber.withOpacity(0.1) : null,
+                      color: isSelected ? const Color.fromARGB(255, 122, 79, 223).withOpacity(0.1) : null,
                       borderRadius: BorderRadius.circular(8),
                       border: isSelected
-                          ? Border.all(color: Colors.amber, width: 2)
+                          ? Border.all(color: const Color.fromARGB(255, 122, 79, 223), width: 2)
                           : null,
                     ),
                     child: Column(
@@ -233,7 +233,7 @@ class _MobileDualInvestScreenState extends State<MobileDualInvestScreen>
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
-                            color: isSelected ? Colors.amber[800] : Colors.black,
+                            color: isSelected ? const Color.fromARGB(255, 122, 79, 223) : Colors.black,
                           ),
                         ),
                       ],
@@ -263,10 +263,10 @@ class _MobileDualInvestScreenState extends State<MobileDualInvestScreen>
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     margin: const EdgeInsets.only(left: 16, top: 8, bottom: 8),
                     decoration: BoxDecoration(
-                      color: isSelected ? Colors.amber.withOpacity(0.1) : null,
+                      color: isSelected ? const Color.fromARGB(255, 122, 79, 223).withOpacity(0.1) : null,
                       borderRadius: BorderRadius.circular(6),
                       border: isSelected
-                          ? Border.all(color: Colors.amber, width: 1)
+                          ? Border.all(color: const Color.fromARGB(255, 122, 79, 223), width: 1)
                           : null,
                     ),
                     child: Text(
@@ -274,7 +274,7 @@ class _MobileDualInvestScreenState extends State<MobileDualInvestScreen>
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
-                        color: isSelected ? Colors.amber[800] : Colors.grey[700],
+                        color: isSelected ? const Color.fromARGB(255, 122, 79, 223) : Colors.grey[700],
                       ),
                     ),
                   ),
@@ -314,10 +314,10 @@ class _MobileDualInvestScreenState extends State<MobileDualInvestScreen>
                         margin: const EdgeInsets.only(right: 12),
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         decoration: BoxDecoration(
-                          color: isSelected ? Colors.amber : Colors.transparent,
+                          color: isSelected ? const Color.fromARGB(255, 122, 79, 223) : Colors.transparent,
                           borderRadius: BorderRadius.circular(6),
                           border: Border.all(
-                            color: isSelected ? Colors.amber : Colors.grey[300]!,
+                            color: isSelected ? const Color.fromARGB(255, 122, 79, 223) : Colors.grey[300]!,
                           ),
                         ),
                         child: Text(
@@ -452,7 +452,7 @@ class _MobileDualInvestScreenState extends State<MobileDualInvestScreen>
                         '${option.changePercent >= 0 ? '+' : ''}${option.changePercent.toStringAsFixed(2)}%',
                         style: TextStyle(
                           fontSize: 12,
-                          color: option.changePercent >= 0 ? Colors.green : Colors.orange,
+                          color: option.changePercent >= 0 ? Colors.green : const Color.fromARGB(255, 122, 79, 223),
                         ),
                       ),
                     ],
@@ -479,7 +479,7 @@ class _MobileDualInvestScreenState extends State<MobileDualInvestScreen>
                         // Handle subscribe action
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.amber,
+                        backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                         foregroundColor: Colors.black,
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         minimumSize: const Size(80, 32),

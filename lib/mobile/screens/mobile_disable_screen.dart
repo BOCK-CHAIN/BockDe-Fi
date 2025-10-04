@@ -118,7 +118,7 @@ class MobileDisableScreen extends StatelessWidget {
                 _showDisableConfirmation(context);
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.orange,
+                backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                 padding: const EdgeInsets.symmetric(vertical: 18),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -294,7 +294,7 @@ class MobileDisableScreen extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange,
+                  backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                   padding: const EdgeInsets.symmetric(
                     horizontal: 32,
                     vertical: 12,

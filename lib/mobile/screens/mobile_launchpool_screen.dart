@@ -355,7 +355,7 @@ class _MobileLaunchpoolScreenState extends State<MobileLaunchpoolScreen> {
                   width: 24,
                   height: 24,
                   decoration: BoxDecoration(
-                    color: Colors.yellow[700],
+                    color: const Color.fromARGB(255, 122, 79, 223),
                     shape: BoxShape.circle,
                   ),
                   child: const Center(
@@ -513,7 +513,7 @@ class _MobileLaunchpoolScreenState extends State<MobileLaunchpoolScreen> {
                   width: 24,
                   height: 24,
                   decoration: BoxDecoration(
-                    color: Colors.yellow[700],
+                    color: const Color.fromARGB(255, 122, 79, 223),
                     shape: BoxShape.circle,
                   ),
                   child: const Center(
@@ -758,7 +758,7 @@ class LaunchpoolProjectDetailScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.grey[700],
-                      textAlign: TextAlign.center,
+                      //TextAlign.center,
                     ),
                   ),
                 ],

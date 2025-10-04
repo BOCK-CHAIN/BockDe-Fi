@@ -9,7 +9,7 @@ class MobileProfileScreen extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 50,
-            backgroundColor: Color(0xFFF0B90B),
+            backgroundColor: Color.fromARGB(255, 122, 79, 223),
             child: Icon(Icons.person, size: 50, color: Colors.white),
           ),
           SizedBox(height: 16),
@@ -46,7 +46,7 @@ class MobileProfileScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: ListTile(
-        leading: Icon(icon, color: Color(0xFFF0B90B)),
+        leading: Icon(icon, color: Color.fromARGB(255, 122, 79, 223)),
         title: Text(title, style: TextStyle(color: Colors.white)),
         trailing: Icon(Icons.chevron_right, color: Colors.grey),
         onTap: () {},

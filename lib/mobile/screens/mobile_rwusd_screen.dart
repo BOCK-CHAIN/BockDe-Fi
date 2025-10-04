@@ -114,7 +114,7 @@ class _MobileRWUSDScreenState extends State<MobileRWUSDScreen> {
                   width: 80,
                   height: 80,
                   decoration: BoxDecoration(
-                    color: Colors.orange.shade400,
+                    color: const Color.fromARGB(255, 122, 79, 223),
                     shape: BoxShape.circle,
                   ),
                   child: Stack(
@@ -152,7 +152,7 @@ class _MobileRWUSDScreenState extends State<MobileRWUSDScreen> {
                           child: Container(
                             margin: const EdgeInsets.all(3),
                             decoration: BoxDecoration(
-                              color: Colors.orange.shade400,
+                              color: const Color.fromARGB(255, 122, 79, 223),
                               shape: BoxShape.circle,
                             ),
                             child: const Icon(
@@ -247,7 +247,7 @@ class _MobileRWUSDScreenState extends State<MobileRWUSDScreen> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.orange.shade400,
+                        backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                         foregroundColor: Colors.black,
                         elevation: 0,
                         shape: RoundedRectangleBorder(
@@ -324,7 +324,7 @@ class _MobileRWUSDScreenState extends State<MobileRWUSDScreen> {
               'Learn more about RWUSD',
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.orange,
+                color: Color.fromARGB(255, 122, 79, 223),
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -402,7 +402,7 @@ class _MobileRWUSDScreenState extends State<MobileRWUSDScreen> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.orange.shade400,
+                        backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                         foregroundColor: Colors.black,
                         elevation: 0,
                         shape: RoundedRectangleBorder(
@@ -487,7 +487,7 @@ class _MobileRWUSDScreenState extends State<MobileRWUSDScreen> {
           margin: const EdgeInsets.only(top: 4),
           child: Icon(
             Icons.diamond,
-            color: Colors.orange.shade400,
+            color: const Color.fromARGB(255, 122, 79, 223),
             size: 20,
           ),
         ),
@@ -695,7 +695,7 @@ class _SubscribeRWUSDScreenState extends State<SubscribeRWUSDScreen> {
                     'Top up',
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.orange,
+                      color: Color.fromARGB(255, 122, 79, 223),
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -754,7 +754,7 @@ class _SubscribeRWUSDScreenState extends State<SubscribeRWUSDScreen> {
                     width: 24,
                     height: 24,
                     decoration: BoxDecoration(
-                      color: Colors.orange.shade400,
+                      color: const Color.fromARGB(255, 122, 79, 223),
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: const Center(
@@ -809,7 +809,7 @@ class _SubscribeRWUSDScreenState extends State<SubscribeRWUSDScreen> {
                   decoration: const BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                        color: Colors.orange,
+                        color: Color.fromARGB(255, 122, 79, 223),
                         width: 2,
                       ),
                     ),
@@ -853,7 +853,7 @@ class _SubscribeRWUSDScreenState extends State<SubscribeRWUSDScreen> {
                   // Handle next action
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: _isAmountEmpty ? Colors.grey.shade300 : Colors.orange.shade400,
+                  backgroundColor: _isAmountEmpty ? Colors.grey.shade300 : const Color.fromARGB(255, 122, 79, 223),
                   foregroundColor: _isAmountEmpty ? Colors.grey : Colors.black,
                   elevation: 0,
                   shape: RoundedRectangleBorder(

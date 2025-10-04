@@ -143,7 +143,7 @@ class _MobileDiscountBuyScreenState extends State<MobileDiscountBuyScreen> {
                   'What is Discount Buy?',
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.orange,
+                    color: Color.fromARGB(255, 122, 79, 223),
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -152,7 +152,7 @@ class _MobileDiscountBuyScreenState extends State<MobileDiscountBuyScreen> {
                   width: 20,
                   height: 20,
                   decoration: BoxDecoration(
-                    color: Colors.orange,
+                    color: const Color.fromARGB(255, 122, 79, 223),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: const Icon(
@@ -247,7 +247,7 @@ class _MobileDiscountBuyScreenState extends State<MobileDiscountBuyScreen> {
             // Crypto Toggle Buttons
             Row(
               children: [
-                _buildCryptoToggle('BTC', Icons.currency_bitcoin, Colors.orange),
+                _buildCryptoToggle('BTC', Icons.currency_bitcoin, const Color.fromARGB(255, 122, 79, 223)),
                 const SizedBox(width: 12),
                 _buildCryptoToggle('ETH', Icons.diamond, Colors.blue),
               ],

@@ -86,7 +86,7 @@ class _MobileLearnEarnScreenState extends State<MobileLearnEarnScreen> {
                         width: 40,
                         height: 40,
                         decoration: const BoxDecoration(
-                          color: Color(0xFFF0B90B),
+                          color: Color.fromARGB(255, 122, 79, 223),
                           shape: BoxShape.circle,
                         ),
                         child: const Icon(
@@ -175,7 +175,7 @@ class _MobileLearnEarnScreenState extends State<MobileLearnEarnScreen> {
                               child: ElevatedButton(
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFFF0B90B),
+                                  backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                                   foregroundColor: Colors.black,
                                   padding: const EdgeInsets.symmetric(vertical: 16),
                                   shape: RoundedRectangleBorder(
@@ -238,8 +238,8 @@ class _MobileLearnEarnScreenState extends State<MobileLearnEarnScreen> {
                               borderRadius: BorderRadius.circular(16),
                               gradient: LinearGradient(
                                 colors: [
-                                  const Color(0xFFF0B90B).withOpacity(0.3),
-                                  const Color(0xFFF0B90B).withOpacity(0.1),
+                                  const Color.fromARGB(255, 122, 79, 223).withOpacity(0.3),
+                                  const Color.fromARGB(255, 122, 79, 223).withOpacity(0.1),
                                 ],
                               ),
                             ),
@@ -250,7 +250,7 @@ class _MobileLearnEarnScreenState extends State<MobileLearnEarnScreen> {
                                 Icon(
                                   Icons.menu_book,
                                   size: isTablet ? 80 : 60,
-                                  color: const Color(0xFFF0B90B),
+                                  color: const Color.fromARGB(255, 122, 79, 223),
                                 ),
                                 // Decorative elements
                                 Positioned(
@@ -260,7 +260,7 @@ class _MobileLearnEarnScreenState extends State<MobileLearnEarnScreen> {
                                     width: 24,
                                     height: 24,
                                     decoration: BoxDecoration(
-                                      color: const Color(0xFFF0B90B),
+                                      color: const Color.fromARGB(255, 122, 79, 223),
                                       borderRadius: BorderRadius.circular(4),
                                     ),
                                   ),
@@ -272,7 +272,7 @@ class _MobileLearnEarnScreenState extends State<MobileLearnEarnScreen> {
                                     width: 32,
                                     height: 32,
                                     decoration: const BoxDecoration(
-                                      color: Color(0xFFF0B90B),
+                                      color: Color.fromARGB(255, 122, 79, 223),
                                       shape: BoxShape.circle,
                                     ),
                                   ),
@@ -424,11 +424,11 @@ class CourseCard extends StatelessWidget {
                     width: 80,
                     height: 80,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFF0B90B),
+                      color: const Color.fromARGB(255, 122, 79, 223),
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0xFFF0B90B).withOpacity(0.3),
+                          color: const Color.fromARGB(255, 122, 79, 223).withOpacity(0.3),
                           blurRadius: 20,
                           spreadRadius: 2,
                         ),
@@ -513,7 +513,7 @@ class CourseCard extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFF0B90B),
+                        backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                         foregroundColor: Colors.black,
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(

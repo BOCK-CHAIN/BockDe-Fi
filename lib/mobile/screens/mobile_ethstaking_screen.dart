@@ -84,7 +84,7 @@ class _MobileEthStakingScreenState extends State<MobileEthStakingScreen> {
                       'What is WBETH',
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.orange,
+                        color: const Color.fromARGB(255, 122, 79, 223),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -211,7 +211,7 @@ class _MobileEthStakingScreenState extends State<MobileEthStakingScreen> {
                 child: ElevatedButton(
                   onPressed: _navigateToStakeScreen,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.yellow.shade600,
+                    backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                     padding: EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -366,7 +366,7 @@ class _MobileEthStakingScreenState extends State<MobileEthStakingScreen> {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
-                    color: Colors.yellow.shade600,
+                    color: const Color.fromARGB(255, 122, 79, 223),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Text(
@@ -404,12 +404,12 @@ class _MobileEthStakingScreenState extends State<MobileEthStakingScreen> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(Icons.add, size: 12, color: Colors.orange.shade700),
+                    Icon(Icons.add, size: 12, color: const Color.fromARGB(255, 122, 79, 223)),
                     SizedBox(width: 2),
                     Text(
                       'Top up',
                       style: TextStyle(
-                        color: Colors.orange.shade700,
+                        color: const Color.fromARGB(255, 122, 79, 223),
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
@@ -427,7 +427,7 @@ class _MobileEthStakingScreenState extends State<MobileEthStakingScreen> {
             'Receive',
             '0 WBETH',
             icon: Icons.currency_bitcoin,
-            iconColor: Colors.yellow.shade700,
+            iconColor: const Color.fromARGB(255, 122, 79, 223),
           ),
           
           _buildDetailRow(
@@ -464,7 +464,7 @@ class _MobileEthStakingScreenState extends State<MobileEthStakingScreen> {
               children: [
                 Icon(
                   Icons.info_outline,
-                  color: Colors.orange.shade700,
+                  color: const Color.fromARGB(255, 122, 79, 223),
                   size: 20,
                 ),
                 SizedBox(width: 12),
@@ -491,7 +491,7 @@ class _MobileEthStakingScreenState extends State<MobileEthStakingScreen> {
                 padding: EdgeInsets.only(bottom: 8),
                 decoration: BoxDecoration(
                   border: Border(
-                    bottom: BorderSide(color: Colors.yellow.shade600, width: 2),
+                    bottom: BorderSide(color: const Color.fromARGB(255, 122, 79, 223), width: 2),
                   ),
                 ),
                 child: Text(
