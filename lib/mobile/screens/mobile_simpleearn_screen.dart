@@ -47,203 +47,216 @@ class _MobileSimpleEarnScreenState extends State<MobileSimpleEarnScreen>
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Header Section
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Simple Earn',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                const Text(
-                  'Principal guaranteed, let your idle funds grow!',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                // Auto-Subscribe Section
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[50],
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Auto-Subscribe',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 122, 79, 223),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: const Text(
-                          'Activate',
+      body: NestedScrollView(
+        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+          return <Widget>[
+            SliverToBoxAdapter(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Header Section
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Simple Earn',
                           style: TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
                             color: Colors.black,
-                            fontWeight: FontWeight.w500,
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          
-          // Special Offers Section
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Special Offers',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      _buildSpecialOfferCard('HOLO', '01D: 16H: 43M', '200%', Colors.cyan),
-                      const SizedBox(width: 8),
-                      _buildSpecialOfferCard('LINEA', '01D: 16H: 43M', '200%', Colors.blue),
-                      const SizedBox(width: 8),
-                      _buildSpecialOfferCard('OPEN', '01D: 16H: 43M', '200%', Colors.orange),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 16),
-                // AI Rewards Banner
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[100],
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Share \$300,000 in AI Rewards',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            const Text(
-                              'Subscribe to BNB & AI Simple Earn Products',
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.grey,
-                              ),
-                            ),
-                          ],
+                        const SizedBox(height: 4),
+                        const Text(
+                          'Principal guaranteed, let your idle funds grow!',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey,
+                          ),
                         ),
-                      ),
-                      Icon(Icons.card_giftcard, color: const Color.fromARGB(255, 122, 79, 223), size: 40),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          
-          const SizedBox(height: 20),
-          
-          // Search Bar
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[100],
-                      borderRadius: BorderRadius.circular(8),
+                        const SizedBox(height: 16),
+                        // Auto-Subscribe Section
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 12),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[50],
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                'Auto-Subscribe',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 8),
+                                decoration: BoxDecoration(
+                                  color: const Color.fromARGB(255, 122, 79, 223),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: const Text(
+                                  'Activate',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                    child: TextField(
-                      controller: _searchController,
-                      decoration: const InputDecoration(
-                        hintText: 'Search',
-                        prefixIcon: Icon(Icons.search, color: Colors.grey),
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                      ),
+                  ),
+
+                  // Special Offers Section
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Special Offers',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              _buildSpecialOfferCard(
+                                  'HOLO', '01D: 16H: 43M', '200%', Colors.cyan),
+                              const SizedBox(width: 8),
+                              _buildSpecialOfferCard(
+                                  'LINEA', '01D: 16H: 43M', '200%', Colors.blue),
+                              const SizedBox(width: 8),
+                              _buildSpecialOfferCard('OPEN', '01D: 16H: 43M',
+                                  '200%', const Color.fromARGB(255, 122, 79, 223)),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        // AI Rewards Banner
+                        Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[100],
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      'Share \$300,000 in AI Rewards',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(height: 4),
+                                    Text(
+                                      'Subscribe to BNB & AI Simple Earn Products',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const Icon(Icons.card_giftcard,
+                                  color: Color.fromARGB(255, 122, 79, 223), size: 40),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
+
+                  const SizedBox(height: 20),
+
+                  // Search Bar
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.grey[100],
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: TextField(
+                              controller: _searchController,
+                              decoration: const InputDecoration(
+                                hintText: 'Search',
+                                prefixIcon:
+                                    Icon(Icons.search, color: Colors.grey),
+                                border: InputBorder.none,
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 12),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        const Icon(Icons.filter_list, color: Colors.grey),
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+                ],
+              ),
+            ),
+            SliverPersistentHeader(
+              pinned: true,
+              delegate: _SliverAppBarDelegate(
+                TabBar(
+                  controller: _tabController,
+                  labelColor: Colors.black,
+                  unselectedLabelColor: Colors.grey,
+                  indicatorColor: const Color.fromARGB(255, 122, 79, 223),
+                  indicatorWeight: 3,
+                  tabs: const [
+                    Tab(text: 'Flexible'),
+                    Tab(text: 'Locked'),
+                    Tab(text: 'Hot'),
+                  ],
                 ),
-                const SizedBox(width: 12),
-                Icon(Icons.filter_list, color: Colors.grey),
-              ],
+              ),
             ),
-          ),
-          
-          const SizedBox(height: 16),
-          
-          // Tabs
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 16),
-            child: TabBar(
-              controller: _tabController,
-              labelColor: Colors.black,
-              unselectedLabelColor: Colors.grey,
-              indicatorColor: const Color.fromARGB(255, 122, 79, 223),
-              indicatorWeight: 3,
-              tabs: const [
-                Tab(text: 'Flexible'),
-                Tab(text: 'Locked'),
-                Tab(text: 'Hot'),
-              ],
-            ),
-          ),
-          
-          // Tab Content
-          Expanded(
-            child: TabBarView(
-              controller: _tabController,
-              children: [
-                _buildCoinList(_getFlexibleCoins()),
-                _buildCoinList(_getLockedCoins()),
-                _buildCoinList(_getHotCoins()),
-              ],
-            ),
-          ),
-        ],
+          ];
+        },
+        body: TabBarView(
+          controller: _tabController,
+          children: [
+            _buildCoinList(_getFlexibleCoins()),
+            _buildCoinList(_getLockedCoins()),
+            _buildCoinList(_getHotCoins()),
+          ],
+        ),
       ),
     );
   }
 
-  Widget _buildSpecialOfferCard(String title, String time, String percentage, Color color) {
+  Widget _buildSpecialOfferCard(
+      String title, String time, String percentage, Color color) {
     return Container(
       width: 120,
       padding: const EdgeInsets.all(12),
@@ -304,32 +317,34 @@ class _MobileSimpleEarnScreenState extends State<MobileSimpleEarnScreen>
   }
 
   Widget _buildCoinList(List<CoinData> coins) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(bottom: 8.0),
-            child: Text(
-              'Est. APR ↕',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 12,
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: const [
+              Text(
+                'Est. APR ↕',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 12,
+                ),
               ),
-            ),
+            ],
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: coins.length,
-              itemBuilder: (context, index) {
-                final coin = coins[index];
-                return _buildCoinTile(coin);
-              },
-            ),
+        ),
+        Expanded(
+          child: ListView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            itemCount: coins.length,
+            itemBuilder: (context, index) {
+              final coin = coins[index];
+              return _buildCoinTile(coin);
+            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
@@ -398,7 +413,8 @@ class _MobileSimpleEarnScreenState extends State<MobileSimpleEarnScreen>
               children: [
                 if (coin.hasSpecialOffer)
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                     decoration: BoxDecoration(
                       color: Colors.amber[100],
                       borderRadius: BorderRadius.circular(4),
@@ -472,6 +488,31 @@ class _MobileSimpleEarnScreenState extends State<MobileSimpleEarnScreen>
   }
 }
 
+class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  _SliverAppBarDelegate(this._tabBar);
+
+  final TabBar _tabBar;
+
+  @override
+  double get minExtent => _tabBar.preferredSize.height;
+  @override
+  double get maxExtent => _tabBar.preferredSize.height;
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Container(
+      color: Colors.white,
+      child: _tabBar,
+    );
+  }
+
+  @override
+  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
+    return false;
+  }
+}
+
 class CoinData {
   final String symbol;
   final String apr;
@@ -504,6 +545,12 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
   bool autoSubscribe = false;
   bool agreedToTerms = false;
   final TextEditingController _amountController = TextEditingController();
+
+  @override
+  void dispose() {
+    _amountController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -569,25 +616,25 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                       _buildPlanCard('120D', '913,726.1%', false),
                     ],
                   ),
-                  
+
                   const SizedBox(height: 24),
-                  
+
                   // Amount Section
                   Row(
                     children: [
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
+                          children: const [
+                            Text(
                               'Amount',
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            const SizedBox(height: 8),
-                            const Text(
+                            SizedBox(height: 8),
+                            Text(
                               'Minimum 0.01',
                               style: TextStyle(
                                 color: Colors.grey,
@@ -612,12 +659,13 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                       ),
                     ],
                   ),
-                  
+
                   const SizedBox(height: 16),
-                  
+
                   // Amount Input
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 12),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey[300]!),
                       borderRadius: BorderRadius.circular(8),
@@ -645,16 +693,17 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                       ],
                     ),
                   ),
-                  
+
                   const SizedBox(height: 16),
-                  
+
                   // Available Balance
                   Row(
                     children: [
                       const Text('Avail (2 sources) 0 OG'),
                       const SizedBox(width: 8),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(
                           color: Colors.amber[100],
                           borderRadius: BorderRadius.circular(12),
@@ -669,9 +718,9 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                       ),
                     ],
                   ),
-                  
+
                   const SizedBox(height: 24),
-                  
+
                   // Summary Section
                   const Row(
                     children: [
@@ -692,9 +741,9 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                       ),
                     ],
                   ),
-                  
+
                   const SizedBox(height: 16),
-                  
+
                   // Daily Rewards
                   Container(
                     padding: const EdgeInsets.all(16),
@@ -736,9 +785,9 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                       ],
                     ),
                   ),
-                  
+
                   const SizedBox(height: 16),
-                  
+
                   // Disclaimer
                   const Text(
                     '*APR does not represent actual or predicted returns in fiat currency. Please refer to the Product Rules for reward mechanisms.',
@@ -747,13 +796,13 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                       fontSize: 12,
                     ),
                   ),
-                  
+
                   const SizedBox(height: 120),
                 ],
               ),
             ),
           ),
-          
+
           // Bottom Section
           Container(
             padding: const EdgeInsets.all(16),
@@ -806,7 +855,8 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                   child: ElevatedButton(
                     onPressed: agreedToTerms ? () {} : null,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: agreedToTerms ? const Color.fromARGB(255, 122, 79, 223) : Colors.grey[300],
+                      backgroundColor:
+                          agreedToTerms ? const Color.fromARGB(255, 122, 79, 223) : Colors.grey[300],
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),

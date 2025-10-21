@@ -136,9 +136,10 @@ class MobileBottomNav extends StatelessWidget {
   }) : super(key: key);
 
   // NAVIGATION LOGIC CENTRALIZED HERE
-  static List<Widget> getScreens() {
+  static List<Widget> getScreens(String username, String email) {
+  
     return [
-      MobileHomeScreen(),     // Index 0 - Home
+      MobileHomeScreen(username: username, email: email),     // Index 0 - Home
       MobileMarketScreen(),         // Index 1 - Markets  
       MobileTradeScreen(),           // Index 2 - Trade
       MobileFuturesScreen(),         // Index 3 - Futures

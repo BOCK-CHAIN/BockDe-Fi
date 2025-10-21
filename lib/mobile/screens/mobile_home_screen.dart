@@ -580,6 +580,7 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
 }*/
 
 import 'package:bockchain/mobile/screens/mobile_service_screen.dart';
+import 'package:bockchain/mobile/screens/wallet_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:bockchain/mobile/screens/mobile_assets_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_futures_screen.dart';
@@ -589,10 +590,18 @@ import 'package:bockchain/mobile/screens/mobile_rewards_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_sharia_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_referral_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_earn_screen.dart';
-import 'package:bockchain/mobile/screens/mobile_wallet_screen.dart';
+//import 'package:bockchain/mobile/screens/mobile_wallet_screen.dart';
 
 class MobileHomeScreen extends StatefulWidget {
-  const MobileHomeScreen({Key? key}) : super(key: key);
+  final String username;
+  final String email;
+
+  const MobileHomeScreen({
+    Key? key,
+    required this.username,
+    required this.email,
+  }) : super(key: key);
+  
 
   @override
   State<MobileHomeScreen> createState() => _MobileHomeScreenState();
@@ -656,7 +665,7 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MobileWalletScreen()),
+                  MaterialPageRoute(builder: (context) => WalletHomeScreen()),
                 );
               },
               child: Container(

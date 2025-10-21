@@ -151,168 +151,170 @@ class _MobileDepWithStatusScreenState extends State<MobileDepWithStatusScreen> {
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Header Section
-          Container(
-            width: double.infinity,
-            color: Colors.grey[50],
-            padding: EdgeInsets.all(isSmallScreen ? 16 : 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Deposit & Withdrawal Status',
-                  style: TextStyle(
-                    fontSize: isSmallScreen ? 24 : 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                SizedBox(height: isSmallScreen ? 8 : 12),
-                Text(
-                  'Check the deposit and withdrawal status of each coin in Binance at real time',
-                  style: TextStyle(
-                    fontSize: isSmallScreen ? 13 : 15,
-                    color: Colors.grey[600],
-                  ),
-                ),
-              ],
-            ),
-          ),
-
-          // Search and Filters
-          Container(
-            color: Colors.grey[50],
-            padding: EdgeInsets.symmetric(
-              horizontal: isSmallScreen ? 16 : 20,
-              vertical: isSmallScreen ? 12 : 16,
-            ),
-            child: Column(
-              children: [
-                // Search Bar
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.grey[300]!),
-                  ),
-                  child: TextField(
-                    controller: _searchController,
-                    onChanged: (value) {
-                      setState(() {
-                        _searchQuery = value;
-                      });
-                    },
-                    decoration: InputDecoration(
-                      hintText: 'Search coin',
-                      hintStyle: TextStyle(
-                        color: Colors.grey[400],
-                        fontSize: isSmallScreen ? 14 : 16,
-                      ),
-                      prefixIcon: Icon(
-                        Icons.search,
-                        color: Colors.grey[400],
-                      ),
-                      border: InputBorder.none,
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 14,
-                      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Header Section
+            Container(
+              width: double.infinity,
+              color: Colors.grey[50],
+              padding: EdgeInsets.all(isSmallScreen ? 16 : 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Deposit & Withdrawal Status',
+                    style: TextStyle(
+                      fontSize: isSmallScreen ? 24 : 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
                   ),
-                ),
-                SizedBox(height: isSmallScreen ? 12 : 16),
+                  SizedBox(height: isSmallScreen ? 8 : 12),
+                  Text(
+                    'Check the deposit and withdrawal status of each coin in Binance at real time',
+                    style: TextStyle(
+                      fontSize: isSmallScreen ? 13 : 15,
+                      color: Colors.grey[600],
+                    ),
+                  ),
+                ],
+              ),
+            ),
 
-                // Checkboxes
-                Row(
-                  children: [
-                    Checkbox(
-                      value: _showAbnormalOnly,
+            // Search and Filters
+            Container(
+              color: Colors.grey[50],
+              padding: EdgeInsets.symmetric(
+                horizontal: isSmallScreen ? 16 : 20,
+                vertical: isSmallScreen ? 12 : 16,
+              ),
+              child: Column(
+                children: [
+                  // Search Bar
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.grey[300]!),
+                    ),
+                    child: TextField(
+                      controller: _searchController,
                       onChanged: (value) {
                         setState(() {
-                          _showAbnormalOnly = value ?? false;
+                          _searchQuery = value;
                         });
                       },
-                      activeColor: const Color.fromARGB(255, 122, 79, 223),
-                    ),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _showAbnormalOnly = !_showAbnormalOnly;
-                          });
-                        },
-                        child: Text(
-                          'Show abnormal networks only',
-                          style: TextStyle(
-                            fontSize: isSmallScreen ? 13 : 15,
-                            color: Colors.black87,
-                          ),
+                      decoration: InputDecoration(
+                        hintText: 'Search coin',
+                        hintStyle: TextStyle(
+                          color: Colors.grey[400],
+                          fontSize: isSmallScreen ? 14 : 16,
+                        ),
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Colors.grey[400],
+                        ),
+                        border: InputBorder.none,
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 14,
                         ),
                       ),
                     ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Checkbox(
-                      value: _hideSuspended,
-                      onChanged: (value) {
-                        setState(() {
-                          _hideSuspended = value ?? false;
-                        });
-                      },
-                      activeColor: const Color.fromARGB(255, 122, 79, 223),
-                    ),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
+                  ),
+                  SizedBox(height: isSmallScreen ? 12 : 16),
+
+                  // Checkboxes
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: _showAbnormalOnly,
+                        onChanged: (value) {
                           setState(() {
-                            _hideSuspended = !_hideSuspended;
+                            _showAbnormalOnly = value ?? false;
                           });
                         },
-                        child: Text(
-                          'Hide suspended coins',
-                          style: TextStyle(
-                            fontSize: isSmallScreen ? 13 : 15,
-                            color: Colors.black87,
+                        activeColor: const Color.fromARGB(255, 122, 79, 223),
+                      ),
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _showAbnormalOnly = !_showAbnormalOnly;
+                            });
+                          },
+                          child: Text(
+                            'Show abnormal networks only',
+                            style: TextStyle(
+                              fontSize: isSmallScreen ? 13 : 15,
+                              color: Colors.black87,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-
-                // Last Updated
-                SizedBox(height: isSmallScreen ? 8 : 12),
-                Row(
-                  children: [
-                    Text(
-                      'Last updated: ${_getFormattedDateTime()}',
-                      style: TextStyle(
-                        fontSize: isSmallScreen ? 12 : 14,
-                        color: Colors.grey[600],
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: _hideSuspended,
+                        onChanged: (value) {
+                          setState(() {
+                            _hideSuspended = value ?? false;
+                          });
+                        },
+                        activeColor: const Color.fromARGB(255, 122, 79, 223),
                       ),
-                    ),
-                    const SizedBox(width: 8),
-                    Icon(
-                      Icons.refresh,
-                      size: isSmallScreen ? 16 : 18,
-                      color: Colors.grey[400],
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _hideSuspended = !_hideSuspended;
+                            });
+                          },
+                          child: Text(
+                            'Hide suspended coins',
+                            style: TextStyle(
+                              fontSize: isSmallScreen ? 13 : 15,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
 
-          // Coin List
-          Expanded(
-            child: Container(
+                  // Last Updated
+                  SizedBox(height: isSmallScreen ? 8 : 12),
+                  Row(
+                    children: [
+                      Text(
+                        'Last updated: ${_getFormattedDateTime()}',
+                        style: TextStyle(
+                          fontSize: isSmallScreen ? 12 : 14,
+                          color: Colors.grey[600],
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Icon(
+                        Icons.refresh,
+                        size: isSmallScreen ? 16 : 18,
+                        color: Colors.grey[400],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+
+            // Coin List
+            Container(
               color: Colors.white,
               child: ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 padding: EdgeInsets.zero,
                 itemCount: _filteredCoins.length,
                 separatorBuilder: (context, index) => Divider(
@@ -328,8 +330,8 @@ class _MobileDepWithStatusScreenState extends State<MobileDepWithStatusScreen> {
                 },
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

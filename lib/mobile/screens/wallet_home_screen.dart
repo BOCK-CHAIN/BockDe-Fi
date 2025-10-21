@@ -1,3 +1,7 @@
+import 'package:bockchain/mobile/screens/wallet_assets_screen.dart';
+import 'package:bockchain/mobile/screens/wallet_discover_screen.dart';
+import 'package:bockchain/mobile/screens/wallet_market_screen.dart';
+import 'package:bockchain/mobile/screens/wallet_trade_screen.dart';
 import 'package:flutter/material.dart';
 
 class WalletHomeScreen extends StatefulWidget {
@@ -462,7 +466,7 @@ class WalletMainContent extends StatelessWidget {
                     child: _buildInfoCard(
                       title: 'Meme Rush',
                       value: '763',
-                      subtitle: 'new tokens in 1h',
+                      subtitle: 'new tokens',
                       icons: [
                         _buildTokenIcon(Colors.purple),
                         _buildTokenIcon(Colors.blue),
@@ -790,41 +794,12 @@ class WalletMainContent extends StatelessWidget {
 }
 
 // Placeholder screens
-class WalletMarketScreen extends StatelessWidget {
-  const WalletMarketScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Market Screen', style: TextStyle(fontSize: 24)));
-  }
-}
 
-class WalletTradeScreen extends StatelessWidget {
-  const WalletTradeScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Trade Screen', style: TextStyle(fontSize: 24)));
-  }
-}
 
-class WalletDiscoverScreen extends StatelessWidget {
-  const WalletDiscoverScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Discover Screen', style: TextStyle(fontSize: 24)));
-  }
-}
 
-class WalletAssetsScreen extends StatelessWidget {
-  const WalletAssetsScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Assets Screen', style: TextStyle(fontSize: 24)));
-  }
-}
 
 class WalletScanScreen extends StatelessWidget {
   const WalletScanScreen({Key? key}) : super(key: key);

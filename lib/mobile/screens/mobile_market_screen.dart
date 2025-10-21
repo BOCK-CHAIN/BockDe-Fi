@@ -102,19 +102,16 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
     ),
   ];
 
-  List<CryptoAsset> get _filteredAssets {
+  List<CryptoAsset> get _favoriteAssets {
     if (_searchQuery.isEmpty) {
-      return _tabController.index == 0 
-          ? _allAssets.where((asset) => asset.isFavorite).toList()
-          : _allAssets;
+      return _allAssets.where((asset) => asset.isFavorite).toList();
     }
     
     final query = _searchQuery.toLowerCase();
     return _allAssets.where((asset) {
-      final matchesSearch = asset.name.toLowerCase().contains(query);
-      return _tabController.index == 0 
-          ? (matchesSearch && asset.isFavorite)
-          : matchesSearch;
+      return asset.isFavorite && 
+             (asset.name.toLowerCase().contains(query) ||
+              asset.pair.toLowerCase().contains(query));
     }).toList();
   }
 
@@ -143,96 +140,6 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
         }
       });
     });
-  }
-
-  // Navigation methods to your existing screens
-  /*void _navigateToMarketsScreen() {
-    Navigator.pushNamed(context, '/markets', arguments: _allAssets);
-  }
-
-  void _navigateToAlphaScreen() {
-    Navigator.pushNamed(context, '/alpha', arguments: _allAssets);
-  }
-
-  void _navigateToGrowScreen() {
-    Navigator.pushNamed(context, '/grow', arguments: _allAssets);
-  }
-
-  void _navigateToSquareScreen() {
-    Navigator.pushNamed(context, '/square', arguments: _allAssets);
-  }
-
-  void _navigateToDataScreen() {
-    Navigator.pushNamed(context, '/data', arguments: _allAssets);
-  }*/
-
-    void _navigateToMarketsScreen() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => MobileMarketsScreen(),
-      ),
-    );
-  }
-
-  void _navigateToAlphaScreen() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => MobileAlphaScreen(),
-      ),
-    );
-  }
-
-  void _navigateToGrowScreen() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => MobileGrowScreen(),
-      ),
-    );
-  }
-
-
-  void _navigateToDataScreen() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => MobileDataScreen(),
-      ),
-    );
-  }
-
-  void _navigateToSquareScreen() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => MobileSquareScreen(),
-      ),
-    );
-  }
-
-  void _onTabTapped(int index) {
-    switch (index) {
-      case 0:
-        // Stay on Favorites (current screen)
-        break;
-      case 1:
-        _navigateToMarketsScreen();
-        break;
-      case 2:
-        _navigateToAlphaScreen();
-        break;
-      case 3:
-        _navigateToGrowScreen();
-        break;
-      case 4:
-        _navigateToSquareScreen();
-        break;
-      case 5:
-        _navigateToDataScreen();
-        break;
-    }
   }
 
   @override
@@ -291,7 +198,6 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
                 unselectedLabelColor: Colors.grey[500],
                 labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 unselectedLabelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
-                onTap: _onTabTapped,
                 tabs: [
                   Tab(text: 'Favorites'),
                   Tab(text: 'Market'),
@@ -303,63 +209,95 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
               ),
             ),
             
-            // List Header
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 3,
-                    child: Text(
-                      'Name ↕ / Vol ↕',
-                      style: TextStyle(
-                        color: Colors.grey[600],
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Text(
-                      'Last Price ↕',
-                      style: TextStyle(
-                        color: Colors.grey[600],
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Text(
-                      '24h Chg% ↕',
-                      style: TextStyle(
-                        color: Colors.grey[600],
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      textAlign: TextAlign.right,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            
-            // Favorites List (only show this content)
+            // Swipeable Content
             Expanded(
-              child: ListView.builder(
-                itemCount: _filteredAssets.length,
-                itemBuilder: (context, index) {
-                  final asset = _filteredAssets[index];
-                  return _buildCryptoItem(asset);
-                },
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  // Favorites Tab
+                  _buildFavoritesTab(),
+                  
+                  // Market Tab - Embedded Markets Screen
+                  MobileMarketsScreen(),
+                  
+                  // Alpha Tab - Embedded Alpha Screen
+                  MobileAlphaScreen(),
+                  
+                  // Grow Tab - Embedded Grow Screen
+                  MobileGrowScreen(),
+                  
+                  // Square Tab - Embedded Square Screen
+                  MobileSquareScreen(),
+                  
+                  // Data Tab - Embedded Data Screen
+                  MobileDataScreen(),
+                ],
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildFavoritesTab() {
+    return Column(
+      children: [
+        // List Header
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          child: Row(
+            children: [
+              Expanded(
+                flex: 3,
+                child: Text(
+                  'Name ↕ / Vol ↕',
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Text(
+                  'Last Price ↕',
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Text(
+                  '24h Chg% ↕',
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  textAlign: TextAlign.right,
+                ),
+              ),
+            ],
+          ),
+        ),
+        
+        // Favorites List
+        Expanded(
+          child: ListView.builder(
+            itemCount: _favoriteAssets.length,
+            itemBuilder: (context, index) {
+              final asset = _favoriteAssets[index];
+              return _buildCryptoItem(asset);
+            },
+          ),
+        ),
+      ],
     );
   }
 
