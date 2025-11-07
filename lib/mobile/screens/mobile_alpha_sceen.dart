@@ -302,38 +302,6 @@ class _MobileAlphaScreenState extends State<MobileAlphaScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: Container(
-          height: 40,
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 141, 138, 138),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Row(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 16),
-                child: Icon(Icons.search, color: const Color.fromARGB(255, 29, 28, 28)),
-              ),
-              SizedBox(width: 8),
-              Text(
-                'Search Coin Pairs',
-                style: TextStyle(
-                  color: const Color.fromARGB(255, 20, 20, 20),
-                  fontSize: 16,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
-            ],
-          ),
-        ),
-        actions: [
-          Icon(Icons.more_horiz, color: Colors.black),
-          SizedBox(width: 16),
-        ],
-      ),
       body: Column(
         children: [
           // Navigation Tabs

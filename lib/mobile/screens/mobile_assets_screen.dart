@@ -1,3 +1,5 @@
+import 'package:bockchain/mobile/screens/mobile_addfund_screen.dart';
+import 'package:bockchain/mobile/screens/mobile_sendfund_screen.dart';
 import 'package:flutter/material.dart';
 
 class MobileAssetsScreen extends StatefulWidget {
@@ -88,31 +90,71 @@ class _MobileAssetsScreenState extends State<MobileAssetsScreen> {
                   ),
                   const SizedBox(height: 24),
                   
-                  // Add Funds Button
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        showAddFundsOptions = true;
-                      });
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      height: 56,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 122, 79, 223),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'Add Funds',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black87,
+                  // Add Funds and Send Funds Buttons
+                  Row(
+                    children: [
+                      // Add Funds Button
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MobileAddFundScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            height: 56,
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 122, 79, 223),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'Add Funds',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black87,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
+                      const SizedBox(width: 12),
+                      // Send Funds Button
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SendFundScreen(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            height: 56,
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 122, 79, 223),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: const Center(
+                              child: Text(
+                                'Send Funds',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black87,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 24),
                   

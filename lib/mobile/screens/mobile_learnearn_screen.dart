@@ -66,263 +66,265 @@ class _MobileLearnEarnScreenState extends State<MobileLearnEarnScreen> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          // Header Section
-          Container(
-            width: double.infinity,
-            color: Colors.white,
-            child: Column(
-              children: [
-                // Binance Academy Logo
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: isTablet ? 32.0 : 16.0,
-                    vertical: 16.0,
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 40,
-                        height: 40,
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 122, 79, 223),
-                          shape: BoxShape.circle,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Header Section
+            Container(
+              width: double.infinity,
+              color: Colors.white,
+              child: Column(
+                children: [
+                  // Binance Academy Logo
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: isTablet ? 32.0 : 16.0,
+                      vertical: 16.0,
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: const BoxDecoration(
+                            color: Color.fromARGB(255, 122, 79, 223),
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.school,
+                            color: Colors.white,
+                            size: 24,
+                          ),
                         ),
-                        child: const Icon(
-                          Icons.school,
-                          color: Colors.white,
-                          size: 24,
+                        const SizedBox(width: 12),
+                        const Text(
+                          'BINANCE',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 12),
-                      const Text(
-                        'BINANCE',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                        const SizedBox(width: 4),
+                        const Text(
+                          'ACADEMY',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w300,
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 4),
-                      const Text(
-                        'ACADEMY',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w300,
-                          color: Colors.black,
+                        const Spacer(),
+                        IconButton(
+                          icon: const Icon(Icons.search, color: Colors.black),
+                          onPressed: () {},
                         ),
-                      ),
-                      const Spacer(),
-                      IconButton(
-                        icon: const Icon(Icons.search, color: Colors.black),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.account_circle, color: Colors.black),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.menu, color: Colors.black),
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                ),
-                
-                // Main Content Section
-                Container(
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color(0xFF2B3139),
-                        Color(0xFF1A1A1A),
+                        IconButton(
+                          icon: const Icon(Icons.account_circle, color: Colors.black),
+                          onPressed: () {},
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.menu, color: Colors.black),
+                          onPressed: () {},
+                        ),
                       ],
                     ),
                   ),
-                  child: Padding(
-                    padding: EdgeInsets.all(isTablet ? 32.0 : 24.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Earn free crypto through learning',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: isTablet ? 36 : 32,
-                            fontWeight: FontWeight.bold,
-                            height: 1.2,
+                  
+                  // Main Content Section
+                  Container(
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Color(0xFF2B3139),
+                          Color(0xFF1A1A1A),
+                        ],
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(isTablet ? 32.0 : 24.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Earn free crypto through learning',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: isTablet ? 36 : 32,
+                              fontWeight: FontWeight.bold,
+                              height: 1.2,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          'Build your blockchain knowledge, complete quizzes, and earn free crypto.',
-                          style: TextStyle(
-                            color: Colors.grey[300],
-                            fontSize: isTablet ? 18 : 16,
-                            height: 1.4,
+                          const SizedBox(height: 16),
+                          Text(
+                            'Build your blockchain knowledge, complete quizzes, and earn free crypto.',
+                            style: TextStyle(
+                              color: Colors.grey[300],
+                              fontSize: isTablet ? 18 : 16,
+                              height: 1.4,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 24),
-                        
-                        // Action Buttons
-                        Row(
-                          children: [
-                            Expanded(
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color.fromARGB(255, 122, 79, 223),
-                                  foregroundColor: Colors.black,
-                                  padding: const EdgeInsets.symmetric(vertical: 16),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
+                          const SizedBox(height: 24),
+                          
+                          // Action Buttons
+                          Row(
+                            children: [
+                              Expanded(
+                                child: ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: const Color.fromARGB(255, 122, 79, 223),
+                                    foregroundColor: Colors.black,
+                                    padding: const EdgeInsets.symmetric(vertical: 16),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                  child: const Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(Icons.rule, size: 20),
+                                      SizedBox(width: 8),
+                                      Text(
+                                        'Activity Rules',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                child: const Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(Icons.rule, size: 20),
-                                    SizedBox(width: 8),
-                                    Text(
-                                      'Activity Rules',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                      ),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: OutlinedButton(
+                                  onPressed: () {},
+                                  style: OutlinedButton.styleFrom(
+                                    foregroundColor: Colors.white,
+                                    side: const BorderSide(color: Colors.grey),
+                                    padding: const EdgeInsets.symmetric(vertical: 16),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
                                     ),
+                                  ),
+                                  child: const Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(Icons.history, size: 20),
+                                      SizedBox(width: 8),
+                                      Text(
+                                        'Reward History',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          
+                          const SizedBox(height: 32),
+                          
+                          // Learning Illustration
+                          Center(
+                            child: Container(
+                              width: isTablet ? 300 : 200,
+                              height: isTablet ? 200 : 150,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                                gradient: LinearGradient(
+                                  colors: [
+                                    const Color.fromARGB(255, 122, 79, 223).withOpacity(0.3),
+                                    const Color.fromARGB(255, 122, 79, 223).withOpacity(0.1),
                                   ],
                                 ),
                               ),
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: OutlinedButton(
-                                onPressed: () {},
-                                style: OutlinedButton.styleFrom(
-                                  foregroundColor: Colors.white,
-                                  side: const BorderSide(color: Colors.grey),
-                                  padding: const EdgeInsets.symmetric(vertical: 16),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  // Book Icon
+                                  Icon(
+                                    Icons.menu_book,
+                                    size: isTablet ? 80 : 60,
+                                    color: const Color.fromARGB(255, 122, 79, 223),
                                   ),
-                                ),
-                                child: const Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(Icons.history, size: 20),
-                                    SizedBox(width: 8),
-                                    Text(
-                                      'Reward History',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w600,
+                                  // Decorative elements
+                                  Positioned(
+                                    top: 20,
+                                    left: 20,
+                                    child: Container(
+                                      width: 24,
+                                      height: 24,
+                                      decoration: BoxDecoration(
+                                        color: const Color.fromARGB(255, 122, 79, 223),
+                                        borderRadius: BorderRadius.circular(4),
                                       ),
                                     ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        
-                        const SizedBox(height: 32),
-                        
-                        // Learning Illustration
-                        Center(
-                          child: Container(
-                            width: isTablet ? 300 : 200,
-                            height: isTablet ? 200 : 150,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              gradient: LinearGradient(
-                                colors: [
-                                  const Color.fromARGB(255, 122, 79, 223).withOpacity(0.3),
-                                  const Color.fromARGB(255, 122, 79, 223).withOpacity(0.1),
+                                  ),
+                                  Positioned(
+                                    bottom: 20,
+                                    right: 20,
+                                    child: Container(
+                                      width: 32,
+                                      height: 32,
+                                      decoration: const BoxDecoration(
+                                        color: Color.fromARGB(255, 122, 79, 223),
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                // Book Icon
-                                Icon(
-                                  Icons.menu_book,
-                                  size: isTablet ? 80 : 60,
-                                  color: const Color.fromARGB(255, 122, 79, 223),
-                                ),
-                                // Decorative elements
-                                Positioned(
-                                  top: 20,
-                                  left: 20,
-                                  child: Container(
-                                    width: 24,
-                                    height: 24,
-                                    decoration: BoxDecoration(
-                                      color: const Color.fromARGB(255, 122, 79, 223),
-                                      borderRadius: BorderRadius.circular(4),
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  bottom: 20,
-                                  right: 20,
-                                  child: Container(
-                                    width: 32,
-                                    height: 32,
-                                    decoration: const BoxDecoration(
-                                      color: Color.fromARGB(255, 122, 79, 223),
-                                      shape: BoxShape.circle,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          
-          // Filter Section
-          Container(
-            color: Colors.white,
-            padding: EdgeInsets.symmetric(
-              horizontal: isTablet ? 32.0 : 16.0,
-              vertical: 16.0,
+            
+            // Filter Section
+            Container(
+              color: Colors.white,
+              padding: EdgeInsets.symmetric(
+                horizontal: isTablet ? 32.0 : 16.0,
+                vertical: 16.0,
+              ),
+              child: Row(
+                children: [
+                  DropdownButton<String>(
+                    value: selectedFilter,
+                    underline: Container(),
+                    icon: const Icon(Icons.keyboard_arrow_down),
+                    items: ['All', 'Ongoing', 'Ended'].map((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        selectedFilter = newValue!;
+                      });
+                    },
+                  ),
+                ],
+              ),
             ),
-            child: Row(
-              children: [
-                DropdownButton<String>(
-                  value: selectedFilter,
-                  underline: Container(),
-                  icon: const Icon(Icons.keyboard_arrow_down),
-                  items: ['All', 'Ongoing', 'Ended'].map((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      selectedFilter = newValue!;
-                    });
-                  },
-                ),
-              ],
-            ),
-          ),
-          
-          // Courses List
-          Expanded(
-            child: Container(
+            
+            // Courses List
+            Container(
               color: Colors.white,
               child: ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 padding: EdgeInsets.symmetric(
                   horizontal: isTablet ? 32.0 : 16.0,
                   vertical: 8.0,
@@ -337,8 +339,8 @@ class _MobileLearnEarnScreenState extends State<MobileLearnEarnScreen> {
                 },
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

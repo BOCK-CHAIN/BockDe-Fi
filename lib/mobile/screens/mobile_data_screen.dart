@@ -105,8 +105,6 @@ class _MobileDataScreenState extends State<MobileDataScreen>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildHeader(),
-              SizedBox(height: 20),
               /*_buildTabs(),
               SizedBox(height: 20),*/
               _buildAISelect(),
@@ -129,30 +127,7 @@ class _MobileDataScreenState extends State<MobileDataScreen>
     );
   }
 
-  Widget _buildHeader() {
-    return Row(
-      children: [
-        Expanded(
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(25),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.search, color: Colors.grey[600]),
-                SizedBox(width: 8),
-                Text('Search Coin Pairs', style: TextStyle(color: Colors.grey[600])),
-              ],
-            ),
-          ),
-        ),
-        SizedBox(width: 16),
-        Icon(Icons.more_horiz, size: 28),
-      ],
-    );
-  }
+
 
   /*Widget _buildTabs() {
     return Row(

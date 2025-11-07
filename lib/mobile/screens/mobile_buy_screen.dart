@@ -31,34 +31,14 @@ class _MobileBuyScreenState extends State<MobileBuyScreen> {
   void initState() {
     super.initState();
     amountController.text = '4000';
-  }
-
-  void updateAmount(String digit) {
-    setState(() {
-      if (amountController.text == '0') {
-        amountController.text = digit;
-      } else {
-        amountController.text += digit;
-      }
-      _updateDisplayAmount();
-    });
-  }
-
-  void deleteDigit() {
-    setState(() {
-      if (amountController.text.isNotEmpty) {
-        amountController.text = amountController.text.substring(0, amountController.text.length - 1);
-        if (amountController.text.isEmpty) {
-          amountController.text = '0';
-        }
-      }
-      _updateDisplayAmount();
-    });
+    amountController.addListener(_updateDisplayAmount);
   }
 
   void _updateDisplayAmount() {
-    double amount = double.tryParse(amountController.text) ?? 0;
-    displayAmount = '₹${_formatNumber(amount)}';
+    setState(() {
+      double amount = double.tryParse(amountController.text) ?? 0;
+      displayAmount = '₹${_formatNumber(amount)}';
+    });
   }
 
   String _formatNumber(double number) {
@@ -72,44 +52,8 @@ class _MobileBuyScreenState extends State<MobileBuyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      /*appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: Container(
-          margin: const EdgeInsets.all(8),
-          decoration: const BoxDecoration(
-            color: Colors.black,
-            shape: BoxShape.circle,
-          ),
-          child: const Icon(Icons.arrow_back, color: Colors.white, size: 20),
-        ),
-        /*title: Row(
-          children: [
-            Container(
-              width: 8,
-              height: 8,
-              decoration: const BoxDecoration(
-                color: Colors.red,
-                shape: BoxShape.circle,
-              ),
-            ),
-            const SizedBox(width: 20),
-            _buildTabButton('Convert', false),
-            _buildTabButton('Spot', false),
-            _buildTabButton('Margin', false),
-            _buildTabButton('Buy/Sell', true),
-            _buildTabButton('P2P', false),
-            _buildTabButton('Alpha', false),
-          ],
-        ),*/
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.menu, color: Colors.black),
-          ),
-        ],
-      ),*/
-      body: Column(
+      body:SafeArea(
+        child: Column(
         children: [
           // Buy/Sell Toggle
           Container(
@@ -141,42 +85,54 @@ class _MobileBuyScreenState extends State<MobileBuyScreen> {
           ),
 
           // Amount Display
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  '0',
-                  style: TextStyle(
-                    fontSize: 60,
-                    fontWeight: FontWeight.w300,
-                    color: Colors.grey.shade400,
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    DropdownButton<String>(
-                      value: selectedCurrency,
-                      underline: Container(),
-                      icon: const Icon(Icons.keyboard_arrow_down),
-                      items: currencies.map((currency) {
-                        return DropdownMenuItem(
-                          value: currency,
-                          child: Text(currency, style: const TextStyle(fontSize: 16)),
-                        );
-                      }).toList(),
-                      onChanged: (value) {
-                        setState(() {
-                          selectedCurrency = value!;
-                        });
-                      },
+          GestureDetector(
+            onTap: () {
+              // Focus on the hidden text field to open keyboard
+              FocusScope.of(context).requestFocus(FocusNode());
+              Future.delayed(const Duration(milliseconds: 100), () {
+                showDialog(
+                  context: context,
+                  builder: (context) => _buildAmountInputDialog(),
+                );
+              });
+            },
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    amountController.text.isEmpty ? '0' : amountController.text,
+                    style: TextStyle(
+                      fontSize: 60,
+                      fontWeight: FontWeight.w300,
+                      color: amountController.text.isEmpty ? Colors.grey.shade400 : Colors.black,
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                  const SizedBox(width: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      DropdownButton<String>(
+                        value: selectedCurrency,
+                        underline: Container(),
+                        icon: const Icon(Icons.keyboard_arrow_down),
+                        items: currencies.map((currency) {
+                          return DropdownMenuItem(
+                            value: currency,
+                            child: Text(currency, style: const TextStyle(fontSize: 16)),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            selectedCurrency = value!;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
 
@@ -349,66 +305,47 @@ class _MobileBuyScreenState extends State<MobileBuyScreen> {
           ),
 
           const Spacer(),
-
-          // Number Pad
-          Container(
-            margin: const EdgeInsets.all(20),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    _buildNumberButton('1'),
-                    _buildNumberButton('2'),
-                    _buildNumberButton('3'),
-                  ],
-                ),
-                const SizedBox(height: 15),
-                Row(
-                  children: [
-                    _buildNumberButton('4'),
-                    _buildNumberButton('5'),
-                    _buildNumberButton('6'),
-                  ],
-                ),
-                const SizedBox(height: 15),
-                Row(
-                  children: [
-                    _buildNumberButton('7'),
-                    _buildNumberButton('8'),
-                    _buildNumberButton('9'),
-                  ],
-                ),
-                const SizedBox(height: 15),
-                Row(
-                  children: [
-                    _buildNumberButton('.'),
-                    _buildNumberButton('0'),
-                    _buildDeleteButton(),
-                  ],
-                ),
-              ],
-            ),
-          ),
-
-          // Bottom Navigation
-          /*Container(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            decoration: BoxDecoration(
-              border: Border(top: BorderSide(color: Colors.grey.shade200)),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildBottomNavItem(Icons.home_outlined, 'Home'),
-                _buildBottomNavItem(Icons.show_chart, 'Markets'),
-                _buildBottomNavItem(Icons.swap_horiz, 'Trade', isSelected: true),
-                _buildBottomNavItem(Icons.trending_up, 'Futures'),
-                _buildBottomNavItem(Icons.account_balance_wallet_outlined, 'Assets'),
-              ],
-            ),
-          ),*/
         ],
       ),
+    ),
+  );
+  }
+
+  Widget _buildAmountInputDialog() {
+    TextEditingController dialogController = TextEditingController(text: amountController.text);
+    
+    return AlertDialog(
+      title: const Text('Enter Amount'),
+      content: TextField(
+        controller: dialogController,
+        autofocus: true,
+        keyboardType: const TextInputType.numberWithOptions(decimal: true),
+        inputFormatters: [
+          FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}')),
+        ],
+        decoration: InputDecoration(
+          hintText: 'Enter amount',
+          prefixText: '₹ ',
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Cancel'),
+        ),
+        TextButton(
+          onPressed: () {
+            setState(() {
+              amountController.text = dialogController.text;
+            });
+            Navigator.pop(context);
+          },
+          child: const Text('OK'),
+        ),
+      ],
     );
   }
 
@@ -495,45 +432,6 @@ class _MobileBuyScreenState extends State<MobileBuyScreen> {
               color: Colors.grey.shade400,
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildNumberButton(String number) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: () => updateAmount(number),
-        child: Container(
-          height: 60,
-          margin: const EdgeInsets.symmetric(horizontal: 5),
-          child: Center(
-            child: Text(
-              number,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildDeleteButton() {
-    return Expanded(
-      child: GestureDetector(
-        onTap: deleteDigit,
-        child: Container(
-          height: 60,
-          margin: const EdgeInsets.symmetric(horizontal: 5),
-          child: const Center(
-            child: Icon(
-              Icons.backspace_outlined,
-              size: 24,
-            ),
-          ),
         ),
       ),
     );

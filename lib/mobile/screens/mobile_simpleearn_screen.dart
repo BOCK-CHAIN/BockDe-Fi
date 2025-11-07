@@ -325,7 +325,7 @@ class _MobileSimpleEarnScreenState extends State<MobileSimpleEarnScreen>
             mainAxisAlignment: MainAxisAlignment.end,
             children: const [
               Text(
-                'Est. APR ↕',
+                'Est. APR',
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 12,

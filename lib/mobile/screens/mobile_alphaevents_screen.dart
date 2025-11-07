@@ -1,30 +1,53 @@
 import 'package:flutter/material.dart';
 
-class MobileNewListingScreen extends StatelessWidget {
-  const MobileNewListingScreen({Key? key}) : super(key: key);
+class MobileAlphaEventsScreen extends StatefulWidget {
+  const MobileAlphaEventsScreen({Key? key}) : super(key: key);
+
+  @override
+  State<MobileAlphaEventsScreen> createState() => _MobileAlphaEventsScreenState();
+}
+
+class _MobileAlphaEventsScreenState extends State<MobileAlphaEventsScreen> {
+  bool _showBalancePointsRule = false;
+  bool _showVolumePointsRule = false;
+  bool _showTaskPointsRule = false;
+  bool _showDailyBreakdown = false;
+  
+  // Expandable date entries
+  Map<String, bool> _expandedDates = {
+    '2025-09-23': false,
+    '2025-09-22': false,
+    '2025-09-21': false,
+    '2025-09-20': false,
+    '2025-09-19': false,
+  };
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1A1A1A),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
-          'New Listings on Binance | AI...',
+          'Alpha Events',
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
           ),
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.close, color: Colors.white),
+            icon: const Icon(Icons.more_horiz, color: Colors.black),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.close, color: Colors.black),
             onPressed: () => Navigator.pop(context),
           ),
         ],
@@ -34,410 +57,460 @@ class MobileNewListingScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Header Section
-            _buildHeaderCard(),
+            // Header section with points and UID
+            _buildHeaderSection(),
+            
             const SizedBox(height: 32),
             
-            // Section Title
-            const Text(
-              'LATEST NEW LISTING\nPROMOTIONS',
-              style: TextStyle(
-                color: Color.fromARGB(255, 122, 79, 223),
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                height: 1.2,
-              ),
-            ),
-            const SizedBox(height: 24),
+            // Navigation icons
+            _buildNavigationIcons(),
             
-            // Promotion Cards
-            _buildPromotionCard(
-              title: 'SHARE 20M+ \$HEMI',
-              subtitle: 'Spot',
-              icon: Icons.star,
-              iconColor: const Color.fromARGB(255, 122, 79, 223),
-              gradientColors: [
-                const Color(0xFF2A2A2A),
-                const Color(0xFF1A1A1A),
-              ],
-            ),
-            const SizedBox(height: 16),
-            
-            _buildPromotionCard(
-              title: 'SHARE 2.5M \$BARD',
-              subtitle: 'Spot • Futures',
-              icon: Icons.trending_up,
-              iconColor: const Color(0xFF00D4AA),
-              gradientColors: [
-                const Color(0xFF2A2A2A),
-                const Color(0xFF1A1A1A),
-              ],
-              description: 'Trade \$BARD on Binance Spot & Futures to Grab a Share of the Prize Pool!',
-              promotionPeriod: '2025-09-24 10:00 (UTC) to 2025-10-08 10:00 (UTC)',
-            ),
-            const SizedBox(height: 16),
-            
-            _buildPromotionCard(
-              title: 'SHARE 5M \$PIXEL',
-              subtitle: 'Spot • Margin',
-              icon: Icons.games,
-              iconColor: const Color(0xFF9C27B0),
-              gradientColors: [
-                const Color(0xFF2A2A2A),
-                const Color(0xFF1A1A1A),
-              ],
-              description: 'Join the PIXEL gaming revolution and earn rewards!',
-              promotionPeriod: '2025-09-25 08:00 (UTC) to 2025-10-09 08:00 (UTC)',
-            ),
-            const SizedBox(height: 16),
-            
-            _buildPromotionCard(
-              title: 'SHARE 1M \$DEGEN',
-              subtitle: 'Spot',
-              icon: Icons.rocket_launch,
-              iconColor: const Color(0xFFFF5722),
-              gradientColors: [
-                const Color(0xFF2A2A2A),
-                const Color(0xFF1A1A1A),
-              ],
-              description: 'Get rewarded for trading the hottest meme token!',
-              promotionPeriod: '2025-09-26 12:00 (UTC) to 2025-10-10 12:00 (UTC)',
-            ),
-            const SizedBox(height: 16),
-            
-            _buildPromotionCard(
-              title: 'SHARE 10M \$AITECH',
-              subtitle: 'Spot • Futures',
-              icon: Icons.psychology,
-              iconColor: const Color(0xFF2196F3),
-              gradientColors: [
-                const Color(0xFF2A2A2A),
-                const Color(0xFF1A1A1A),
-              ],
-              description: 'Trade AI Technology tokens and share massive rewards!',
-              promotionPeriod: '2025-09-27 06:00 (UTC) to 2025-10-11 06:00 (UTC)',
-            ),
             const SizedBox(height: 32),
+            
+            // What are Alpha Points section
+            if (!_showDailyBreakdown) _buildAlphaPointsSection(),
+            
+            // Daily Points Breakdown section
+            if (_showDailyBreakdown) _buildDailyBreakdownSection(),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildHeaderCard() {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(24.0),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            const Color(0xFF2A2A2A),
-            const Color(0xFF1A1A1A),
-          ],
-        ),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: const Color.fromARGB(255, 122, 79, 223).withOpacity(0.3),
-          width: 1,
-        ),
-      ),
-      child: Column(
-        children: [
-          // Binance Card Design
-          Container(
-            width: 120,
-            height: 80,
-            decoration: BoxDecoration(
-              color: const Color(0xFF1A1A1A),
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                color: const Color.fromARGB(255, 122, 79, 223),
-                width: 2,
+  Widget _buildHeaderSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            const Text(
+              'Total Points',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.grey,
+                fontWeight: FontWeight.w400,
               ),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: const Color.fromARGB(255, 122, 79, 223),
-                      width: 2,
-                    ),
-                  ),
-                  child: const Icon(
-                    Icons.star,
-                    color: Color.fromARGB(255, 122, 79, 223),
-                    size: 20,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    3,
-                    (index) => Container(
-                      width: 4,
-                      height: 4,
-                      margin: const EdgeInsets.symmetric(horizontal: 1),
-                      decoration: const BoxDecoration(
-                        color: Color.fromARGB(255, 122, 79, 223),
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            const Spacer(),
+            const Text(
+              'UID 1158450833',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 8),
+        const Text(
+          '0',
+          style: TextStyle(
+            fontSize: 64,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildNavigationIcons() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        _buildNavigationIcon(
+          Icons.air_outlined,
+          'Airdrop',
+          () {},
+        ),
+        _buildNavigationIcon(
+          Icons.bar_chart,
+          'Competition',
+          () {},
+        ),
+        _buildNavigationIcon(
+          Icons.monetization_on_outlined,
+          'Earn',
+          () {},
+        ),
+        _buildNavigationIcon(
+          Icons.token_outlined,
+          'TGE',
+          () {},
+        ),
+        _buildNavigationIcon(
+          Icons.rocket_launch_outlined,
+          'Booster',
+          () {},
+        ),
+      ],
+    );
+  }
+
+  Widget _buildNavigationIcon(IconData icon, String label, VoidCallback onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.grey.shade100,
+              borderRadius: BorderRadius.circular(25),
+            ),
+            child: Icon(
+              icon,
+              size: 24,
+              color: Colors.black87,
             ),
           ),
-          const SizedBox(height: 24),
-          const Text(
-            'NEW LISTINGS,\nNEW REWARDS',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Color.fromARGB(255, 122, 79, 223),
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              height: 1.1,
-            ),
-          ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 8),
           Text(
-            'Explore the latest token listings and promotions, exclusively on Binance.',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white.withOpacity(0.8),
-              fontSize: 16,
-              height: 1.4,
+            label,
+            style: const TextStyle(
+              fontSize: 12,
+              color: Colors.black87,
+              fontWeight: FontWeight.w500,
             ),
+            textAlign: TextAlign.center,
           ),
         ],
       ),
     );
   }
 
-  Widget _buildPromotionCard({
-    required String title,
-    required String subtitle,
-    required IconData icon,
-    required Color iconColor,
-    required List<Color> gradientColors,
-    String? description,
-    String? promotionPeriod,
-  }) {
-    return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.only(bottom: 8),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: gradientColors,
+  Widget _buildAlphaPointsSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'What are Alpha Points?',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
         ),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: Colors.white.withOpacity(0.1),
-          width: 1,
+        const SizedBox(height: 16),
+        const Text(
+          'Binance Alpha Points is a scoring system designed to evaluate user activity within the Binance Alpha and Binance Wallet ecosystem which determines your eligibility for campaigns, such as Token Generation Event (TGE) participation and Alpha token airdrops. Binance Alpha Points are calculated daily based on the sum of your assets balance and Alpha token purchase volume on Binance exchange and Binance Wallet (Keyless address). Please note that selling Alpha tokens do not contribute to Alpha Points at the current stage. The Alpha Points are a cumulative sum of daily points combining Balance Points and Volume Point over the past 15 days.',
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.black87,
+            height: 1.5,
+          ),
         ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Icon and Chart Design
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF2A2A2A),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          color: const Color.fromARGB(255, 122, 79, 223).withOpacity(0.3),
-                          width: 1,
-                        ),
-                      ),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Container(
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: iconColor,
-                              shape: BoxShape.circle,
-                            ),
-                            child: Icon(
-                              icon,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                          ),
-                          // Chart line decoration
-                          Positioned(
-                            right: 8,
-                            top: 8,
-                            child: CustomPaint(
-                              size: const Size(30, 20),
-                              painter: ChartLinePainter(iconColor),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+        GestureDetector(
+          onTap: () {},
+          child: const Text(
+            'Learn more in FAQs',
+            style: TextStyle(
+              fontSize: 14,
+              color: Color.fromARGB(255, 122, 79, 223),
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+        const SizedBox(height: 32),
+        
+        // Dropdown sections
+        _buildDropdownSection(
+          'Rule of Balance Points',
+          _showBalancePointsRule,
+          () => setState(() => _showBalancePointsRule = !_showBalancePointsRule),
+          'Balance Points are calculated based on your daily Alpha token balance in Binance exchange and Binance Wallet (Keyless address). The more Alpha tokens you hold, the higher your Balance Points.',
+        ),
+        
+        _buildDropdownSection(
+          'Rule of Volume Points',
+          _showVolumePointsRule,
+          () => setState(() => _showVolumePointsRule = !_showVolumePointsRule),
+          'Volume Points are earned through Alpha token trading activities. Each purchase contributes to your Volume Points, while selling does not currently contribute to the point calculation.',
+        ),
+        
+        _buildDropdownSection(
+          'Rule of Task Points',
+          _showTaskPointsRule,
+          () => setState(() => _showTaskPointsRule = !_showTaskPointsRule),
+          'Task Points are earned by completing specific activities and challenges within the Binance Alpha ecosystem. These tasks may include social media engagement, referrals, and other promotional activities.',
+        ),
+        
+        const SizedBox(height: 24),
+        
+        // Daily breakdown button
+        GestureDetector(
+          onTap: () => setState(() => _showDailyBreakdown = true),
+          child: Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 122, 79, 223),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: const Text(
+              'View Daily Points Breakdown',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildDailyBreakdownSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            GestureDetector(
+              onTap: () => setState(() => _showDailyBreakdown = false),
+              child: const Icon(Icons.arrow_back, color: Colors.black),
+            ),
+            const SizedBox(width: 16),
+            const Text(
+              'Daily Points Breakdown',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
+        
+        const SizedBox(height: 8),
+        
+        const Text(
+          '09/09/2025 - 09/23/2025 The previous day\'s data will be updated before 11:30 UTC+5.5 on the current day.',
+          style: TextStyle(
+            fontSize: 12,
+            color: Colors.grey,
+          ),
+        ),
+        
+        const SizedBox(height: 24),
+        
+        // Today section
+        Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.grey.shade50,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Today',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
-                const SizedBox(height: 20),
-                
-                // Title
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                'This trading volume is for reference only; the actual data will be updated on 2025-09-26 at 11:30 UTC+5.5',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.grey,
+                ),
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Trading Volume',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  const Text(
+                    '0',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        
+        const SizedBox(height: 16),
+        
+        // Historical dates
+        ..._expandedDates.keys.map((date) => _buildDateEntry(date)),
+      ],
+    );
+  }
+
+  Widget _buildDateEntry(String date) {
+    bool isExpanded = _expandedDates[date] ?? false;
+    
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _expandedDates[date] = !isExpanded;
+            });
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
                 Text(
-                  title,
+                  date,
                   style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
                   ),
                 ),
-                const SizedBox(height: 8),
-                
-                // Subtitle
                 Row(
                   children: [
-                    Container(
-                      width: 30,
-                      height: 3,
-                      decoration: BoxDecoration(
-                        color: iconColor,
-                        borderRadius: BorderRadius.circular(2),
+                    const Text(
+                      '0',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
                       ),
                     ),
                     const SizedBox(width: 8),
-                    Text(
-                      subtitle,
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    Icon(
+                      isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                      color: Colors.grey,
                     ),
                   ],
                 ),
-                
-                // Description and promotion period (if provided)
-                if (description != null) ...[
-                  const SizedBox(height: 16),
-                  Text(
-                    description,
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.8),
-                      fontSize: 16,
-                      height: 1.4,
-                    ),
-                  ),
-                ],
-                
-                if (promotionPeriod != null) ...[
-                  const SizedBox(height: 12),
-                  Row(
-                    children: [
-                      Text(
-                        'Promotion Period: ',
-                        style: TextStyle(
-                          color: Colors.white.withOpacity(0.7),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Expanded(
-                        child: Text(
-                          promotionPeriod,
-                          style: TextStyle(
-                            color: Colors.white.withOpacity(0.7),
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  
-                  // Join Now Button
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // Handle join now action
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 122, 79, 223),
-                        foregroundColor: Colors.black,
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        elevation: 0,
-                      ),
-                      child: const Text(
-                        'Join Now',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
               ],
+            ),
+          ),
+        ),
+        
+        if (isExpanded) ...[
+          Container(
+            padding: const EdgeInsets.all(16),
+            margin: const EdgeInsets.only(bottom: 16),
+            decoration: BoxDecoration(
+              color: Colors.grey.shade50,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Column(
+              children: [
+                _buildBreakdownRow('Balance', '\$0.00'),
+                _buildBreakdownRow('Balance points', '0', isPoints: true),
+                _buildBreakdownRow('Volume', '\$0.00'),
+                _buildBreakdownRow('Volume points', '0', isPoints: true),
+                _buildBreakdownRow('Task points', '0', isPoints: true),
+              ],
+            ),
+          ),
+        ] else ...[
+          const Divider(color: Colors.grey, height: 1),
+        ],
+      ],
+    );
+  }
+
+  Widget _buildBreakdownRow(String label, String value, {bool isPoints = false}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.grey.shade600,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+              color: isPoints ? Colors.teal : Colors.black,
             ),
           ),
         ],
       ),
     );
   }
-}
 
-class ChartLinePainter extends CustomPainter {
-  final Color color;
-  
-  ChartLinePainter(this.color);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..strokeWidth = 2
-      ..style = PaintingStyle.stroke;
-
-    final path = Path();
-    path.moveTo(0, size.height * 0.8);
-    path.lineTo(size.width * 0.3, size.height * 0.6);
-    path.lineTo(size.width * 0.6, size.height * 0.4);
-    path.lineTo(size.width, size.height * 0.2);
-
-    canvas.drawPath(path, paint);
-
-    // Draw points
-    final pointPaint = Paint()
-      ..color = color
-      ..style = PaintingStyle.fill;
-
-    canvas.drawCircle(Offset(0, size.height * 0.8), 2, pointPaint);
-    canvas.drawCircle(Offset(size.width * 0.3, size.height * 0.6), 2, pointPaint);
-    canvas.drawCircle(Offset(size.width * 0.6, size.height * 0.4), 2, pointPaint);
-    canvas.drawCircle(Offset(size.width, size.height * 0.2), 2, pointPaint);
+  Widget _buildDropdownSection(
+    String title,
+    bool isExpanded,
+    VoidCallback onTap,
+    String content,
+  ) {
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: onTap,
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                  ),
+                ),
+                Icon(
+                  isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                  color: Colors.grey,
+                ),
+              ],
+            ),
+          ),
+        ),
+        
+        if (isExpanded) ...[
+          Container(
+            padding: const EdgeInsets.all(16),
+            margin: const EdgeInsets.only(bottom: 16),
+            decoration: BoxDecoration(
+              color: Colors.grey.shade50,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              content,
+              style: const TextStyle(
+                fontSize: 14,
+                color: Colors.black87,
+                height: 1.5,
+              ),
+            ),
+          ),
+        ] else ...[
+          const Divider(color: Colors.grey, height: 1),
+        ],
+        
+        const SizedBox(height: 8),
+      ],
+    );
   }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }

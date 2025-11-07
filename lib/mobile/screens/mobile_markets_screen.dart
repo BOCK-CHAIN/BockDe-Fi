@@ -95,38 +95,6 @@ class _MobileMarketsScreenState extends State<MobileMarketsScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: Container(
-          height: 45,
-          decoration: BoxDecoration(
-            color: Colors.grey[100],
-            borderRadius: BorderRadius.circular(25),
-          ),
-          child: TextField(
-            controller: _searchController,
-            onChanged: (value) {
-              setState(() {
-                _searchQuery = value;
-              });
-            },
-            decoration: InputDecoration(
-              hintText: 'Search Coin Pairs',
-              hintStyle: TextStyle(color: Colors.grey[600], fontSize: 16),
-              prefixIcon: Icon(Icons.search, color: Colors.grey[600]),
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-            ),
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.more_horiz, color: Colors.black),
-            onPressed: () {},
-          ),
-        ],
-      ),
       body: Column(
         children: [
           // Top Navigation Tabs

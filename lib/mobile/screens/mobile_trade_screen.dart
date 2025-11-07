@@ -346,7 +346,7 @@ class _MobileTradeScreenState extends State<MobileTradeScreen>
                 _showPreviewDialog();
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.yellow.shade200,
+                backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
@@ -489,7 +489,7 @@ class _MobileTradeScreenState extends State<MobileTradeScreen>
                 _showCreatePlanDialog();
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.yellow.shade200,
+                backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
@@ -657,7 +657,7 @@ class _MobileTradeScreenState extends State<MobileTradeScreen>
                 _showLimitPreviewDialog();
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.yellow.shade200,
+                backgroundColor: const Color.fromARGB(255, 122, 79, 223),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),

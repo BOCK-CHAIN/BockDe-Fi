@@ -1,3 +1,4 @@
+import 'package:bockchain/mobile/screens/mobile_home_screen.dart';
 import 'package:bockchain/mobile/screens/wallet_assets_screen.dart';
 import 'package:bockchain/mobile/screens/wallet_discover_screen.dart';
 import 'package:bockchain/mobile/screens/wallet_market_screen.dart';
@@ -235,20 +236,30 @@ class WalletMainContent extends StatelessWidget {
                     ),
                     child: Row(
                       children: [
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: isSmallScreen ? 16 : 24,
-                            vertical: 8,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Text(
-                            'Exchange',
-                            style: TextStyle(
-                              fontSize: isSmallScreen ? 13 : 14,
-                              color: Colors.grey[600],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MobileHomeScreen(username: '', email: '',),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: isSmallScreen ? 16 : 24,
+                              vertical: 8,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              'Exchange',
+                              style: TextStyle(
+                                fontSize: isSmallScreen ? 13 : 14,
+                                color: Colors.grey[600],
+                              ),
                             ),
                           ),
                         ),
@@ -794,12 +805,6 @@ class WalletMainContent extends StatelessWidget {
 }
 
 // Placeholder screens
-
-
-
-
-
-
 
 class WalletScanScreen extends StatelessWidget {
   const WalletScanScreen({Key? key}) : super(key: key);

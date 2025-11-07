@@ -1,3 +1,6 @@
+import 'package:bockchain/mobile/screens/mobile_dualinvest_screen.dart';
+import 'package:bockchain/mobile/screens/mobile_ethstaking_screen.dart';
+import 'package:bockchain/mobile/screens/mobile_simpleearn_screen.dart';
 import 'package:flutter/material.dart';
 
 // Import your existing screens
@@ -31,16 +34,13 @@ class _MobileLoanScreenState extends State<MobileLoanScreen> {
   void _navigateToScreen(String screenType) {
     switch (screenType) {
       case 'simple_earn':
-        // Navigator.push(context, MaterialPageRoute(builder: (context) => MobileSimpleearnScreen()));
-        print('Navigate to Simple Earn Screen');
+         Navigator.push(context, MaterialPageRoute(builder: (context) => MobileSimpleEarnScreen()));
         break;
       case 'eth_staking':
-        // Navigator.push(context, MaterialPageRoute(builder: (context) => MobileEthstakingScreen()));
-        print('Navigate to ETH Staking Screen');
+         Navigator.push(context, MaterialPageRoute(builder: (context) => MobileEthStakingScreen()));
         break;
       case 'dual_investment':
-        // Navigator.push(context, MaterialPageRoute(builder: (context) => MobileDualinvestScreen()));
-        print('Navigate to Dual Investment Screen');
+         Navigator.push(context, MaterialPageRoute(builder: (context) => MobileDualInvestScreen()));
         break;
     }
   }

@@ -1,4 +1,7 @@
 import 'package:bockchain/mobile/screens/mobile_dualinvest_screen.dart';
+import 'package:bockchain/mobile/screens/mobile_onchain_screen.dart';
+import 'package:bockchain/mobile/screens/mobile_simpleearn_screen.dart';
+import 'package:bockchain/mobile/screens/smart_arbitrage_screen.dart';
 import 'package:flutter/material.dart';
 
 class MobileEarnScreen extends StatefulWidget {
@@ -64,7 +67,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => MobileSimpleearnScreen(),
+                            builder: (context) => MobileSimpleEarnScreen(),
                           ),
                         );
                       },
@@ -534,7 +537,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => MobileSmartarbitScreen()),
+              MaterialPageRoute(builder: (context) => SmartArbitrageScreen()),
             );
           },
           child: Container(
@@ -583,7 +586,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => MobileOnchainScreen()),
+              MaterialPageRoute(builder: (context) => OnChainYieldsScreen()),
             );
           },
           child: Container(
@@ -730,7 +733,7 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
                     width: 20,
                     height: 20,
                     decoration: BoxDecoration(
-                      color: Colors.teal,
+                      color: const Color.fromARGB(255, 122, 79, 223),
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -1373,47 +1376,6 @@ class _USDTSubscribeDialogState extends State<USDTSubscribeDialog> {
           ),
         ],
       ),
-    );
-  }
-}
-
-// Placeholder screens - you'll need to implement these
-class MobileSimpleearnScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Simple Earn')),
-      body: Center(child: Text('Simple Earn Screen')),
-    );
-  }
-}
-
-class MobileDualinvestScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Dual Investment')),
-      body: Center(child: Text('Dual Investment Screen')),
-    );
-  }
-}
-
-class MobileSmartarbitScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Smart Arbitrage')),
-      body: Center(child: Text('Smart Arbitrage Screen')),
-    );
-  }
-}
-
-class MobileOnchainScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('On-Chain Yields')),
-      body: Center(child: Text('On-Chain Yields Screen')),
     );
   }
 }

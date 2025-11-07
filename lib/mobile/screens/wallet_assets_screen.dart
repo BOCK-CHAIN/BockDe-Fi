@@ -142,20 +142,7 @@ class WalletAssetsScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: 4,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Markets'),
-          BottomNavigationBarItem(icon: Icon(Icons.swap_horiz), label: 'Trade'),
-          BottomNavigationBarItem(icon: Icon(Icons.explore_outlined), label: 'Discover'),
-          BottomNavigationBarItem(icon: Icon(Icons.account_balance_wallet), label: 'Assets'),
-        ],
-      ),
-    );
+     );
   }
 
   Widget _buildActionButton(BuildContext context, {required IconData icon, required String label, required VoidCallback onTap}) {
