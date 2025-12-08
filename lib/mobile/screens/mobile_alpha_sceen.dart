@@ -43,7 +43,7 @@ class _MobileAlphaScreenState extends State<MobileAlphaScreen>
     CoinData(
       name: 'ASTER',
       symbol: 'ASTER',
-      logo: '🔥',
+      logo: 'A',
       price: 0.69733,
       change24h: 10.44,
       volume: 50.76,
@@ -53,7 +53,7 @@ class _MobileAlphaScreenState extends State<MobileAlphaScreen>
     CoinData(
       name: 'JOJO',
       symbol: 'JOJO',
-      logo: '🔥',
+      logo: 'J',
       price: 0.11877,
       change24h: 74.71,
       volume: 22.87,
@@ -63,7 +63,7 @@ class _MobileAlphaScreenState extends State<MobileAlphaScreen>
     CoinData(
       name: 'AOP',
       symbol: 'AOP',
-      logo: '🔥',
+      logo: 'A',
       price: 0.052182,
       change24h: 51.85,
       volume: 14.32,
@@ -73,7 +73,7 @@ class _MobileAlphaScreenState extends State<MobileAlphaScreen>
     CoinData(
       name: 'DL',
       symbol: 'DL',
-      logo: '🔥',
+      logo: 'DS',
       price: 0.010592,
       change24h: -44.34,
       volume: 11.39,
@@ -233,10 +233,6 @@ class _MobileAlphaScreenState extends State<MobileAlphaScreen>
                           color: Colors.black,
                         ),
                       ),
-                      if (coin.logo.isNotEmpty) ...[
-                        SizedBox(width: 4),
-                        Text('🔥', style: TextStyle(fontSize: 12)),
-                      ],
                     ],
                   ),
                   Text(
@@ -367,7 +363,7 @@ class _MobileAlphaScreenState extends State<MobileAlphaScreen>
             child: Row(
               children: [
                 Text(
-                  'Name ↕ / Vol ↕',
+                  'Name  / Vol ',
                   style: TextStyle(
                     color: const Color.fromARGB(255, 58, 58, 58),
                     fontSize: 12,
@@ -376,7 +372,7 @@ class _MobileAlphaScreenState extends State<MobileAlphaScreen>
                 ),
                 Spacer(),
                 Text(
-                  'Last Price ↕',
+                  'Last Price ',
                   style: TextStyle(
                     color: const Color.fromARGB(255, 41, 41, 41),
                     fontSize: 12,
@@ -385,7 +381,7 @@ class _MobileAlphaScreenState extends State<MobileAlphaScreen>
                 ),
                 SizedBox(width: 60),
                 Text(
-                  '24h Chg% ↕',
+                  '24h Chg% ',
                   style: TextStyle(
                     color: const Color.fromARGB(255, 48, 48, 48),
                     fontSize: 12,

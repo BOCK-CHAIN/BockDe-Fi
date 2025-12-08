@@ -126,7 +126,7 @@ class _WalletDiscoverScreenState extends State<WalletDiscoverScreen>
             participants: '181.2K+',
             deadline: '2025-10-11 04:29',
             reward: '\$300,000 USDG',
-            icon: '🥚',
+            icon: '',
           ),
 
           _buildAirdropCard(
@@ -134,7 +134,7 @@ class _WalletDiscoverScreenState extends State<WalletDiscoverScreen>
             participants: '273.7K+',
             deadline: '2025-11-11 04:29',
             reward: '5.2M SPK',
-            icon: '🔵',
+            icon: '',
           ),
 
           _buildAirdropCard(
@@ -142,7 +142,7 @@ class _WalletDiscoverScreenState extends State<WalletDiscoverScreen>
             participants: '143.6K+',
             deadline: '2025-10-04 05:29',
             reward: '\$1,400,000 SEI',
-            icon: '🔴',
+            icon: '',
           ),
         ],
       ),
@@ -169,25 +169,25 @@ class _WalletDiscoverScreenState extends State<WalletDiscoverScreen>
             title: "River's Exclusive TGE",
             endDate: 'Ended on 2025-09-22',
             totalSale: 'Total Sale 2,100,000 RIVER',
-            icon: '💧',
+            icon: '',
           ),
           _buildTGECard(
             title: "JoJoWorld's Exclusive TGE",
             endDate: 'Ended on 2025-09-19',
             totalSale: 'Total Sale 16,000,000 JOJO',
-            icon: '🌍',
+            icon: '',
           ),
           _buildTGECard(
             title: "Starpower's Exclusive TGE",
             endDate: 'Ended on 2025-09-06',
             totalSale: 'Total Sale 12,500,000 STAR',
-            icon: '⭐',
+            icon: '',
           ),
           _buildTGECard(
             title: "Hyperbot's Exclusive TGE",
             endDate: 'Ended on 2025-09-03',
             totalSale: 'Total Sale 20,000,000 BOT',
-            icon: '🤖',
+            icon: '',
           ),
         ],
       ),
@@ -214,25 +214,25 @@ class _WalletDiscoverScreenState extends State<WalletDiscoverScreen>
             title: 'Codatta Booster Program Season 3 Week 4',
             timeLeft: 'Ends in 00h : 09m : 54s',
             reward: '50,000,000 XNY',
-            icon: '⚫',
+            icon: '',
           ),
           _buildBoosterCard(
             title: 'Pieverse Booster Program Phase 2',
             timeLeft: 'Ends in 3d : 02h : 09m',
             reward: '7,500,000 PIEVERSE',
-            icon: '🥧',
+            icon: '',
           ),
           _buildBoosterCard(
             title: 'Reveel Booster Program Phase 4',
             timeLeft: 'Ends in 3d : 09h : 09m',
             reward: '5,000,000 REVA',
-            icon: '🟢',
+            icon: '',
           ),
           _buildBoosterCard(
             title: 'BAS Booster Program Season 3 Week 2',
             timeLeft: 'Ends in 4d : 00h : 09m',
             reward: '8,000,000 BAS',
-            icon: '🔴',
+            icon: '',
           ),
         ],
       ),
@@ -266,17 +266,17 @@ class _WalletDiscoverScreenState extends State<WalletDiscoverScreen>
           _buildDAppItem(
             name: 'ASTER Airdrop Checker',
             description: 'The next-gen Perp DEX Built for Everyone',
-            icon: '⭐',
+            icon: 'A',
           ),
           _buildDAppItem(
             name: 'PancakeSwap V3',
             description: 'Decentralized exchange on BNB Smart Chain',
-            icon: '🥞',
+            icon: 'P',
           ),
           _buildDAppItem(
             name: 'Four.meme',
             description: 'The premier meme fair launch platform',
-            icon: '👋',
+            icon: 'F',
           ),
 
           // Earn Points
@@ -284,17 +284,17 @@ class _WalletDiscoverScreenState extends State<WalletDiscoverScreen>
           _buildDAppItem(
             name: 'EigenLayer',
             description: 'Ethereum staking protocol with re-staking',
-            icon: '🔷',
+            icon: 'E',
           ),
           _buildDAppItem(
             name: 'Ether.fi',
             description: 'Decentralized staking protocol for Ethereum',
-            icon: '💎',
+            icon: 'E',
           ),
           _buildDAppItem(
             name: 'Renzo',
             description: 'Platform for real estate tokenization',
-            icon: '⭕',
+            icon: 'R',
           ),
 
           // BNB Chain Ecosystem
@@ -302,17 +302,17 @@ class _WalletDiscoverScreenState extends State<WalletDiscoverScreen>
           _buildDAppItem(
             name: 'PancakeSwap V3',
             description: 'Decentralized exchange on BNB Smart Chain',
-            icon: '🥞',
+            icon: 'P',
           ),
           _buildDAppItem(
             name: 'Four.meme',
             description: 'The premier meme fair launch platform',
-            icon: '👋',
+            icon: 'F',
           ),
           _buildDAppItem(
             name: 'Aster',
             description: 'The next-gen Perp DEX Built for Everyone',
-            icon: '⭐',
+            icon: 'A',
           ),
 
           // Tools
@@ -320,17 +320,17 @@ class _WalletDiscoverScreenState extends State<WalletDiscoverScreen>
           _buildDAppItem(
             name: 'Revoke.cash',
             description: 'Revoke.cash manages and revokes crypto approvals',
-            icon: '🛡️',
+            icon: 'R',
           ),
           _buildDAppItem(
             name: 'BeraHub',
             description: "Berachain's DEX",
-            icon: '🐻',
+            icon: 'B',
           ),
           _buildDAppItem(
             name: 'Ave.ai',
             description: 'AI-driven cryptocurrency trading and analytics',
-            icon: '🔺',
+            icon: 'A',
           ),
         ],
       ),

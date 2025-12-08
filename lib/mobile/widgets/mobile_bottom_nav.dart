@@ -110,22 +110,15 @@ class MobileBottomNav extends StatelessWidget {
   }
 }*/
 
-import 'package:bockchain/mobile/screens/mobile_assets_screen.dart';
+/*import 'package:bockchain/mobile/screens/mobile_assets_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_futures_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_home_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_market_screen.dart';
-import 'package:bockchain/mobile/screens/mobile_markets_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_trade_screen.dart';
+import 'package:bockchain/mobile/screens/wallet_connect_service.dart';
 import 'package:flutter/material.dart';
 
-// Import your existing screens
-// import 'home/home_content_widget.dart';
-// import 'markets/markets_screen.dart';
-// import 'trade/trade_screen.dart';
-// import 'futures/futures_screen.dart';
-// import 'assets/assets_screen.dart';
-
-class MobileBottomNav extends StatelessWidget {
+class MobileBottomNav extends StatefulWidget {
   final int currentIndex;
   final Function(int) onTap;
 
@@ -135,39 +128,37 @@ class MobileBottomNav extends StatelessWidget {
     required this.onTap,
   }) : super(key: key);
 
-  // NAVIGATION LOGIC CENTRALIZED HERE
-  static List<Widget> getScreens(String username, String email) {
-  
+  @override
+  State<MobileBottomNav> createState() => _MobileBottomNavState();
+}
+
+class _MobileBottomNavState extends State<MobileBottomNav> {
+  final WalletService _walletService = WalletService();
+
+  @override
+  void initState() {
+    super.initState();
+   // _walletService.initWeb3Client();
+  }
+
+  /// SCREENS BASED ON INDEX
+  List<Widget> getScreens(String username, String email) {
     return [
-      MobileHomeScreen(username: username, email: email),     // Index 0 - Home
-      MobileMarketScreen(),         // Index 1 - Markets  
-      MobileTradeScreen(),           // Index 2 - Trade
-      MobileFuturesScreen(),         // Index 3 - Futures
-      MobileAssetsScreen(),          // Index 4 - Assets
+      MobileHomeScreen(username: username, email: email, walletService: _walletService, walletAddress: walletAddress , privateKey:_privateKey ,),
+      MobileMarketScreen(walletService: _walletService,),
+      MobileTradeScreen(),
+      MobileFuturesScreen(walletService: _walletService),
+      MobileAssetsScreen(walletAddress: widget.walletAddress,
+  privateKey: widget.privateKey, walletService:_walletService,),
     ];
   }
 
-  // Navigation helper methods
-  static void navigateToMarkets(Function(int) onTap) {
-    onTap(1);
-  }
-
-  static void navigateToTrade(Function(int) onTap, [dynamic cryptoData]) {
-    // You can pass crypto data to trade screen if needed
-    onTap(2);
-  }
-
-  static void navigateToAssets(Function(int) onTap) {
-    onTap(4);
-  }
-
-  static void navigateToFutures(Function(int) onTap) {
-    onTap(3);
-  }
-
-  static void navigateToHome(Function(int) onTap) {
-    onTap(0);
-  }
+  // Navigation helpers (optional)
+  static void navigateToMarkets(Function(int) onTap) => onTap(1);
+  static void navigateToTrade(Function(int) onTap) => onTap(2);
+  static void navigateToFutures(Function(int) onTap) => onTap(3);
+  static void navigateToAssets(Function(int) onTap) => onTap(4);
+  static void navigateToHome(Function(int) onTap) => onTap(0);
 
   @override
   Widget build(BuildContext context) {
@@ -179,8 +170,8 @@ class MobileBottomNav extends StatelessWidget {
         ),
       ),
       child: BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: onTap,
+        currentIndex: widget.currentIndex,
+        onTap: widget.onTap,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xFF0D0D1A),
         selectedItemColor: Color(0xFFF3BA2F),
@@ -203,12 +194,15 @@ class MobileBottomNav extends StatelessWidget {
             icon: Container(
               padding: EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: currentIndex == 2 ? Color(0xFFF3BA2F) : Colors.grey[700],
+                color: widget.currentIndex == 2
+                    ? Color(0xFFF3BA2F)
+                    : Colors.grey[700],
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
                 Icons.swap_horiz,
-                color: currentIndex == 2 ? Colors.black : Colors.white,
+                color:
+                    widget.currentIndex == 2 ? Colors.black : Colors.white,
                 size: 20,
               ),
             ),
@@ -228,4 +222,4 @@ class MobileBottomNav extends StatelessWidget {
       ),
     );
   }
-}
+}*/

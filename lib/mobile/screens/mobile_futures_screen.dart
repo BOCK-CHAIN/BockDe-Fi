@@ -1,8 +1,17 @@
 import 'dart:async';
+import 'package:bockchain/mobile/screens/mobile_coin_screen.dart';
+import 'package:bockchain/mobile/screens/mobile_options_screem.dart';
+import 'package:bockchain/mobile/screens/mobile_smart_screen.dart';
+import 'package:bockchain/mobile/screens/wallet_connect_service.dart';
 import 'package:flutter/material.dart';
+// Import your actual screen files here
+// import 'package:bockchain/mobile/screens/mobile_coin_m_screen.dart';
+// import 'package:bockchain/mobile/screens/mobile_options_screen.dart';
+// import 'package:bockchain/mobile/screens/mobile_smart_money_screen.dart';
 
 class MobileFuturesScreen extends StatefulWidget {
-  const MobileFuturesScreen({Key? key}) : super(key: key);
+  final WalletService walletService;
+  const MobileFuturesScreen({Key? key, required this.walletService}) : super(key: key);
 
   @override
   State<MobileFuturesScreen> createState() => _MobileFuturesScreenState();
@@ -32,6 +41,8 @@ class _MobileFuturesScreenState extends State<MobileFuturesScreen> with SingleTi
     super.initState();
     _tabController = TabController(length: 4, vsync: this, initialIndex: 0);
     _pageController = PageController(initialPage: 0);
+    
+    // Listen to tab controller changes
     _tabController.addListener(() {
       if (!_tabController.indexIsChanging) {
         _pageController.animateToPage(
@@ -41,6 +52,7 @@ class _MobileFuturesScreenState extends State<MobileFuturesScreen> with SingleTi
         );
       }
     });
+    
     _initializeOrderBook();
     _startPriceUpdates();
   }
@@ -115,9 +127,9 @@ class _MobileFuturesScreenState extends State<MobileFuturesScreen> with SingleTi
                 },
                 children: [
                   _buildUSDMContent(),
-                  const MobileCoinMScreen(),
-                  const MobileOptionsScreen(),
-                  const MobileSmartMoneyScreen(),
+                  MobileCoinScreen(), // Replace with MobileCoinMScreen() when imported
+                  MobileOptionsScreen(), // Replace with MobileOptionsScreen() when imported
+                  MobileSmartScreen(), // Replace with MobileSmartMoneyScreen() when imported
                 ],
               ),
             ),
@@ -843,29 +855,18 @@ class _MobileFuturesScreenState extends State<MobileFuturesScreen> with SingleTi
       ),
     );
   }
-}
 
-class OrderBookEntry {
-  double price;
-  final double amount;
-  OrderBookEntry(this.price, this.amount);
-}
-
-// Placeholder screens - Replace with your actual screens
-class MobileCoinMScreen extends StatelessWidget {
-  const MobileCoinMScreen({Key? key}) : super(key: key);
-  
-  @override
-  Widget build(BuildContext context) {
+  // Placeholder screens - Replace these with your actual screen imports
+  Widget _buildCoinMScreen() {
     return Container(
       color: const Color(0xFFF5F5F7),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.currency_bitcoin, size: 64, color: Color(0xFF7C3AED)),
-            const SizedBox(height: 16),
-            const Text(
+          children: const [
+            Icon(Icons.currency_bitcoin, size: 64, color: Color(0xFF7C3AED)),
+            SizedBox(height: 16),
+            Text(
               'COIN-M Futures',
               style: TextStyle(
                 fontSize: 24,
@@ -873,8 +874,8 @@ class MobileCoinMScreen extends StatelessWidget {
                 color: Color(0xFF111827),
               ),
             ),
-            const SizedBox(height: 8),
-            const Text(
+            SizedBox(height: 8),
+            Text(
               'Swipe to navigate between sections',
               style: TextStyle(
                 fontSize: 14,
@@ -886,22 +887,17 @@ class MobileCoinMScreen extends StatelessWidget {
       ),
     );
   }
-}
 
-class MobileOptionsScreen extends StatelessWidget {
-  const MobileOptionsScreen({Key? key}) : super(key: key);
-  
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildOptionsScreen() {
     return Container(
       color: const Color(0xFFF5F5F7),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.settings, size: 64, color: Color(0xFF7C3AED)),
-            const SizedBox(height: 16),
-            const Text(
+          children: const [
+            Icon(Icons.settings, size: 64, color: Color(0xFF7C3AED)),
+            SizedBox(height: 16),
+            Text(
               'Options Trading',
               style: TextStyle(
                 fontSize: 24,
@@ -909,8 +905,39 @@ class MobileOptionsScreen extends StatelessWidget {
                 color: Color(0xFF111827),
               ),
             ),
-            const SizedBox(height: 8),
-            const Text(
+            SizedBox(height: 8),
+            Text(
+              'Swipe to navigate between sections',
+              style: TextStyle(
+                fontSize: 14,
+                color: Color(0xFF6B7280),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSmartMoneyScreen() {
+    return Container(
+      color: const Color(0xFFF5F5F7),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Icon(Icons.lightbulb, size: 64, color: Color(0xFF7C3AED)),
+            SizedBox(height: 16),
+            Text(
+              'Smart Money',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF111827),
+              ),
+            ),
+            SizedBox(height: 8),
+            Text(
               'Swipe to navigate between sections',
               style: TextStyle(
                 fontSize: 14,
@@ -924,38 +951,8 @@ class MobileOptionsScreen extends StatelessWidget {
   }
 }
 
-class MobileSmartMoneyScreen extends StatelessWidget {
-  const MobileSmartMoneyScreen({Key? key}) : super(key: key);
-  
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xFFF5F5F7),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.lightbulb, size: 64, color: Color(0xFF7C3AED)),
-            const SizedBox(height: 16),
-            const Text(
-              'Smart Money',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF111827),
-              ),
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              'Swipe to navigate between sections',
-              style: TextStyle(
-                fontSize: 14,
-                color: Color(0xFF6B7280),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+class OrderBookEntry {
+  double price;
+  final double amount;
+  OrderBookEntry(this.price, this.amount);
 }

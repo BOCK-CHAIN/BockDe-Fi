@@ -17,7 +17,7 @@ import 'package:bockchain/mobile/screens/mobile_launchpool_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_learnearn_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_loan_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_newlisting_screen.dart';
-import 'package:bockchain/mobile/screens/mobile_options_screem.dart' hide MobileOptionsScreen;
+import 'package:bockchain/mobile/screens/mobile_options_screem.dart';// hide MobileOptionsScreen; //hide MobileOptionsScreen;
 import 'package:bockchain/mobile/screens/mobile_otc_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_p2p_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_referral_screen.dart';
@@ -216,12 +216,12 @@ class MobileServiceScreen extends StatelessWidget {
 
   List<Widget> _buildRecommendItems(BuildContext context) {
     return [
-      _buildServiceItem(Icons.double_arrow_outlined, 'New Listing', () => _navigateToScreen(context,'MobileNewListingScreen')),
+      _buildServiceItem(Icons.list, 'New Listing', () => _navigateToScreen(context,'MobileNewListingPromosScreen')),
       _buildServiceItem(Icons.wallet, 'Simple Earn', () => _navigateToScreen(context,'MobileSimpleEarnScreen')),
-      _buildServiceItem(Icons.wallet_membership_outlined, 'Referral', () => _navigateToScreen(context,'MobileReferralScreen')),
-      _buildServiceItem(Icons.disabled_by_default_outlined, 'Alpha Events', () => _navigateToScreen(context,'MobileAlphaEventsScreen')),
-      _buildServiceItem(Icons.account_balance_outlined, 'P2P', () => _navigateToScreen(context,'MobileP2pScreen')),
-      _buildServiceItem(Icons.launch_outlined, 'Square', () => _navigateToScreen(context,'MobileSquareScreen')),
+      _buildServiceItem(Icons.h_plus_mobiledata_rounded, 'Referral', () => _navigateToScreen(context,'MobileReferralScreen')),
+      _buildServiceItem(Icons.event_seat_outlined, 'Alpha Events', () => _navigateToScreen(context,'MobileAlphaEventsScreen')),
+      _buildServiceItem(Icons.event_seat_outlined, 'P2P', () => _navigateToScreen(context,'MobileP2PScreen')),
+      _buildServiceItem(Icons.square, 'Square', () => _navigateToScreen(context,'MobileSquareScreen')),
     ];
   }
 
@@ -383,9 +383,9 @@ class MobileServiceScreen extends StatelessWidget {
       case 'MobileAlphaScreen':
         screen = MobileAlphaScreen();
         break;
-      case 'MobileFuturesScreen':
-        screen = MobileFuturesScreen();
-        break;
+      /*case 'MobileFuturesScreen':
+        screen = MobileFuturesScreen(walletService: widget.walletService);
+        break;*/
       case 'MobileCopyTradingScreen':
         screen = MobileCopyTradingScreen();
         break;

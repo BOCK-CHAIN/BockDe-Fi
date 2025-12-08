@@ -239,8 +239,8 @@ class _MobileOtcScreenState extends State<MobileOtcScreen>
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.amber.shade100,
-                  foregroundColor: Colors.grey,
+                  backgroundColor: const Color.fromARGB(255, 122, 79, 223),
+                  foregroundColor: const Color.fromARGB(255, 0, 0, 0),
                   padding: EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
@@ -506,8 +506,8 @@ class _MobileOtcScreenState extends State<MobileOtcScreen>
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.amber.shade100,
-                  foregroundColor: Colors.grey,
+                  backgroundColor: const Color.fromARGB(255, 122, 79, 223),
+                  foregroundColor: const Color.fromARGB(255, 0, 0, 0),
                   padding: EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),

@@ -1,59 +1,12 @@
 import 'package:bockchain/mobile/screens/mobile_benefit_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// ignore: depend_on_referenced_packages
-import 'package:supabase_flutter/supabase_flutter.dart';
 
-class MobileAccountInfoScreen extends StatefulWidget {
+class MobileAccountInfoScreen extends StatelessWidget {
   const MobileAccountInfoScreen({Key? key}) : super(key: key);
 
   @override
-  State<MobileAccountInfoScreen> createState() => _MobileAccountInfoScreenState();
-}
-
-class _MobileAccountInfoScreenState extends State<MobileAccountInfoScreen> {
-  final supabase = Supabase.instance.client;
-  Map<String, dynamic>? userProfile;
-  bool isLoading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadUserProfile();
-  }
-
-  Future<void> _loadUserProfile() async {
-    try {
-      final userId = supabase.auth.currentUser?.id;
-      if (userId == null) return;
-
-      final response = await supabase
-          .from('profiles')
-          .select()
-          .eq('id', userId)
-          .single();
-
-      setState(() {
-        userProfile = response;
-        isLoading = false;
-      });
-    } catch (e) {
-      print('Error loading profile: $e');
-      setState(() {
-        isLoading = false;
-      });
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
-    if (isLoading) {
-      return Scaffold(
-        backgroundColor: Colors.white,
-        body: Center(child: CircularProgressIndicator()),
-      );
-    }
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -99,11 +52,10 @@ class _MobileAccountInfoScreenState extends State<MobileAccountInfoScreen> {
                           children: [
                             CircleAvatar(
                               radius: 35,
-                              backgroundColor: Colors.grey.shade300,
-                              child: Icon(
-                                Icons.person,
-                                size: 40,
-                                color: Colors.yellow.shade700,
+                              backgroundColor: Colors.grey.shade800,
+                              child: Text(
+                                '😎',
+                                style: TextStyle(fontSize: 40),
                               ),
                             ),
                             Positioned(
@@ -114,10 +66,11 @@ class _MobileAccountInfoScreenState extends State<MobileAccountInfoScreen> {
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   shape: BoxShape.circle,
+                                  border: Border.all(color: Colors.grey.shade300),
                                 ),
                                 child: Icon(
                                   Icons.edit,
-                                  size: 16,
+                                  size: 14,
                                   color: Colors.grey,
                                 ),
                               ),
@@ -126,17 +79,12 @@ class _MobileAccountInfoScreenState extends State<MobileAccountInfoScreen> {
                         ),
                         SizedBox(width: 16),
                         Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                userProfile?['username'] ?? 'User-4991c',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
+                          child: Text(
+                            'User-4991c',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         Container(
@@ -158,11 +106,7 @@ class _MobileAccountInfoScreenState extends State<MobileAccountInfoScreen> {
                     SizedBox(height: 20),
                     _buildInfoRow('Binance ID (UID)', '', hasIcon: true),
                     SizedBox(height: 12),
-                    _buildInfoRow(
-                      'Reg.Info',
-                      userProfile?['email'] ?? '18@gmail.com',
-                      hasIcon: true,
-                    ),
+                    _buildInfoRow('Reg.Info', '18@gmail.com', hasIcon: true),
                     SizedBox(height: 20),
                     // VIP Upgrade Section
                     Container(
@@ -198,14 +142,15 @@ class _MobileAccountInfoScreenState extends State<MobileAccountInfoScreen> {
                                     Text(
                                       'Benefits',
                                       style: TextStyle(
-                                        color: Colors.amber.shade700,
+                                        color: const Color.fromARGB(255, 122, 79, 223),
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
+                                    SizedBox(width: 4),
                                     Icon(
                                       Icons.arrow_forward_ios,
                                       size: 14,
-                                      color: Colors.amber.shade700,
+                                      color: const Color.fromARGB(255, 122, 79, 223),
                                     ),
                                   ],
                                 ),
@@ -221,10 +166,14 @@ class _MobileAccountInfoScreenState extends State<MobileAccountInfoScreen> {
                             ),
                           ),
                           SizedBox(height: 12),
-                          LinearProgressIndicator(
-                            value: 0.1,
-                            backgroundColor: Colors.grey.shade300,
-                            valueColor: AlwaysStoppedAnimation<Color>(Colors.amber.shade700),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: LinearProgressIndicator(
+                              value: 0.1,
+                              minHeight: 8,
+                              backgroundColor: Colors.grey.shade300,
+                              valueColor: AlwaysStoppedAnimation<Color>(const Color.fromARGB(255, 122, 79, 223)),
+                            ),
                           ),
                         ],
                       ),
@@ -242,7 +191,7 @@ class _MobileAccountInfoScreenState extends State<MobileAccountInfoScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => VerificationCenterScreen(userProfile: userProfile),
+                      builder: (context) => VerificationCenterScreen(),
                     ),
                   );
                 },
@@ -361,9 +310,7 @@ class _MobileAccountInfoScreenState extends State<MobileAccountInfoScreen> {
 
 // Verification Center Screen
 class VerificationCenterScreen extends StatelessWidget {
-  final Map<String, dynamic>? userProfile;
-
-  const VerificationCenterScreen({Key? key, this.userProfile}) : super(key: key);
+  const VerificationCenterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -398,23 +345,22 @@ class VerificationCenterScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 20),
-              // User Avatar
+              // User Avatar with Flag
               Stack(
                 children: [
                   CircleAvatar(
                     radius: 60,
-                    backgroundColor: Colors.grey.shade300,
-                    child: Icon(
-                      Icons.person,
-                      size: 60,
-                      color: Colors.yellow.shade700,
+                    backgroundColor: Colors.grey.shade800,
+                    child: Text(
+                      '😎',
+                      style: TextStyle(fontSize: 80),
                     ),
                   ),
                   Positioned(
                     top: 0,
                     right: 0,
                     child: Container(
-                      padding: EdgeInsets.all(8),
+                      padding: EdgeInsets.all(2),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         shape: BoxShape.circle,
@@ -425,10 +371,13 @@ class VerificationCenterScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      child: Image.network(
-                        'https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png',
-                        width: 20,
-                        height: 20,
+                      child: CircleAvatar(
+                        radius: 18,
+                        backgroundColor: Colors.white,
+                        child: Text(
+                          '🇮🇳',
+                          style: TextStyle(fontSize: 24),
+                        ),
                       ),
                     ),
                   ),
@@ -436,7 +385,7 @@ class VerificationCenterScreen extends StatelessWidget {
               ),
               SizedBox(height: 16),
               Text(
-                userProfile?['username'] ?? 'User-4991c',
+                'User-4991c',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -467,6 +416,7 @@ class VerificationCenterScreen extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.green,
                         fontWeight: FontWeight.w600,
+                        fontSize: 16,
                       ),
                     ),
                   ],
@@ -474,49 +424,45 @@ class VerificationCenterScreen extends StatelessWidget {
               ),
               SizedBox(height: 40),
               // Account Limits
-              _buildSection(
-                'Account Limits',
-                [
-                  _buildLimitRow('Fiat Deposit & Withdrawal Limits', '50K USD Daily'),
-                  _buildLimitRow('Crypto Deposit Limit', 'Unlimited'),
-                  _buildLimitRow('Crypto Withdrawal Limit', '8M USDT Daily'),
-                  _buildLimitRow('P2P Transaction Limits', 'Unlimited'),
-                ],
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Account Limits',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
+              SizedBox(height: 16),
+              _buildLimitRow('Fiat Deposit & Withdrawal Limits', '50K USD Daily'),
+              _buildLimitRow('Crypto Deposit Limit', 'Unlimited'),
+              _buildLimitRow('Crypto Withdrawal Limit', '8M USDT Daily'),
+              _buildLimitRow('P2P Transaction Limits', 'Unlimited'),
               SizedBox(height: 30),
               // Personal Information
-              _buildSection(
-                'Personal information',
-                [
-                  _buildInfoRow('Country of Residence', 'India (भारत)', hasChange: true),
-                  _buildInfoRow('Legal Name', userProfile?['full_name'] ?? 'RUPA SHREE S'),
-                  _buildInfoRow('Date of Birth', ''),
-                  _buildInfoRow('Identification Documents', 'Aadhaar card, GQ**********1R'),
-                  _buildInfoRow('Address', '--, India (भारत)'),
-                  _buildInfoRow('Email Address', userProfile?['email'] ?? 'ru***@gmail.com'),
-                ],
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Personal information',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
+              SizedBox(height: 16),
+              _buildInfoRow('Country of Residence', 'India (भारत)', hasChange: true),
+              _buildInfoRow('Legal Name', 'RUPA SHREE S'),
+              _buildInfoRow('Date of Birth', ''),
+              _buildInfoRow('Identification Documents', 'Aadhaar card, GQ**********1R'),
+              _buildInfoRow('Address', '--, India (भारत)'),
+              _buildInfoRow('Email Address', 'ru***@gmail.com'),
+              SizedBox(height: 20),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  Widget _buildSection(String title, List<Widget> children) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        SizedBox(height: 16),
-        ...children,
-      ],
     );
   }
 
@@ -527,16 +473,21 @@ class VerificationCenterScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
+            flex: 3,
             child: Text(
               label,
               style: TextStyle(fontSize: 14),
             ),
           ),
-          Text(
-            value,
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
+          Expanded(
+            flex: 2,
+            child: Text(
+              value,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              ),
+              textAlign: TextAlign.right,
             ),
           ),
         ],
@@ -552,6 +503,7 @@ class VerificationCenterScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
+            flex: 2,
             child: Text(
               label,
               style: TextStyle(fontSize: 14),
@@ -559,6 +511,7 @@ class VerificationCenterScreen extends StatelessWidget {
           ),
           SizedBox(width: 16),
           Expanded(
+            flex: 2,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -567,7 +520,7 @@ class VerificationCenterScreen extends StatelessWidget {
                     'Change  ',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.amber.shade700,
+                      color: const Color.fromARGB(255, 122, 79, 223),
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -674,14 +627,6 @@ class SecurityScreen extends StatelessWidget {
                 context,
                 icon: Icons.phone_outlined,
                 title: 'Phone Number',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SecurityDetailsScreen(),
-                    ),
-                  );
-                },
               ),
               SizedBox(height: 30),
               Divider(),
@@ -713,144 +658,7 @@ class SecurityScreen extends StatelessWidget {
     String? badge,
     bool isEnabled = false,
     bool isWarning = false,
-    VoidCallback? onTap,
   }) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.grey.shade200),
-        ),
-        child: Row(
-          children: [
-            Icon(icon, size: 24, color: Colors.black87),
-            SizedBox(width: 16),
-            Expanded(
-              child: Row(
-                children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  if (badge != null) ...[
-                    SizedBox(width: 8),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                      decoration: BoxDecoration(
-                        color: Colors.amber.shade50,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Text(
-                        badge,
-                        style: TextStyle(
-                          fontSize: 10,
-                          color: Colors.amber.shade700,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-            ),
-            if (isWarning)
-              Icon(Icons.warning_amber_rounded, color: Colors.grey, size: 24)
-            else if (isEnabled)
-              Icon(Icons.check_circle, color: Colors.green, size: 24)
-            else
-              Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildMenuItem(BuildContext context, String title, {String? trailing}) {
-    return GestureDetector(
-      onTap: () {},
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0),
-        child: Row(
-          children: [
-            Expanded(
-              child: Text(
-                title,
-                style: TextStyle(
-                  fontSize: 16,
-                ),
-              ),
-            ),
-            if (trailing != null)
-              Text(
-                trailing,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey.shade600,
-                ),
-              ),
-            SizedBox(width: 8),
-            Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
-              color: Colors.grey.shade400,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-// Security Details Screen (for scrolled view)
-class SecurityDetailsScreen extends StatelessWidget {
-  const SecurityDetailsScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              _buildSecurityItem(Icons.pin_outlined, 'Pay PIN'),
-              SizedBox(height: 12),
-              _buildSecurityItem(Icons.phone_outlined, 'Phone Number'),
-              SizedBox(height: 30),
-              Divider(),
-              SizedBox(height: 10),
-              _buildMenuItem('Emergency Contact'),
-              _buildMenuItem('Anti-Phishing Code'),
-              _buildMenuItem('Account Activities'),
-              _buildMenuItem('Auto-Lock', trailing: 'Never'),
-              _buildMenuItem('App Authorization'),
-              _buildMenuItem('Account Connections'),
-              _buildMenuItem('2FA Verification Strategy'),
-              _buildMenuItem('Devices'),
-              _buildMenuItem('Manage Account'),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSecurityItem(IconData icon, String title) {
     return Container(
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -863,21 +671,48 @@ class SecurityDetailsScreen extends StatelessWidget {
           Icon(icon, size: 24, color: Colors.black87),
           SizedBox(width: 16),
           Expanded(
-            child: Text(
-              title,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
+            child: Row(
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                if (badge != null) ...[
+                  SizedBox(width: 8),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    decoration: BoxDecoration(
+                      color: Colors.amber.shade50,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      badge,
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: const Color.fromARGB(255, 122, 79, 223),
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
+              ],
             ),
           ),
-          Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),
+          if (isWarning)
+            Icon(Icons.warning_amber_rounded, color: Colors.grey, size: 24)
+          else if (isEnabled)
+            Icon(Icons.check_circle, color: Colors.green, size: 24)
+          else
+            Container(),
         ],
       ),
     );
   }
 
-  Widget _buildMenuItem(String title, {String? trailing}) {
+  Widget _buildMenuItem(BuildContext context, String title, {String? trailing}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Row(
@@ -885,7 +720,9 @@ class SecurityDetailsScreen extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(
+                fontSize: 16,
+              ),
             ),
           ),
           if (trailing != null)

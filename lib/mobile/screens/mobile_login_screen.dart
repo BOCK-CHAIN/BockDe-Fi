@@ -857,13 +857,16 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }*/
 
-import 'package:bockchain/mobile/screens/mobile_home_screen.dart';
+/*import 'package:bockchain/mobile/screens/mobile_home_screen.dart';
+import 'package:bockchain/mobile/screens/wallet_connect_service.dart';
 import 'package:flutter/material.dart';
 import 'package:postgres/postgres.dart';
 
 
 class MobileLoginScreen extends StatefulWidget {
-  const MobileLoginScreen({Key? key}) : super(key: key);
+  final WalletConnectService walletService;
+  
+  const MobileLoginScreen({Key? key, required this.walletService}) : super(key: key);
 
   @override
   State<MobileLoginScreen> createState() => _MobileLoginScreenState();
@@ -994,7 +997,7 @@ class _MobileLoginScreenState extends State<MobileLoginScreen> {
       if (mounted) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const MobileHomeScreen(username: '', email: '',)),
+          MaterialPageRoute(builder: (context) => MobileHomeScreen(username: '', email: '',walletService: widget.walletService)),
         );
       }
     } catch (e) {
@@ -1047,7 +1050,7 @@ class _MobileLoginScreenState extends State<MobileLoginScreen> {
         if (mounted) {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => const MobileHomeScreen(username: '', email: '',)),
+            MaterialPageRoute(builder: (context) => MobileHomeScreen(username: '', email: '', walletService: widget.walletService)),
           );
         }
       } else {
@@ -1405,7 +1408,7 @@ class _MobileLoginScreenState extends State<MobileLoginScreen> {
     }
     super.dispose();
   }
-}
+}*/
 
 /*import 'package:bockchain/mobile/screens/mobile_home_screen.dart';
 import 'package:flutter/material.dart';
@@ -2203,3 +2206,699 @@ class CryptoData {
     );
   }
 }*/
+
+import 'package:bockchain/mobile/screens/mobile_home_screen.dart';
+import 'package:bockchain/mobile/screens/wallet_connect_service.dart';
+import 'package:flutter/material.dart';
+import 'package:postgres/postgres.dart';
+import 'package:crypto/crypto.dart';
+import 'dart:convert';
+
+class MobileLoginScreen extends StatefulWidget {
+  final WalletService walletService;
+  
+  const MobileLoginScreen({Key? key, required this.walletService}) : super(key: key);
+
+  @override
+  State<MobileLoginScreen> createState() => _MobileLoginScreenState();
+}
+
+class _MobileLoginScreenState extends State<MobileLoginScreen> {
+  bool isLogin = true;
+  bool isPasswordVisible = false;
+  bool isLoading = false;
+  List<String> debugLogs = [];
+  bool showDebugPanel = false;
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController loginIdentifierController = TextEditingController();
+
+  final WalletService _walletService = WalletService();
+
+  void addDebugLog(String message) {
+    setState(() {
+      debugLogs.add('${DateTime.now().toString().substring(11, 19)} - $message');
+      if (debugLogs.length > 50) {
+        debugLogs.removeAt(0);
+      }
+    });
+    print(message);
+  }
+
+  String hashPassword(String password) {
+    var bytes = utf8.encode(password);
+    var digest = sha256.convert(bytes);
+    return digest.toString();
+  }
+
+  Future<Connection?> getConnection() async {
+    try {
+      addDebugLog('🔄 Connecting to database...');
+      final connection = await Connection.open(
+        Endpoint(
+          host: 'ep-fancy-truth-a1h9tfj0-pooler.ap-southeast-1.aws.neon.tech',
+          database: 'neondb',
+          username: 'neondb_owner',
+          password: 'npg_JTC25lYjPyBt',
+          port: 5432,
+        ),
+        settings: const ConnectionSettings(
+          sslMode: SslMode.require,
+          connectTimeout: Duration(seconds: 30),
+        ),
+      );
+      addDebugLog('✅ Database connected!');
+      return connection;
+    } catch (e) {
+      addDebugLog('❌ Connection failed: $e');
+      return null;
+    }
+  }
+
+  Future<void> testDatabaseConnection() async {
+    setState(() => debugLogs.clear());
+    addDebugLog('=== DATABASE TEST START ===');
+    
+    final connection = await getConnection();
+    
+    if (connection == null) {
+      addDebugLog('❌ Cannot connect');
+      showSnackBar('Connection failed - check debug logs');
+      return;
+    }
+
+    try {
+      addDebugLog('Testing query...');
+      final result = await connection.execute('SELECT NOW()');
+      addDebugLog('✅ Query works! Time: ${result.first[0]}');
+      
+      addDebugLog('Checking users table...');
+      final tableCheck = await connection.execute(
+        "SELECT EXISTS (SELECT FROM information_schema.tables WHERE table_name = 'users')"
+      );
+      final exists = tableCheck.first[0];
+      addDebugLog('Users table exists: $exists');
+      
+      if (exists == true) {
+        final structure = await connection.execute(
+          "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'users'"
+        );
+        addDebugLog('Table columns:');
+        for (var row in structure) {
+          addDebugLog('  - ${row[0]}: ${row[1]}');
+        }
+        
+        final count = await connection.execute('SELECT COUNT(*) FROM users');
+        addDebugLog('Total users: ${count.first[0]}');
+      }
+      
+      await connection.close();
+      addDebugLog('=== TEST COMPLETE ===');
+      showSnackBar('Test complete! Check debug panel');
+    } catch (e) {
+      addDebugLog('❌ Query error: $e');
+      await connection.close();
+      showSnackBar('Query failed - check debug logs');
+    }
+  }
+
+  Future<void> handleSignUp() async {
+    final email = emailController.text.trim();
+    final username = usernameController.text.trim();
+    final password = passwordController.text.trim();
+
+    addDebugLog('=== SIGNUP START ===');
+    addDebugLog('Email: $email');
+    addDebugLog('Username: $username');
+    addDebugLog('Password length: ${password.length}');
+
+    if (email.isEmpty || username.isEmpty || password.isEmpty) {
+      showSnackBar('Please fill all fields');
+      return;
+    }
+
+    setState(() => isLoading = true);
+
+    Connection? connection;
+    try {
+      // Generate wallet
+      addDebugLog('🔑 Generating wallet...');
+      final walletData = await _walletService.generateWallet();
+      addDebugLog('✅ Wallet generated: ${walletData['address']}');
+      
+      connection = await getConnection();
+      
+      if (connection == null) {
+        addDebugLog('❌ No connection');
+        showSnackBar('Cannot connect to database');
+        setState(() => isLoading = false);
+        return;
+      }
+      
+      addDebugLog('Checking existing user...');
+      final existingUser = await connection.execute(
+        Sql.named(
+          'SELECT * FROM users WHERE email = @email OR username = @username',
+        ),
+        parameters: {
+          'email': email,
+          'username': username,
+        },
+      );
+
+      addDebugLog('Found ${existingUser.length} existing users');
+
+      if (existingUser.isNotEmpty) {
+        showSnackBar('Email or username already exists');
+        addDebugLog('❌ User already exists');
+        setState(() => isLoading = false);
+        await connection.close();
+        return;
+      }
+
+      addDebugLog('Inserting user...');
+      final hashedPassword = hashPassword(password);
+      addDebugLog('Password hashed: ${hashedPassword.substring(0, 10)}...');
+      
+      // Insert user with wallet info
+      final insertResult = await connection.execute(
+        Sql.named(
+          'INSERT INTO users (email, username, password, wallet_address, private_key, mnemonic) VALUES (@email, @username, @password, @wallet_address, @private_key, @mnemonic)',
+        ),
+        parameters: {
+          'email': email,
+          'username': username,
+          'password': hashedPassword,
+          'wallet_address': walletData['address'],
+          'private_key': walletData['privateKey'],
+          'mnemonic': walletData['mnemonic'],
+        },
+      );
+
+      addDebugLog('✅ Insert OK! Rows: ${insertResult.affectedRows}');
+      await connection.close();
+      
+      showSnackBar('Account created with wallet!');
+      setState(() => isLoading = false);
+      addDebugLog('=== SIGNUP COMPLETE ===');
+      
+      if (mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MobileHomeScreen(
+              username: username,
+              email: email,
+              walletService: widget.walletService,
+              walletAddress: walletData['address']!,
+              privateKey: walletData['privateKey']!,
+            )
+          ),
+        );
+      }
+    } catch (e) {
+      addDebugLog('❌ Signup error: $e');
+      showSnackBar('Signup failed - check debug');
+      setState(() => isLoading = false);
+      if (connection != null) {
+        await connection.close();
+      }
+    }
+  }
+
+  Future<void> handleLogin() async {
+    final identifier = loginIdentifierController.text.trim();
+    final password = passwordController.text.trim();
+
+    addDebugLog('=== LOGIN START ===');
+    addDebugLog('Identifier: $identifier');
+    addDebugLog('Password length: ${password.length}');
+
+    if (identifier.isEmpty || password.isEmpty) {
+      showSnackBar('Please fill all fields');
+      return;
+    }
+
+    setState(() => isLoading = true);
+
+    Connection? connection;
+    try {
+      connection = await getConnection();
+      
+      if (connection == null) {
+        addDebugLog('❌ No connection');
+        showSnackBar('Cannot connect to database');
+        setState(() => isLoading = false);
+        return;
+      }
+      
+      addDebugLog('Querying user...');
+      final hashedPassword = hashPassword(password);
+      addDebugLog('Password hashed: ${hashedPassword.substring(0, 10)}...');
+      
+      final result = await connection.execute(
+        Sql.named(
+          'SELECT email, username, wallet_address, private_key FROM users WHERE (email = @identifier OR username = @identifier) AND password = @password',
+        ),
+        parameters: {
+          'identifier': identifier,
+          'password': hashedPassword,
+        },
+      );
+
+      addDebugLog('Found ${result.length} matching users');
+
+      await connection.close();
+
+      if (result.isNotEmpty) {
+        final row = result.first;
+        final email = row[0] as String;
+        final username = row[1] as String;
+        final walletAddress = row[2] as String;
+        final privateKey = row[3] as String;
+        
+        addDebugLog('✅ Login success!');
+        addDebugLog('Email: $email');
+        addDebugLog('Username: $username');
+        addDebugLog('Wallet: ${walletAddress.substring(0, 10)}...');
+        
+        showSnackBar('Login successful!');
+        setState(() => isLoading = false);
+        addDebugLog('=== LOGIN COMPLETE ===');
+        
+        if (mounted) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MobileHomeScreen(
+                username: username,
+                email: email,
+                walletService: widget.walletService,
+                walletAddress: walletAddress,
+                privateKey: privateKey,
+              )
+            ),
+          );
+        }
+      } else {
+        addDebugLog('❌ No matching user found');
+        showSnackBar('Invalid credentials');
+        setState(() => isLoading = false);
+      }
+    } catch (e) {
+      addDebugLog('❌ Login error: $e');
+      showSnackBar('Login failed - check debug');
+      setState(() => isLoading = false);
+      if (connection != null) {
+        await connection.close();
+      }
+    }
+  }
+
+  void showSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: const Color.fromARGB(255, 122, 79, 223),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+  }
+
+  void clearFields() {
+    emailController.clear();
+    usernameController.clear();
+    passwordController.clear();
+    loginIdentifierController.clear();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 40),
+                    Center(
+                      child: Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 122, 79, 223),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const Icon(
+                          Icons.currency_bitcoin,
+                          size: 40,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton.icon(
+                          onPressed: testDatabaseConnection,
+                          icon: const Icon(Icons.wifi_find, size: 16),
+                          label: const Text('Test DB'),
+                          style: TextButton.styleFrom(
+                            foregroundColor: Colors.grey[600],
+                            textStyle: const TextStyle(fontSize: 12),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        TextButton.icon(
+                          onPressed: () {
+                            setState(() => showDebugPanel = !showDebugPanel);
+                          },
+                          icon: Icon(
+                            showDebugPanel ? Icons.visibility_off : Icons.visibility,
+                            size: 16,
+                          ),
+                          label: Text(showDebugPanel ? 'Hide Logs' : 'Show Logs'),
+                          style: TextButton.styleFrom(
+                            foregroundColor: Colors.grey[600],
+                            textStyle: const TextStyle(fontSize: 12),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFF5F5F5),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  isLogin = true;
+                                  clearFields();
+                                });
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(vertical: 14),
+                                decoration: BoxDecoration(
+                                  color: isLogin
+                                      ? const Color.fromARGB(255, 122, 79, 223)
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Text(
+                                  'Log In',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: isLogin
+                                        ? Colors.white
+                                        : const Color(0xFF6B7280),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  isLogin = false;
+                                  clearFields();
+                                });
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(vertical: 14),
+                                decoration: BoxDecoration(
+                                  color: !isLogin
+                                      ? const Color.fromARGB(255, 122, 79, 223)
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Text(
+                                  'Sign Up',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: !isLogin
+                                        ? Colors.white
+                                        : const Color(0xFF6B7280),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 32),
+                    if (isLogin) ...[
+                      _buildTextField(
+                        controller: loginIdentifierController,
+                        hint: 'Email or Username',
+                        icon: Icons.person_outline,
+                      ),
+                      const SizedBox(height: 16),
+                      _buildTextField(
+                        controller: passwordController,
+                        hint: 'Password',
+                        icon: Icons.lock_outline,
+                        isPassword: true,
+                      ),
+                      const SizedBox(height: 12),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            'Forgot Password?',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 122, 79, 223),
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ] else ...[
+                      _buildTextField(
+                        controller: emailController,
+                        hint: 'Email',
+                        icon: Icons.email_outlined,
+                      ),
+                      const SizedBox(height: 16),
+                      _buildTextField(
+                        controller: usernameController,
+                        hint: 'Username',
+                        icon: Icons.person_outline,
+                      ),
+                      const SizedBox(height: 16),
+                      _buildTextField(
+                        controller: passwordController,
+                        hint: 'Password',
+                        icon: Icons.lock_outline,
+                        isPassword: true,
+                      ),
+                    ],
+                    const SizedBox(height: 32),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 52,
+                      child: ElevatedButton(
+                        onPressed: isLoading
+                            ? null
+                            : () {
+                                if (isLogin) {
+                                  handleLogin();
+                                } else {
+                                  handleSignUp();
+                                }
+                              },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color.fromARGB(255, 122, 79, 223),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          elevation: 0,
+                        ),
+                        child: isLoading
+                            ? const SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  valueColor:
+                                      AlwaysStoppedAnimation(Colors.white),
+                                ),
+                              )
+                            : Text(
+                                isLogin ? 'Log In' : 'Sign Up',
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            if (showDebugPanel)
+              Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                child: Container(
+                  height: 300,
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.95),
+                    borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 122, 79, 223),
+                          borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              'Debug Logs',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                IconButton(
+                                  icon: const Icon(Icons.delete_outline, color: Colors.white),
+                                  onPressed: () => setState(() => debugLogs.clear()),
+                                  padding: EdgeInsets.zero,
+                                  constraints: const BoxConstraints(),
+                                ),
+                                const SizedBox(width: 12),
+                                IconButton(
+                                  icon: const Icon(Icons.close, color: Colors.white),
+                                  onPressed: () => setState(() => showDebugPanel = false),
+                                  padding: EdgeInsets.zero,
+                                  constraints: const BoxConstraints(),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: debugLogs.isEmpty
+                            ? const Center(
+                                child: Text(
+                                  'No logs yet. Click "Test DB" to start.',
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              )
+                            : ListView.builder(
+                                padding: const EdgeInsets.all(8),
+                                itemCount: debugLogs.length,
+                                reverse: true,
+                                itemBuilder: (context, index) {
+                                  final log = debugLogs[debugLogs.length - 1 - index];
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 2),
+                                    child: Text(
+                                      log,
+                                      style: TextStyle(
+                                        color: log.contains('❌')
+                                            ? Colors.red
+                                            : log.contains('✅')
+                                                ? Colors.green
+                                                : log.contains('🔄')
+                                                    ? Colors.orange
+                                                    : Colors.white,
+                                        fontSize: 11,
+                                        fontFamily: 'monospace',
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTextField({
+    required TextEditingController controller,
+    required String hint,
+    required IconData icon,
+    bool isPassword = false,
+  }) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color(0xFFF9FAFB),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: const Color(0xFFE5E7EB)),
+      ),
+      child: TextField(
+        controller: controller,
+        obscureText: isPassword && !isPasswordVisible,
+        style: const TextStyle(color: Color(0xFF111827)),
+        decoration: InputDecoration(
+          hintText: hint,
+          hintStyle: const TextStyle(color: Color(0xFF9CA3AF)),
+          prefixIcon: Icon(icon, color: const Color(0xFF6B7280)),
+          suffixIcon: isPassword
+              ? IconButton(
+                  icon: Icon(
+                    isPasswordVisible
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined,
+                    color: const Color(0xFF6B7280),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      isPasswordVisible = !isPasswordVisible;
+                    });
+                  },
+                )
+              : null,
+          border: InputBorder.none,
+          contentPadding: const EdgeInsets.all(16),
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    usernameController.dispose();
+    passwordController.dispose();
+    loginIdentifierController.dispose();
+    _walletService.dispose();
+    super.dispose();
+  }
+}

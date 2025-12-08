@@ -145,50 +145,6 @@ class _MobileEarnScreenState extends State<MobileEarnScreen> {
                   ],
                 ),
                 SizedBox(height: 20),
-
-                // Sharia Compliant banner
-                Container(
-                  padding: EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.amber[50],
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.amber[200]!),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(Icons.star, color: const Color.fromARGB(255, 122, 79, 223), size: 20),
-                      SizedBox(width: 8),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Subscribe to certified Sharia Compliant Earn products.',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey[800],
-                              ),
-                            ),
-                            SizedBox(height: 4),
-                            Text(
-                              'View more',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: const Color.fromARGB(255, 122, 79, 223),
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.close, color: Colors.grey[600], size: 18),
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 30),
               ],
 
               // Toggle section

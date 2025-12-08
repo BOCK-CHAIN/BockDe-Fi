@@ -1219,6 +1219,7 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
 import 'package:bockchain/mobile/screens/mobile_profile_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_service_screen.dart' as more;
 import 'package:bockchain/mobile/screens/mobile_transaction_screen.dart';
+import 'package:bockchain/mobile/screens/wallet_connect_service.dart';
 import 'package:bockchain/mobile/screens/wallet_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:bockchain/mobile/screens/mobile_assets_screen.dart';
@@ -1229,15 +1230,22 @@ import 'package:bockchain/mobile/screens/mobile_rewards_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_sharia_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_referral_screen.dart' as referral;
 import 'package:bockchain/mobile/screens/mobile_earn_screen.dart' as earn;
+import 'package:bockchain/screens/convert_screen.dart';
 
 class MobileHomeScreen extends StatefulWidget {
+  final WalletService walletService;
   final String username;
   final String email;
+  final String walletAddress;
+  final String privateKey;
 
   const MobileHomeScreen({
     Key? key,
     required this.username,
     required this.email,
+    required this.walletService,
+    required this.walletAddress,
+    required this.privateKey,
   }) : super(key: key);
   
 
@@ -1245,7 +1253,15 @@ class MobileHomeScreen extends StatefulWidget {
   State<MobileHomeScreen> createState() => _MobileHomeScreenState();
 }
 
+
+
 class _MobileHomeScreenState extends State<MobileHomeScreen> {
+  final WalletService _walletService = WalletService();
+  @override
+  void initState() {
+    super.initState();
+    //_walletService.initWeb3Client();
+  }
   int _currentIndex = 0;
 
   void _onTabTapped(int index) {
@@ -1259,13 +1275,14 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
       case 0:
         return _buildHomeContent();
       case 1:
-        return MobileMarketScreen();
+        return MobileMarketScreen(walletService: widget.walletService,);
       case 2:
         return MobileTradeScreen();
       case 3:
-        return MobileFuturesScreen();
+        return MobileFuturesScreen(walletService: widget.walletService,);
       case 4:
-        return MobileAssetsScreen();
+        return MobileAssetsScreen(walletAddress: widget.walletAddress,
+  privateKey: widget.privateKey, walletService: widget.walletService,);
       default:
         return _buildHomeContent();
     }
@@ -1401,30 +1418,7 @@ class _MobileHomeScreenState extends State<MobileHomeScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // APR Section
-          Container(
-            margin: const EdgeInsets.all(16),
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.orange[50],
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.orange[200]!),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.local_fire_department, color: const Color.fromARGB(255, 122, 79, 223)),
-                const SizedBox(width: 8),
-                const Text(
-                  'BFUSD 6.92% APR',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                const Spacer(),
-                const Icon(Icons.search, color: Colors.grey),
-              ],
-            ),
-          ),
-
-          // Onboarding Task
+    // Onboarding Task
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
             padding: const EdgeInsets.all(20),

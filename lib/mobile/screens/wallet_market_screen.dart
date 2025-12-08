@@ -106,7 +106,7 @@ class _MarketsTabState extends State<MarketsTab> with SingleTickerProviderStateM
             children: [
               _buildFeatureCard('Alpha', Colors.grey[200]!),
               const SizedBox(width: 12),
-              _buildFeatureCard('Meme Rush', Colors.grey[200]!, icon: '👋'),
+              _buildFeatureCard('Meme Rush', Colors.grey[200]!),
               const SizedBox(width: 12),
               _buildFeatureCard('Plasma', Colors.grey[200]!, percentage: '+16.01%'),
             ],
@@ -313,7 +313,7 @@ class _CoinListViewState extends State<CoinListView> {
               Expanded(
                 flex: 3,
                 child: Text(
-                  'Vol ⚡ / Market Cap 💎',
+                  'Vol  / Market Cap ',
                   style: TextStyle(
                     color: Colors.grey[600],
                     fontSize: 12,
@@ -324,7 +324,7 @@ class _CoinListViewState extends State<CoinListView> {
               Expanded(
                 flex: 2,
                 child: Text(
-                  'Last Price 💎 / Change 💎',
+                  'Last Price  / Change ',
                   style: TextStyle(
                     color: Colors.grey[600],
                     fontSize: 12,

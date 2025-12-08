@@ -151,7 +151,7 @@ class _MobileBenefitScreenState extends State<MobileBenefitScreen>
                 decoration: BoxDecoration(
                   color: Colors.amber[50],
                   borderRadius: BorderRadius.circular(4),
-                  border: Border.all(color: Colors.amber[200]!),
+                  border: Border.all(color: const Color.fromARGB(255, 122, 79, 223)!),
                 ),
                 child: const Text(
                   'Regular',

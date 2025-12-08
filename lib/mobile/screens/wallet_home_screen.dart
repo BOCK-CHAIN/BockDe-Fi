@@ -1,12 +1,15 @@
 import 'package:bockchain/mobile/screens/mobile_home_screen.dart';
 import 'package:bockchain/mobile/screens/wallet_assets_screen.dart';
+import 'package:bockchain/mobile/screens/wallet_connect_service.dart';
 import 'package:bockchain/mobile/screens/wallet_discover_screen.dart';
 import 'package:bockchain/mobile/screens/wallet_market_screen.dart';
 import 'package:bockchain/mobile/screens/wallet_trade_screen.dart';
 import 'package:flutter/material.dart';
 
 class WalletHomeScreen extends StatefulWidget {
-  const WalletHomeScreen({Key? key}) : super(key: key);
+  final WalletService? walletService;
+
+  const WalletHomeScreen({Key? key, this.walletService}) : super(key: key);
 
   @override
   State<WalletHomeScreen> createState() => _WalletHomeScreenState();
@@ -238,12 +241,10 @@ class WalletMainContent extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushReplacement(
+                            /*Navigator.pushReplacement(
                               context,
-                              MaterialPageRoute(
-                                builder: (context) => const MobileHomeScreen(username: '', email: '',),
-                              ),
-                            );
+                              MaterialPageRoute(builder: (context) => MobileHomeScreen(username: '', email: '',walletService: widget.walletService)),
+                            );*/
                           },
                           child: Container(
                             padding: EdgeInsets.symmetric(

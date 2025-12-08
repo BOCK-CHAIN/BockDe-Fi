@@ -32,9 +32,10 @@ dependencies:
     sdk: flutter
   postgres: ^3.0.0
   crypto: ^3.0.3
-  http: ^1.1.0 
+  http: ^1.1.2
   qr_flutter: ^4.1.0
   qr_code_scanner: ^1.0.1
+  share_plus: ^7.2.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -42,6 +43,12 @@ dependencies:
   provider: ^6.1.1
   google_fonts: ^6.1.0 
   supabase_flutter: ^2.10.3
+  web3dart: ^2.7.3
+  bip39: ^1.0.6
+  ed25519_hd_key: ^2.2.0
+  hex: ^0.2.0
+  url_launcher: ^6.2.1
+  js: ^0.6.7
 dev_dependencies:
   flutter_test:
     sdk: flutter

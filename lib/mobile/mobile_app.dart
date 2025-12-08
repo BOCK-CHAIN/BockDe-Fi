@@ -1,13 +1,12 @@
 // main.dart
 import 'package:bockchain/mobile/screens/datbase_service.dart';
 import 'package:bockchain/mobile/screens/mobile_login_screen.dart';
+import 'package:bockchain/mobile/screens/wallet_connect_service.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  // Ensure Flutter is initialized
   WidgetsFlutterBinding.ensureInitialized();
-  
-  // Initialize database connection and create tables
+
   try {
     print('🔄 Connecting to Neon database...');
     await DatabaseService.initializeTables();
@@ -19,8 +18,29 @@ void main() async {
   runApp(const MobileApp());
 }
 
-class MobileApp extends StatelessWidget {
+class MobileApp extends StatefulWidget {
   const MobileApp({Key? key}) : super(key: key);
+
+  @override
+  State<MobileApp> createState() => _MobileAppState();
+}
+
+class _MobileAppState extends State<MobileApp> {
+  late WalletService _walletService;
+
+  @override
+  void initState() {
+    super.initState();
+    // Create ONE wallet service instance for the entire app
+    _walletService = WalletService();
+    //_walletService.initWeb3Client();
+  }
+
+  @override
+  void dispose() {
+    _walletService.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +51,13 @@ class MobileApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
-      home: const MobileLoginScreen(),
+      // Pass wallet service through route
+      home: MobileLoginScreen(walletService: _walletService),
+      // OR if you navigate after login, pass it in the navigator
+      onGenerateRoute: (settings) {
+        // You can handle routes here and pass wallet service
+        return null;
+      },
     );
   }
 }

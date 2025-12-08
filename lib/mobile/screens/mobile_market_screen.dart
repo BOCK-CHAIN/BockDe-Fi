@@ -2,11 +2,15 @@ import 'package:bockchain/mobile/screens/mobile_alpha_sceen.dart';
 import 'package:bockchain/mobile/screens/mobile_data_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_grow_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_square_screen.dart';
+import 'package:bockchain/mobile/screens/wallet_connect_service.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:math';
 
 class MobileMarketScreen extends StatefulWidget {
+  final WalletService walletService;
+  const MobileMarketScreen({Key? key, required this.walletService}) : super(key: key);
+  
   @override
   _MobileMarketScreenState createState() => _MobileMarketScreenState();
 }
@@ -124,7 +128,7 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
     if (_currentPage == 4) return 'COIN-M';
     if (_currentPage == 5) return 'Options';
     if (_currentPage >= 8 && _currentPage <= 12) {
-      return ['Square Sub 1', 'Square Sub 2', 'Square Sub 3', 'Square Sub 4', 'Square Sub 5'][_currentPage - 8];
+      return ['Square DiscoverTab', 'Square FollowingTabState', 'Square NewsTab', 'Square AcademyTab', 'Square MomentsTab'][_currentPage - 8];
     }
     return '';
   }
@@ -222,15 +226,15 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      _buildSubTab('Sub Tab 1', 8),
+                      _buildSubTab('Dicover', 8),
                       SizedBox(width: 20),
-                      _buildSubTab('Sub Tab 2', 9),
+                      _buildSubTab('Following', 9),
                       SizedBox(width: 20),
-                      _buildSubTab('Sub Tab 3', 10),
+                      _buildSubTab('News', 10),
                       SizedBox(width: 20),
-                      _buildSubTab('Sub Tab 4', 11),
+                      _buildSubTab('Academy', 11),
                       SizedBox(width: 20),
-                      _buildSubTab('Sub Tab 5', 12),
+                      _buildSubTab('Moments', 12),
                     ],
                   ),
                 ),
@@ -263,11 +267,11 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
                   MobileGrowScreen(),
                   
                   // 8-12: Square sub-tabs
-                  _buildSquareSubTab('Square Sub Tab 1'),
-                  _buildSquareSubTab('Square Sub Tab 2'),
-                  _buildSquareSubTab('Square Sub Tab 3'),
-                  _buildSquareSubTab('Square Sub Tab 4'),
-                  _buildSquareSubTab('Square Sub Tab 5'),
+                  _buildSquareSubTab('Square DiscoverTab'),
+                  _buildSquareSubTab('Square FollowingTabState'),
+                  _buildSquareSubTab('Square NewsTab'),
+                  _buildSquareSubTab('Square AcademyTab'),
+                  _buildSquareSubTab('Square MomentsTab'),
                   
                   // 13: Data
                   MobileDataScreen(),

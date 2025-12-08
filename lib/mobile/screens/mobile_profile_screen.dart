@@ -140,62 +140,41 @@ class MobileProfileScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  _buildShortcutItem(
-                    context,
-                    icon: Icons.shopping_bag_outlined,
-                    label: 'Buy crypto',
-                    onTap: () => Navigator.push(
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    _buildShortcutItem(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const MobileBuyScreen(),
+                      icon: Icons.shopping_bag_outlined,
+                      label: 'Buy crypto',
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MobileBuyScreen(),
+                        ),
                       ),
                     ),
-                  ),
-                  _buildShortcutItem(
-                    context,
-                    icon: Icons.account_balance_wallet_outlined,
-                    label: 'Earn',
-                    onTap: () => Navigator.push(
+                    const SizedBox(width: 16),
+                    _buildShortcutItem(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => MobileEarnScreen(),
+                      icon: Icons.account_balance_wallet_outlined,
+                      label: 'Earn',
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MobileEarnScreen(),
+                        ),
                       ),
                     ),
-                  ),
-                  /*_buildShortcutItem(
-                    context,
-                    icon: Icons.compare_arrows,
-                    label: 'Convert',
-                    onTap: () => Navigator.push(
+                    const SizedBox(width: 16),
+                    _buildShortcutItem(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const MobileConvertScreen(),
-                      ),
+                      icon: Icons.edit_outlined,
+                      label: 'Edit',
+                      onTap: () {},
                     ),
-                  ),
-                  _buildShortcutItem(
-                    context,
-                    icon: Icons.refresh,
-                    label: 'Convert Recurring',
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const MobileConvertRecurringScreen(),
-                      ),
-                    ),
-                  ),*/
-                ],
-              ),
-              const SizedBox(height: 16),
-              Center(
-                child: _buildShortcutItem(
-                  context,
-                  icon: Icons.edit_outlined,
-                  label: 'Edit',
-                  onTap: () {},
+                  ],
                 ),
               ),
               const SizedBox(height: 32),
@@ -209,84 +188,83 @@ class MobileProfileScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  _buildRecommendItem(
-                    context,
-                    icon: Icons.local_offer_outlined,
-                    label: 'New Listing\nPromos',
-                    onTap: () => Navigator.push(
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    _buildRecommendItem(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const MobileNewListingScreen(),
+                      icon: Icons.local_offer_outlined,
+                      label: 'New Listing\nPromos',
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MobileNewListingScreen(),
+                        ),
                       ),
                     ),
-                  ),
-                  _buildRecommendItem(
-                    context,
-                    icon: Icons.monetization_on_outlined,
-                    label: 'Simple Earn',
-                    onTap: () => Navigator.push(
+                    const SizedBox(width: 16),
+                    _buildRecommendItem(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const MobileSimpleEarnScreen(),
+                      icon: Icons.monetization_on_outlined,
+                      label: 'Simple Earn',
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MobileSimpleEarnScreen(),
+                        ),
                       ),
                     ),
-                  ),
-                  _buildRecommendItem(
-                    context,
-                    icon: Icons.person_add_outlined,
-                    label: 'Referral',
-                    onTap: () => Navigator.push(
+                    const SizedBox(width: 16),
+                    _buildRecommendItem(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const MobileReferralScreen(),
+                      icon: Icons.person_add_outlined,
+                      label: 'Referral',
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MobileReferralScreen(),
+                        ),
                       ),
                     ),
-                  ),
-                  _buildRecommendItem(
-                    context,
-                    icon: Icons.event_outlined,
-                    label: 'Alpha Events',
-                    onTap: () => Navigator.push(
+                    const SizedBox(width: 16),
+                    _buildRecommendItem(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const MobileAlphaEventsScreen(),
+                      icon: Icons.event_outlined,
+                      label: 'Alpha Events',
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MobileAlphaEventsScreen(),
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const SizedBox(width: 32),
-                  _buildRecommendItem(
-                    context,
-                    icon: Icons.people_outline,
-                    label: 'P2P',
-                    onTap: () => Navigator.push(
+                    const SizedBox(width: 16),
+                    _buildRecommendItem(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => MobileP2pScreen(),
+                      icon: Icons.people_outline,
+                      label: 'P2P',
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MobileP2pScreen(),
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(width: 64),
-                  _buildRecommendItem(
-                    context,
-                    icon: Icons.chat_bubble_outline,
-                    label: 'Square',
-                    onTap: () => Navigator.push(
+                    const SizedBox(width: 16),
+                    _buildRecommendItem(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const MobileSquareScreen(),
+                      icon: Icons.chat_bubble_outline,
+                      label: 'Square',
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MobileSquareScreen(),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               const SizedBox(height: 24),
 
@@ -334,7 +312,7 @@ class MobileProfileScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     Image.asset(
-                      'assets/binance_logo.png', // Add your Binance logo asset
+                      'assets/binance_logo.png',
                       height: 30,
                       errorBuilder: (context, error, stackTrace) {
                         return const Icon(Icons.currency_bitcoin, size: 30);
@@ -381,21 +359,21 @@ class MobileProfileScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 60,
-            height: 60,
+            width: 50,
+            height: 50,
             decoration: BoxDecoration(
-              color: Colors.amber[50],
+              color: Colors.grey[300],
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Icon(icon, color: const Color.fromARGB(255, 122, 79, 223), size: 30),
+            child: Icon(icon, color: Colors.grey[700], size: 24),
           ),
           const SizedBox(height: 8),
           SizedBox(
-            width: 80,
+            width: 70,
             child: Text(
               label,
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 12),
+              style: const TextStyle(fontSize: 11),
               maxLines: 2,
             ),
           ),
@@ -416,21 +394,21 @@ class MobileProfileScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 60,
-            height: 60,
+            width: 50,
+            height: 50,
             decoration: BoxDecoration(
-              color: Colors.grey[100],
+              color: Colors.grey[300],
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Icon(icon, color: const Color.fromARGB(255, 122, 79, 223), size: 30),
+            child: Icon(icon, color: Colors.grey[700], size: 24),
           ),
           const SizedBox(height: 8),
           SizedBox(
-            width: 80,
+            width: 70,
             child: Text(
               label,
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 12),
+              style: const TextStyle(fontSize: 11),
               maxLines: 2,
             ),
           ),

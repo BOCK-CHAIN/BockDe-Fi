@@ -48,42 +48,9 @@ class HomeScreen extends StatelessWidget {
       length: 5,
       child: Scaffold(
         backgroundColor: Colors.black,
-        appBar: AppBar(
-        
-          bottom: TabBar(
-            isScrollable: true,
-            labelColor: Colors.black,
-            unselectedLabelColor: Colors.grey,
-            indicatorColor: const Color(0xFF8B5CF6),
-            indicatorWeight: 3,
-            labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-            unselectedLabelStyle: const TextStyle(fontSize: 16),
-            tabs: const [
-              Tab(text: 'Discover'),
-              Tab(text: 'Following'),
-              Tab(text: 'News'),
-              Tab(text: 'Academy'),
-              Tab(text: 'Moments'),
-            ],
-          ),
-        ),
-        body: const TabBarView(
-          children: [
-            DiscoverTab(),
-            FollowingTab(),
-            NewsTab(),
-            AcademyTab(),
-            MomentsTab(),
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: const Color(0xFF8B5CF6),
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Create new post')),
-            );
-          },
-          child: const Icon(Icons.add, color: Colors.white, size: 32),
+        body: SafeArea(
+          child: Column(
+      ),
         ),
       ),
     );
