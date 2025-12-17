@@ -1230,7 +1230,6 @@ import 'package:bockchain/mobile/screens/mobile_rewards_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_sharia_screen.dart';
 import 'package:bockchain/mobile/screens/mobile_referral_screen.dart' as referral;
 import 'package:bockchain/mobile/screens/mobile_earn_screen.dart' as earn;
-import 'package:bockchain/screens/convert_screen.dart';
 
 class MobileHomeScreen extends StatefulWidget {
   final WalletService walletService;
