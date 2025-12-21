@@ -976,26 +976,26 @@ class _MarketScreenState extends State<MarketScreen>
   }
 
   String _formatPrice(double price) {
-    if (price >= 1000) {
-      return '\${(price / 1000).toStringAsFixed(2)}K';
-    } else if (price >= 1) {
-      return '\${price.toStringAsFixed(2)}';
-    } else {
-      return '\${price.toStringAsFixed(4)}';
-    }
+  if (price >= 1) {
+    return '\$${price.toStringAsFixed(2)}';
+  } else {
+    return '\$${price.toStringAsFixed(6)}';
   }
+}
 
-  String _formatVolume(double volume) {
-    if (volume >= 1000000000) {
-      return '\${(volume / 1000000000).toStringAsFixed(1)}B';
-    } else if (volume >= 1000000) {
-      return '\${(volume / 1000000).toStringAsFixed(1)}M';
-    } else if (volume >= 1000) {
-      return '\${(volume / 1000).toStringAsFixed(1)}K';
-    } else {
-      return '\${volume.toStringAsFixed(0)}';
-    }
+  String _formatVolume(double value) {
+  if (value >= 1e12) {
+    return '\$${(value / 1e12).toStringAsFixed(2)}T';
+  } else if (value >= 1e9) {
+    return '\$${(value / 1e9).toStringAsFixed(2)}B';
+  } else if (value >= 1e6) {
+    return '\$${(value / 1e6).toStringAsFixed(2)}M';
+  } else if (value >= 1e3) {
+    return '\$${(value / 1e3).toStringAsFixed(2)}K';
+  } else {
+    return '\$${value.toStringAsFixed(2)}';
   }
+}
 
   Color _getTokenColor(String symbol) {
     final colors = {

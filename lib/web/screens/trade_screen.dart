@@ -37,14 +37,14 @@ class _TradeScreenState extends State<TradeScreen> {
       screen: const P2PTradeScreen(),
       features: ['Peer trading', 'Escrow safety'],
     ),
-    /*TradeOption(
+    TradeOption(
       title: 'Convert',
       icon: Icons.swap_horizontal_circle,
       description: 'Instant crypto conversions',
       primaryColor: const Color(0xFFF59E0B),
       screen: const ConvertScreen(),
       features: ['Instant convert', 'Best rates'],
-    ),*/
+    ),
   ];
 
   @override
