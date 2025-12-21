@@ -59,7 +59,7 @@ class _MobileCustomerServiceScreenState
           const SizedBox(width: 16),
           const Expanded(
             child: Text(
-              'Binance Support',
+              'BOCK De-Fi Support',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
@@ -185,7 +185,7 @@ class _MobileCustomerServiceScreenState
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'Want to learn what Binance Alpha Points are, how to earn them, and how they\'re calculated?',
+                    'Want to learn what BOCK De-Fi Alpha Points are, how to earn them, and how they\'re calculated?',
                     style: TextStyle(
                       fontSize: 14,
                       color: Colors.grey.shade700,
@@ -248,9 +248,9 @@ class _MobileCustomerServiceScreenState
           _buildSuggestionItem(
             'Complete October\'s Challenge to Unlock Your Share of 150,000 NXPC!',
           ),
-          _buildSuggestionItem('Deposit Crypto to Binance'),
+          _buildSuggestionItem('Deposit Crypto to BOCK De-Fi'),
           _buildSuggestionItem(
-            'Crypto deposit from the external platform to Binance not credited',
+            'Crypto deposit from the external platform to BOCK De-Fi not credited',
           ),
           _buildSuggestionItem('APP Settings'),
 
@@ -360,8 +360,8 @@ class _MobileCustomerServiceScreenState
               _buildFAQItem('Futures Trading', false),
               _buildFAQItem('Web3 Wallet', false),
               _buildFAQItem('News / Announcement', false),
-              _buildFAQItem('Binance Earn', false),
-              _buildFAQItem('Binance Pay', false),
+              _buildFAQItem('BOCK De-Fi Earn', false),
+              _buildFAQItem('BOCK De-Fi Pay', false),
               const SizedBox(height: 20),
               _buildBottomButton(
                 icon: Icons.edit_outlined,

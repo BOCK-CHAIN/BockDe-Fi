@@ -1856,7 +1856,7 @@ class _MobileLoginScreenState extends State<MobileLoginScreen> {
                   ),
                   const SizedBox(width: 12),
                   const Text(
-                    'BINANCE',
+                    'BOCK De-Fi',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

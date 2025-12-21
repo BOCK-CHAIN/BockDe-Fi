@@ -17,7 +17,7 @@ class _MobileShariaScreenState extends State<MobileShariaScreen>
   final List<ShariaAsset> _allAssets = [
     ShariaAsset(
       symbol: 'BNB',
-      name: 'Binance Coin',
+      name: 'BOCK De-Fi Coin',
       yield: '0.16% ~ 0.32%',
       color: const Color(0xFFF3BA2F),
       icon: Icons.currency_bitcoin,

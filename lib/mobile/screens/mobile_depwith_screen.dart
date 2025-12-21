@@ -137,7 +137,7 @@ class _MobileDepWithStatusScreenState extends State<MobileDepWithStatusScreen> {
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
-          'binance.com/en/network',
+          'BOCK De-Fi.com/en/network',
           style: TextStyle(
             color: Colors.black,
             fontSize: isSmallScreen ? 14 : 16,
@@ -173,7 +173,7 @@ class _MobileDepWithStatusScreenState extends State<MobileDepWithStatusScreen> {
                   ),
                   SizedBox(height: isSmallScreen ? 8 : 12),
                   Text(
-                    'Check the deposit and withdrawal status of each coin in Binance at real time',
+                    'Check the deposit and withdrawal status of each coin in BOCK De-Fi at real time',
                     style: TextStyle(
                       fontSize: isSmallScreen ? 13 : 15,
                       color: Colors.grey[600],

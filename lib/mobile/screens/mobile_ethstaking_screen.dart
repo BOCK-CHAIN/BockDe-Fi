@@ -264,9 +264,9 @@ class _MobileEthStakingScreenState extends State<MobileEthStakingScreen> {
           
           SizedBox(height: 32),
           
-          // Binance Section
+          // BOCK De-Fi Section
           Text(
-            'Binance covers it all',
+            'BOCK De-Fi covers it all',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,

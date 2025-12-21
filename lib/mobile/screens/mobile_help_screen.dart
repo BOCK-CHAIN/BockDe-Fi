@@ -145,7 +145,7 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Binance Help Center',
+                        'BOCK De-Fi Help Center',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -667,7 +667,7 @@ class ProductFeedbackScreen extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const Text(
-            'Description: As a UAE resident and Binance user, I suggest integrating UAE Pass as an optional login method for Binance UAE (FZE) accounts. UAE Pass is the official national digital identity system provided by the UAE...',
+            'Description: As a UAE resident and BOCK De-Fi user, I suggest integrating UAE Pass as an optional login method for BOCK De-Fi UAE (FZE) accounts. UAE Pass is the official national digital identity system provided by the UAE...',
             style: TextStyle(
               fontSize: 13,
               color: Colors.black87,
@@ -711,7 +711,7 @@ class ProductFeedbackScreen extends StatelessWidget {
                 ),
                 SizedBox(width: 8),
                 Text(
-                  'Binance Product',
+                  'BOCK De-Fi Product',
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,

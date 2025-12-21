@@ -228,7 +228,7 @@ class MobileServiceScreen extends StatelessWidget {
   List<Widget> _buildCommonFunctionItems(BuildContext context) {
     return [
       _buildServiceItem(Icons.double_arrow_outlined, 'Transfer', () => _navigateToScreen(context,'MobileTransferScreen')),
-      _buildServiceItem(Icons.wallet, 'Binance Wallet', () => _navigateToScreen(context,'MobileWalletScreen')),
+      _buildServiceItem(Icons.wallet, 'BOCK De-Fi Wallet', () => _navigateToScreen(context,'MobileWalletScreen')),
       _buildServiceItem(Icons.wallet_membership_outlined, 'Buy Crypto', () => _navigateToScreen(context,'MobileBuyScreen')),
       _buildServiceItem(Icons.disabled_by_default_outlined, 'Disable Account', () => _navigateToScreen(context,'MobileDisableScreen')),
       _buildServiceItem(Icons.account_balance_outlined, 'Account Statement', () => _navigateToScreen(context,'MobileAccountstateScreen')),

@@ -196,7 +196,7 @@ class _MobileAlphaEventsScreenState extends State<MobileAlphaEventsScreen> {
         ),
         const SizedBox(height: 16),
         const Text(
-          'Binance Alpha Points is a scoring system designed to evaluate user activity within the Binance Alpha and Binance Wallet ecosystem which determines your eligibility for campaigns, such as Token Generation Event (TGE) participation and Alpha token airdrops. Binance Alpha Points are calculated daily based on the sum of your assets balance and Alpha token purchase volume on Binance exchange and Binance Wallet (Keyless address). Please note that selling Alpha tokens do not contribute to Alpha Points at the current stage. The Alpha Points are a cumulative sum of daily points combining Balance Points and Volume Point over the past 15 days.',
+          'BOCK De-Fi Alpha Points is a scoring system designed to evaluate user activity within the BOCK De-Fi Alpha and BOCK De-Fi Wallet ecosystem which determines your eligibility for campaigns, such as Token Generation Event (TGE) participation and Alpha token airdrops. BOCK De-Fi Alpha Points are calculated daily based on the sum of your assets balance and Alpha token purchase volume on BOCK De-Fi exchange and BOCK De-Fi Wallet (Keyless address). Please note that selling Alpha tokens do not contribute to Alpha Points at the current stage. The Alpha Points are a cumulative sum of daily points combining Balance Points and Volume Point over the past 15 days.',
           style: TextStyle(
             fontSize: 14,
             color: Colors.black87,
@@ -221,7 +221,7 @@ class _MobileAlphaEventsScreenState extends State<MobileAlphaEventsScreen> {
           'Rule of Balance Points',
           _showBalancePointsRule,
           () => setState(() => _showBalancePointsRule = !_showBalancePointsRule),
-          'Balance Points are calculated based on your daily Alpha token balance in Binance exchange and Binance Wallet (Keyless address). The more Alpha tokens you hold, the higher your Balance Points.',
+          'Balance Points are calculated based on your daily Alpha token balance in BOCK De-Fi exchange and BOCK De-Fi Wallet (Keyless address). The more Alpha tokens you hold, the higher your Balance Points.',
         ),
         
         _buildDropdownSection(
@@ -235,7 +235,7 @@ class _MobileAlphaEventsScreenState extends State<MobileAlphaEventsScreen> {
           'Rule of Task Points',
           _showTaskPointsRule,
           () => setState(() => _showTaskPointsRule = !_showTaskPointsRule),
-          'Task Points are earned by completing specific activities and challenges within the Binance Alpha ecosystem. These tasks may include social media engagement, referrals, and other promotional activities.',
+          'Task Points are earned by completing specific activities and challenges within the BOCK De-Fi Alpha ecosystem. These tasks may include social media engagement, referrals, and other promotional activities.',
         ),
         
         const SizedBox(height: 24),

@@ -29,7 +29,7 @@ class MobileHeader extends StatelessWidget implements PreferredSizeWidget {
           ),
           SizedBox(width: 8),
           Text(
-            'Binance',
+            'BOCK De-Fi',
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,

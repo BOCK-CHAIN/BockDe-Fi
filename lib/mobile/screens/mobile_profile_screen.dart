@@ -302,7 +302,7 @@ class MobileProfileScreen extends StatelessWidget {
               ),
               const SizedBox(height: 32),
 
-              // Binance Lite Card
+              // BOCK De-Fi Lite Card
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -312,7 +312,7 @@ class MobileProfileScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     Image.asset(
-                      'assets/binance_logo.png',
+                      'assets/BOCK De-Fi_logo.png',
                       height: 30,
                       errorBuilder: (context, error, stackTrace) {
                         return const Icon(Icons.currency_bitcoin, size: 30);
@@ -320,7 +320,7 @@ class MobileProfileScreen extends StatelessWidget {
                     ),
                     const SizedBox(width: 12),
                     const Text(
-                      'BINANCE',
+                      'BOCK De-Fi',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,

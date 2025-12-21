@@ -288,27 +288,27 @@ class FAQScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         children: const [
           FAQItem(
-            question: '1. What is Binance On-chain Yields?',
-            answer: 'Binance On-chain Yields is a feature that allows users to earn rewards by participating in various DeFi protocols directly through Binance. Your assets are deployed to secure, audited smart contracts on different blockchain networks, generating yields from lending, staking, and liquidity provision.',
+            question: '1. What is BOCK De-Fi On-chain Yields?',
+            answer: 'BOCK De-Fi On-chain Yields is a feature that allows users to earn rewards by participating in various DeFi protocols directly through BOCK De-Fi. Your assets are deployed to secure, audited smart contracts on different blockchain networks, generating yields from lending, staking, and liquidity provision.',
           ),
           FAQItem(
-            question: '2. What types of rewards are available with Binance On-chain Yields?',
+            question: '2. What types of rewards are available with BOCK De-Fi On-chain Yields?',
             answer: 'Rewards vary depending on the protocol and asset. Common types include lending interest from protocols like Aave, staking rewards from proof-of-stake networks, liquidity mining rewards, and protocol-specific incentives. Rewards are typically paid in the same token you deposit or in the protocol\'s native token.',
           ),
           FAQItem(
-            question: '3. Are Binance On-chain Yields returns guaranteed?',
+            question: '3. Are BOCK De-Fi On-chain Yields returns guaranteed?',
             answer: 'No, returns are not guaranteed. APY rates are estimates based on current market conditions and can fluctuate daily. Actual returns depend on protocol performance, market demand, and network conditions. Past performance does not indicate future results.',
           ),
           FAQItem(
-            question: '4. What are the risks of Binance On-chain Yields?',
+            question: '4. What are the risks of BOCK De-Fi On-chain Yields?',
             answer: 'Risks include smart contract vulnerabilities, market volatility affecting returns, impermanent loss for liquidity provision, protocol-specific risks, blockchain network risks, and the possibility of losing part or all of your principal. Always invest only what you can afford to lose.',
           ),
           FAQItem(
-            question: '5. How to participate in Binance On-chain Yields?',
+            question: '5. How to participate in BOCK De-Fi On-chain Yields?',
             answer: 'To participate: 1) Navigate to the On-chain Yields section, 2) Select a yield product that suits your needs, 3) Choose your lock-up period (if applicable), 4) Enter the amount you wish to subscribe, 5) Review terms and conditions, 6) Confirm your subscription. Assets will be transferred from your Spot Wallet to the on-chain protocol.',
           ),
           FAQItem(
-            question: '6. How are rewards calculated in Binance On-chain Yields?',
+            question: '6. How are rewards calculated in BOCK De-Fi On-chain Yields?',
             answer: 'Rewards are typically calculated based on APR (Annual Percentage Rate) or APY (Annual Percentage Yield). The calculation depends on your subscribed amount, duration, and the protocol\'s performance. Rewards usually accrue daily and are distributed according to the protocol\'s schedule, which may be daily, weekly, or at maturity.',
           ),
           FAQItem(

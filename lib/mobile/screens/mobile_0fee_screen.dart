@@ -70,7 +70,7 @@ class _Mobile0FeeScreenState extends State<Mobile0FeeScreen> {
           ),
           const SizedBox(height: 16),
           const Text(
-            'New to Binance? Buy crypto for 0% fees and make EUR deposits with 0% fees when using your card.',
+            'New to BOCK De-FI? Buy crypto for 0% fees and make EUR deposits with 0% fees when using your card.',
             style: TextStyle(
               color: Color(0xFF8A8E95),
               fontSize: 16,
@@ -343,7 +343,7 @@ class _Mobile0FeeScreenState extends State<Mobile0FeeScreen> {
             ),
           ),
           const SizedBox(height: 12),
-          _buildBulletPoint('New Binance users who register during the campaign period'),
+          _buildBulletPoint('New BOCK De-FI users who register during the campaign period'),
           _buildBulletPoint('Users must complete Level 2 identity verification'),
           _buildBulletPoint('Minimum deposit amount: €10 equivalent'),
           _buildBulletPoint('Valid for EUR card deposits only'),
@@ -420,11 +420,11 @@ class _Mobile0FeeScreenState extends State<Mobile0FeeScreen> {
           ),
           const SizedBox(height: 12),
           const Text(
-            '• This promotion is valid for new Binance users only.\n'
+            '• This promotion is valid for new BOCK De-FI users only.\n'
             '• Users must complete KYC verification to participate.\n'
             '• Zero fees apply to the first €1000 in card deposits.\n'
             '• Spot trading fees waived for the first 30 days.\n'
-            '• Binance reserves the right to modify or cancel this promotion.\n'
+            '• BOCK De-FI reserves the right to modify or cancel this promotion.\n'
             '• Standard terms and conditions apply.\n'
             '• Promotion cannot be combined with other offers.',
             style: TextStyle(

@@ -128,7 +128,7 @@ class ArenaTab extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text(
-          'Binance Futures Arena',
+          'BOCK De-Fi Futures Arena',
           style: TextStyle(
             color: Colors.black,
             fontSize: 18,
@@ -501,7 +501,7 @@ class ArenaTab extends StatelessWidget {
                   const SizedBox(height: 16),
                   
                   Text(
-                    '• All Promotions are only available to users who are eligible for Binance Futures trading and may not be available or may be restricted in certain jurisdictions. Rewards to certain users depending on legal and regulatory requirements.',
+                    '• All Promotions are only available to users who are eligible for BOCK De-Fi Futures trading and may not be available or may be restricted in certain jurisdictions. Rewards to certain users depending on legal and regulatory requirements.',
                     style: TextStyle(
                       fontSize: isTablet ? 14 : 12,
                       color: Colors.grey[600],
@@ -512,7 +512,7 @@ class ArenaTab extends StatelessWidget {
                   const SizedBox(height: 12),
                   
                   Text(
-                    '• Users are responsible for informing themselves about and observing any restrictions and/or requirements imposed with respect to the access to and use of Binance Futures trading services in each country/region from which the services are accessed.',
+                    '• Users are responsible for informing themselves about and observing any restrictions and/or requirements imposed with respect to the access to and use of BOCK De-Fi Futures trading services in each country/region from which the services are accessed.',
                     style: TextStyle(
                       fontSize: isTablet ? 14 : 12,
                       color: Colors.grey[600],
@@ -696,7 +696,7 @@ class _BattlefieldTabState extends State<BattlefieldTab> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text(
-          'Binance Futures Arena',
+          'BOCK De-Fi Futures Arena',
           style: TextStyle(
             color: Colors.black,
             fontSize: 18,
@@ -1057,7 +1057,7 @@ class RankingTab extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text(
-          'Binance Futures Arena',
+          'BOCK De-Fi Futures Arena',
           style: TextStyle(
             color: Colors.black,
             fontSize: 18,
@@ -1542,7 +1542,7 @@ class RegularTasksTab extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text(
-          'Binance Futures Arena',
+          'BOCK De-Fi Futures Arena',
           style: TextStyle(
             color: Colors.black,
             fontSize: 18,

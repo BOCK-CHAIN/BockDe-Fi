@@ -57,7 +57,7 @@ class _MobileLoanScreenState extends State<MobileLoanScreen> {
           onPressed: _showBorrowingScreen ? _navigateBack : () => Navigator.pop(context),
         ),
         title: Text(
-          _showBorrowingScreen ? 'Flexible Rate Loan' : 'Binance Loans',
+          _showBorrowingScreen ? 'Flexible Rate Loan' : 'BOCK De-Fi Loans',
           style: TextStyle(
             color: Colors.black,
             fontSize: 20,
@@ -500,12 +500,12 @@ class _MobileLoanScreenState extends State<MobileLoanScreen> {
                     children: [
                       TextSpan(text: 'By continuing, you have read and agree to '),
                       TextSpan(
-                        text: 'Binance Loan Service Agreement',
+                        text: 'BOCK De-Fi Loan Service Agreement',
                         style: TextStyle(color: const Color.fromARGB(255, 122, 79, 223)),
                       ),
                       TextSpan(text: ' and '),
                       TextSpan(
-                        text: 'Binance Simple Earn Service Agreement',
+                        text: 'BOCK De-Fi Simple Earn Service Agreement',
                         style: TextStyle(color: const Color.fromARGB(255, 122, 79, 223)),
                       ),
                       TextSpan(text: '.'),

@@ -1286,7 +1286,7 @@ class _USDTSubscribeDialogState extends State<USDTSubscribeDialog> {
                                 style: TextStyle(color: Colors.black, fontSize: 14),
                               ),
                               TextSpan(
-                                text: 'Binance Simple Earn Service Agreement',
+                                text: 'BOCK De-Fi Simple Earn Service Agreement',
                                 style: TextStyle(
                                   color: const Color.fromARGB(255, 122, 79, 223),
                                   fontSize: 14,

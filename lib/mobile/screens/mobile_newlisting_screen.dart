@@ -15,7 +15,7 @@ class MobileNewListingScreen extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
-          'New Listings on Binance | AI...',
+          'New Listings on BOCK De-Fi | AI...',
           style: TextStyle(
             color: Colors.white,
             fontSize: 16,
@@ -72,7 +72,7 @@ class MobileNewListingScreen extends StatelessWidget {
                 const Color(0xFF2A2A2A),
                 const Color(0xFF1A1A1A),
               ],
-              description: 'Trade \$BARD on Binance Spot & Futures to Grab a Share of the Prize Pool!',
+              description: 'Trade \$BARD on BOCK De-Fi Spot & Futures to Grab a Share of the Prize Pool!',
               promotionPeriod: '2025-09-24 10:00 (UTC) to 2025-10-08 10:00 (UTC)',
             ),
             const SizedBox(height: 16),
@@ -145,7 +145,7 @@ class MobileNewListingScreen extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // Binance Card Design
+          // BOCK De-Fi Card Design
           Container(
             width: 120,
             height: 80,
@@ -208,7 +208,7 @@ class MobileNewListingScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            'Explore the latest token listings and promotions, exclusively on Binance.',
+            'Explore the latest token listings and promotions, exclusively on BOCK De-Fi.',
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white.withOpacity(0.8),

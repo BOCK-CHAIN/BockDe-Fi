@@ -13,7 +13,7 @@ class _MobileLearnEarnScreenState extends State<MobileLearnEarnScreen> {
   final List<Course> courses = [
     Course(
       title: 'Bitcoin Basics',
-      description: 'Take your first step into Bitcoin and own a piece of the world\'s first scarce digital asset — for new Binance users only.',
+      description: 'Take your first step into Bitcoin and own a piece of the world\'s first scarce digital asset — for new BOCK De-Fi users only.',
       status: CourseStatus.ongoing,
       isRedeemed: true,
       imageAsset: 'assets/bitcoin_basics.png',
@@ -21,18 +21,18 @@ class _MobileLearnEarnScreenState extends State<MobileLearnEarnScreen> {
     ),
     Course(
       title: 'Welcome to Crypto',
-      description: 'This guide introduces you to a few critical concepts you need to kick-start your crypto journey on Binance. You may have a chance to earn crypto rewar...',
+      description: 'This guide introduces you to a few critical concepts you need to kick-start your crypto journey on BOCK De-Fi. You may have a chance to earn crypto rewar...',
       status: CourseStatus.ended,
       isRedeemed: false,
       imageAsset: 'assets/welcome_crypto.png',
       hasVideo: true,
     ),
     Course(
-      title: 'A Beginner\'s Guide to Binance Trading',
-      description: 'Learn the fundamentals of trading on Binance with this comprehensive beginner\'s guide.',
+      title: 'A Beginner\'s Guide to BOCK De-Fi Trading',
+      description: 'Learn the fundamentals of trading on BOCK De-Fi with this comprehensive beginner\'s guide.',
       status: CourseStatus.ended,
       isRedeemed: false,
-      imageAsset: 'assets/binance_trading.png',
+      imageAsset: 'assets/BOCK De-Fi_trading.png',
       hasVideo: true,
     ),
   ];
@@ -75,7 +75,7 @@ class _MobileLearnEarnScreenState extends State<MobileLearnEarnScreen> {
               color: Colors.white,
               child: Column(
                 children: [
-                  // Binance Academy Logo
+                  // BOCK De-Fi Academy Logo
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: isTablet ? 32.0 : 16.0,
@@ -98,7 +98,7 @@ class _MobileLearnEarnScreenState extends State<MobileLearnEarnScreen> {
                         ),
                         const SizedBox(width: 12),
                         const Text(
-                          'BINANCE',
+                          'BOCK De-Fi',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,

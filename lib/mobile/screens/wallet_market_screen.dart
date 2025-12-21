@@ -1112,7 +1112,7 @@ class SentimentView extends StatelessWidget {
           '09-30 17:04:55',
           'Positive',
           'Hype Growth 112.50%',
-          'OpenEden EDEN Launch, Binance HODLer Airdrop, KuCoin Listing',
+          'OpenEden EDEN Launch, BOCK De-Fi HODLer Airdrop, KuCoin Listing',
           false,
         ),
       ],

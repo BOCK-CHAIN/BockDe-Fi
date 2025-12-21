@@ -310,7 +310,7 @@ class _MobileRWUSDScreenState extends State<MobileRWUSDScreen> {
             ),
             const SizedBox(height: 20),
             const Text(
-              'RWUSD is the representation of your subscribed assets and any accrued rewards valued in USDC, and is not a stablecoin or right to any RWAs. The value of RWUSD is pegged 1:1 to the stablecoin you subscribe with. Upon redemption, your RWUSD is redeemed to USDC. The APR is determined at Binance\'s discretion and is funded by',
+              'RWUSD is the representation of your subscribed assets and any accrued rewards valued in USDC, and is not a stablecoin or right to any RWAs. The value of RWUSD is pegged 1:1 to the stablecoin you subscribe with. Upon redemption, your RWUSD is redeemed to USDC. The APR is determined at BOCK De-Fi\'s discretion and is funded by',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black,
@@ -344,7 +344,7 @@ class _MobileRWUSDScreenState extends State<MobileRWUSDScreen> {
             // Advantage Items
             _buildAdvantage(
               'Supported by Real-World Assets',
-              'The yield is supported by income generated from Binance\'s ecosystem and real-world assets such as tokenized US Treasury Bills, enhancing product sustainability.',
+              'The yield is supported by income generated from BOCK De-Fi\'s ecosystem and real-world assets such as tokenized US Treasury Bills, enhancing product sustainability.',
             ),
             const SizedBox(height: 25),
             _buildAdvantage(
@@ -359,7 +359,7 @@ class _MobileRWUSDScreenState extends State<MobileRWUSDScreen> {
             const SizedBox(height: 25),
             _buildAdvantage(
               'Collateral for VIP Loans',
-              'RWUSD can be used as collateral for VIP loans on Binance, providing additional financial flexibility and borrowing power while earning yields.',
+              'RWUSD can be used as collateral for VIP loans on BOCK De-Fi, providing additional financial flexibility and borrowing power while earning yields.',
             ),
             const SizedBox(height: 40),
             

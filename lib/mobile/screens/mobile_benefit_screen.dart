@@ -1012,7 +1012,7 @@ class _MobileBenefitScreenState extends State<MobileBenefitScreen>
             const SizedBox(height: 20),
             _buildP2PCoinCard(
               coinName: 'BNB',
-              coinFullName: 'Binance Coin',
+              coinFullName: 'BOCK De-Fi Coin',
               iconColor: const Color.fromRGBO(255, 193, 7, 1),
               iconData: Icons.currency_bitcoin,
               tradeZone: 'Express',
@@ -2236,7 +2236,7 @@ Widget _buildEURPromoContent() {
                         height: 1.4,
                       ),
                       children: const [
-                        TextSpan(text: '• Binance Launches '),
+                        TextSpan(text: '• BOCK De-Fi Launches '),
                         TextSpan(
                           text: 'Zero Fee Promotion on EUR/USDC and EUR/USDT Trading Pairs',
                           style: TextStyle(
@@ -2245,7 +2245,7 @@ Widget _buildEURPromoContent() {
                           ),
                         ),
                         TextSpan(text: ' for VIP 2 - 9 users and Spot Liquidity Providers.\n\n'),
-                        TextSpan(text: '• Binance Introduces '),
+                        TextSpan(text: '• BOCK De-Fi Introduces '),
                         TextSpan(
                           text: 'Taker Fee Promotion',
                           style: TextStyle(
@@ -2256,7 +2256,7 @@ Widget _buildEURPromoContent() {
                         TextSpan(
                           text: ' for EUR Spot and Margin Trading Pairs. Please note that the promotion excludes ongoing Zero Fee pairs.\n\n',
                         ),
-                        TextSpan(text: '• Binance updates '),
+                        TextSpan(text: '• BOCK De-Fi updates '),
                         TextSpan(
                           text: 'EUR Fiat Liquidity Provider Program',
                           style: TextStyle(
@@ -2383,7 +2383,7 @@ Widget _buildUSDCPromoContent() {
                         height: 1.4,
                       ),
                       children: const [
-                        TextSpan(text: '• Binance Introduces '),
+                        TextSpan(text: '• BOCK De-Fi Introduces '),
                         TextSpan(
                           text: 'Taker Fee Promotion for USDC Spot and Margin Trading Pairs',
                           style: TextStyle(
@@ -2395,7 +2395,7 @@ Widget _buildUSDCPromoContent() {
                           text: '. Please note that the promotional taker fees are only applicable to the trading pairs found in the list below.\n\n',
                         ),
                         TextSpan(
-                          text: '• Binance Launches Zero Fee Promotion on BNB/USDC, ADA/USDC, TRX/USDC, XRP/USDC and LINK/USDC Trading Pairs for VIP 2 - 9 Users and Spot Liquidity Providers. ',
+                          text: '• BOCK De-Fi Launches Zero Fee Promotion on BNB/USDC, ADA/USDC, TRX/USDC, XRP/USDC and LINK/USDC Trading Pairs for VIP 2 - 9 Users and Spot Liquidity Providers. ',
                         ),
                         TextSpan(
                           text: 'Learn More',

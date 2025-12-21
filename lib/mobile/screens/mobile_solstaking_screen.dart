@@ -189,9 +189,9 @@ class _MobileSolStakingScreenState extends State<MobileSolStakingScreen> {
           
           const SizedBox(height: 32),
           
-          // Binance covers section
+          // BOCK De-Fi covers section
           const Text(
-            'Binance covers it all',
+            'BOCK De-Fi covers it all',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -228,7 +228,7 @@ class _MobileSolStakingScreenState extends State<MobileSolStakingScreen> {
           const SizedBox(height: 20),
           
           const Text(
-            'bnSOL unlocks your staked Solana (SOL) liquidity, it accumulates SOL staking rewards by growing in value in relation to SOL, even when it is used in Binance products or DeFi projects.',
+            'bnSOL unlocks your staked Solana (SOL) liquidity, it accumulates SOL staking rewards by growing in value in relation to SOL, even when it is used in BOCK De-Fi products or DeFi projects.',
             style: TextStyle(
               fontSize: 16,
               color: Colors.black87,
@@ -265,7 +265,7 @@ class _MobileSolStakingScreenState extends State<MobileSolStakingScreen> {
           
           _buildUtilityCard(
             Icons.account_balance,
-            'Binance Loans',
+            'BOCK De-Fi Loans',
             'Use as collateral to borrow crypto',
             const Color.fromARGB(255, 122, 79, 223),
           ),

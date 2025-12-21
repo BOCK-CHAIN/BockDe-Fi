@@ -93,39 +93,12 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }*/
-import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
-import 'web/web_app.dart';
 import 'mobile/mobile_app.dart';
 
 void main() {
-  runApp(MyApp());
+  runMobileApp();
 }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Binance Trading Platform',
-      theme: ThemeData(
-        primarySwatch: Colors.amber,
-        scaffoldBackgroundColor: Color(0xFF0B0E11),
-        fontFamily: 'Inter',
-      ),
-      debugShowCheckedModeBanner: false,
-      home: _getAppVersion(),
-    );
-  }
-
-  Widget _getAppVersion() {
-  
-    if (kIsWeb) {
-      return WebApp();
-    } else {
-      return MobileApp();
-    }
-  }
-}
 /*import 'package:flutter/material.dart';  THE MAIN MAIN
 import 'package:google_fonts/google_fonts.dart';
 // ignore: depend_on_referenced_packages
