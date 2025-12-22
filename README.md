@@ -1,16 +1,57 @@
-# bockchain
+📂 Branch Structure
 
-A new Flutter project.
+| Branch | Description |
+|------|------------|
+| `main` | Contains both Web & App source code |
+| `web` | Contains only Web version |
+| `app` | Contains only Android App version |
 
-## Getting Started
+ 🔧 Prerequisites
 
-This project is a starting point for a Flutter application.
+Make sure you have:
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter SDK (stable)
+- Dart (comes with Flutter)
+- Chrome browser (for web)
+- Android Studio / Emulator (for app)
+- Git
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Check installation:
+```bash
+flutter doctor
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Step 1:git clone https://github.com/BOCK-CHAIN/BockDe-Fi.git
+cd BockDe-Fi
+
+Step 2: Ensure you are on main branch:
+git checkout main
+
+Step 3: Install Dependencies
+flutter pub get
+
+Step 4: Run Web Version (Localhost)
+flutter run -d chrome
+This will start the app on:
+http://localhost:xxxx
+
+Run on Android Emulator
+
+Step 1:Open Android Studio
+
+Step 2:Start an Android Emulator
+
+Step 3:Run:
+flutter run
+
+Build Android APK
+flutter build apk --release
+
+APK will be generated at:
+
+build/app/outputs/flutter-apk/app-release.apk
+
+Install APK on Physical Mobile
+Method 1: USB Transfer
+Copy app-release.apk to your phone
+Enable Install from Unknown Sources
+Tap APK → Install
