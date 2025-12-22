@@ -1,16 +1,26 @@
-# bockchain
+# BockDe-Fi (Web Version) 🌐
 
-A new Flutter project.
+This branch contains **only the Web version** of BockDe-Fi built using Flutter Web.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📥 Clone & Switch Branch
 
-A few resources to get you started if this is your first Flutter project:
+git clone https://github.com/BOCK-CHAIN/BockDe-Fi.git
+cd BockDe-Fi
+git checkout web
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+📦 Install Dependencies
+flutter pub get
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+▶️ Run Web Locally
+
+flutter run -d chrome
+App will run on:
+http://localhost:xxxx
+
+🏗️ Build Web Production Files
+
+flutter build web
+Output directory:
+build/web
