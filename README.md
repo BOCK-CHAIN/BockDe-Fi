@@ -1,16 +1,25 @@
-# bockchain
+# BockDe-Fi (Android App) 📱
 
-A new Flutter project.
+This branch contains **only the Android App version** of BockDe-Fi.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📥 Clone & Switch Branch
+git clone https://github.com/BOCK-CHAIN/BockDe-Fi.git
+cd BockDe-Fi
+git checkout app
 
-A few resources to get you started if this is your first Flutter project:
+📦 Install Dependencies
+flutter pub get
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+▶️ Run on Android Emulator
+Ensure emulator is running, then:
+flutter run
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+📦 Build Release APK
+flutter build apk --release
+APK location:
+build/app/outputs/flutter-apk/app-release.apk
+
+📲 Install on Physical Device
+adb install build/app/outputs/flutter-apk/app-release.apk
