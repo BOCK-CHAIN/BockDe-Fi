@@ -17,7 +17,6 @@ Make sure you have:
 - Git
 
 Check installation:
-```bash
 flutter doctor
 
 Step 1:git clone https://github.com/BOCK-CHAIN/BockDe-Fi.git
