@@ -221,7 +221,7 @@ class MobileServiceScreen extends StatelessWidget {
       _buildServiceItem(Icons.h_plus_mobiledata_rounded, 'Referral', () => _navigateToScreen(context,'MobileReferralScreen')),
       _buildServiceItem(Icons.event_seat_outlined, 'Alpha Events', () => _navigateToScreen(context,'MobileAlphaEventsScreen')),
       _buildServiceItem(Icons.event_seat_outlined, 'P2P', () => _navigateToScreen(context,'MobileP2PScreen')),
-      _buildServiceItem(Icons.square, 'Square', () => _navigateToScreen(context,'MobileSquareScreen')),
+      //_buildServiceItem(Icons.square, 'Square', () => _navigateToScreen(context,'MobileSquareScreen')),
     ];
   }
 
@@ -254,7 +254,7 @@ class MobileServiceScreen extends StatelessWidget {
     return [
       _buildServiceItem(Icons.circle_outlined, 'Spot', () => _navigateToScreen(context,'MobileSpotScreen')),
       _buildServiceItem(Icons.add_circle_outlined, 'Alpha', () => _navigateToScreen(context,'MobileAlphaScreen')),
-      _buildServiceItem(Icons.list, 'Futures', () => _navigateToScreen(context,'MobileFuturesScreen')),
+      //_buildServiceItem(Icons.list, 'Futures', () => _navigateToScreen(context,'MobileFuturesScreen')),
       _buildServiceItem(Icons.copy, 'Copy Trading', () => _navigateToScreen(context,'MobileCopyTradingScreen')),
       _buildServiceItem(Icons.camera, 'OTC', () => _navigateToScreen(context,'MobileOTCScreen')),
       _buildServiceItem(Icons.people, 'P2P', () => _navigateToScreen(context,'MobileP2PScreen')),
@@ -270,7 +270,7 @@ class MobileServiceScreen extends StatelessWidget {
       _buildServiceItem(Icons.account_balance, 'Yield Arena', () => _navigateToScreen(context,'MobileYieldArenaScreen')),
       _buildServiceItem(Icons.discount, 'Discount Buy', () => _navigateToScreen(context,'MobileDiscountBuyScreen')),
       _buildServiceItem(Icons.circle, 'RWUSD', () => _navigateToScreen(context,'MobileRWUSDScreen')),
-      _buildServiceItem(Icons.circle, 'BFUSD', () => _navigateToScreen(context,'MobileBFUSDScreen')),
+      //_buildServiceItem(Icons.circle, 'BFUSD', () => _navigateToScreen(context,'MobileBFUSDScreen')),
       _buildServiceItem(Icons.trending_up, 'Soft Staking', () => _navigateToScreen(context,'MobileSoftStakingScreen')),
       _buildServiceItem(Icons.monetization_on, 'Simple Earn', () => _navigateToScreen(context,'MobileSimpleEarnScreen')),
       _buildServiceItem(Icons.account_balance_wallet, 'ETH Staking', () => _navigateToScreen(context,'MobileETHStakingScreen')),
@@ -287,7 +287,7 @@ class MobileServiceScreen extends StatelessWidget {
 
   List<Widget> _buildInformationItems(BuildContext context) {
     return [
-      _buildServiceItem(Icons.square_outlined, 'Square', () => _navigateToScreen(context,'MobileSquareScreen')),
+      //_buildServiceItem(Icons.square_outlined, 'Square', () => _navigateToScreen(context,'MobileSquareScreen')),
       _buildServiceItem(Icons.description, 'Deposit &\nWithdrawal St...', () => _navigateToScreen(context,'MobileDepositWithdrawalScreen')),
     ];
   }

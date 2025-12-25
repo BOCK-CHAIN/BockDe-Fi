@@ -2567,7 +2567,7 @@ class _MobileLoginScreenState extends State<MobileLoginScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextButton.icon(
+                        /*TextButton.icon(
                           onPressed: testDatabaseConnection,
                           icon: const Icon(Icons.wifi_find, size: 16),
                           label: const Text('Test DB'),
@@ -2575,9 +2575,9 @@ class _MobileLoginScreenState extends State<MobileLoginScreen> {
                             foregroundColor: Colors.grey[600],
                             textStyle: const TextStyle(fontSize: 12),
                           ),
-                        ),
+                        ),*/
                         const SizedBox(width: 8),
-                        TextButton.icon(
+                        /*TextButton.icon(
                           onPressed: () {
                             setState(() => showDebugPanel = !showDebugPanel);
                           },
@@ -2590,7 +2590,7 @@ class _MobileLoginScreenState extends State<MobileLoginScreen> {
                             foregroundColor: Colors.grey[600],
                             textStyle: const TextStyle(fontSize: 12),
                           ),
-                        ),
+                        ),*/
                       ],
                     ),
                     const SizedBox(height: 20),

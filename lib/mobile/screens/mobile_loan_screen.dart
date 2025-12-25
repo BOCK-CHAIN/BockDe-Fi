@@ -92,7 +92,7 @@ class _MobileLoanScreenState extends State<MobileLoanScreen> {
             decoration: BoxDecoration(
               color: Colors.yellow.shade50,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.yellow.shade200),
+              border: Border.all(color: const Color.fromARGB(255, 194, 147, 255)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

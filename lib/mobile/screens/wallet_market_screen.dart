@@ -1681,10 +1681,10 @@ class _LeaderboardTabState extends State<LeaderboardTab> {
                           style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(width: 4),
-                        const Text(
+                        /*const Text(
                           '🇨🇦',
                           style: TextStyle(fontSize: 16),
-                        ),
+                        ),*/
                         const SizedBox(width: 4),
                         const Icon(Icons.copy, size: 14, color: Colors.grey),
                       ],
