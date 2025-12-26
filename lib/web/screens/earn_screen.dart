@@ -807,14 +807,14 @@ class _EarnScreenState extends State<EarnScreen> with TickerProviderStateMixin {
                                     child: Row(
                                       children: [
                                         SizedBox(width: 48),
-                                        Text(
+                                        /*Text(
                                           '\$${currentPrice.toStringAsFixed(currentPrice < 1 ? 4 : 2)}',
                                           style: TextStyle(
                                             color: Colors.grey[400],
                                             fontSize: 14,
                                             fontWeight: FontWeight.w500,
                                           ),
-                                        ),
+                                        ),*/
                                         Spacer(),
                                         AnimatedRotation(
                                           turns: isExpanded ? 0.5 : 0,

@@ -992,8 +992,8 @@ class _RecurringBuyScreenState extends State<RecurringBuyScreen> {
                 ),
                 _buildBenefitCard(
                   icon: Icons.group_work,
-                  title: 'Easy Access to Binance Ecosystem',
-                  description: 'Get your stash of crypto ready to explore other Binance products such as staking, spot trading, or even buying your first NFT.',
+                  title: 'Easy Access to BOCK De-Fi Ecosystem',
+                  description: 'Get your stash of crypto ready to explore other BOCK De-Fi products such as staking, spot trading, or even buying your first NFT.',
                 ),
                 _buildBenefitCard(
                   icon: Icons.favorite,
@@ -1123,7 +1123,7 @@ class _RecurringBuyScreenState extends State<RecurringBuyScreen> {
                         child: _buildStepCard(
                           icon: Icons.credit_card,
                           title: 'Select debit/credit card',
-                          description: 'Log in to your Binance account and tap on the [Credit/Debit Card] option on the app homepage or top header on the website.',
+                          description: 'Log in to your BOCK De-Fi account and tap on the [Credit/Debit Card] option on the app homepage or top header on the website.',
                         ),
                       ),
                       SizedBox(width: 16),
@@ -1179,7 +1179,7 @@ class _RecurringBuyScreenState extends State<RecurringBuyScreen> {
                   _buildStepCard(
                     icon: Icons.credit_card,
                     title: 'Select debit/credit card',
-                    description: 'Log in to your Binance account and tap on the [Credit/Debit Card] option on the app homepage or top header on the website.',
+                    description: 'Log in to your BOCK De-Fi account and tap on the [Credit/Debit Card] option on the app homepage or top header on the website.',
                   ),
                   SizedBox(height: 16),
                   _buildStepCard(

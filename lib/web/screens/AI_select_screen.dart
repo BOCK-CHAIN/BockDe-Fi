@@ -94,20 +94,16 @@ class _AISelectScreenState extends State<AISelectScreen> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          // Top 3 containers section
-          _buildTopContainers(),
-          
-          // Table section
-          Expanded(
-            child: _buildDataTable(),
-          ),
-          
-          // Pagination
-          _buildPagination(),
-        ],
-      ),
+      body: SingleChildScrollView(
+  child: Column(
+    children: [
+      _buildTopContainers(),
+      _buildDataTable(),
+      _buildPagination(),
+    ],
+  ),
+),
+
     );
   }
 
@@ -223,15 +219,15 @@ class _AISelectScreenState extends State<AISelectScreen> {
               ),
               
               // Table Body
-              Expanded(
-                child: ListView.builder(
-                  itemCount: _getPageItems().length,
-                  itemBuilder: (context, index) {
-                    final token = _getPageItems()[index];
-                    return _buildTableRow(token, index);
-                  },
-                ),
-              ),
+              ListView.builder(
+  shrinkWrap: true,
+  physics: NeverScrollableScrollPhysics(),
+  itemCount: _getPageItems().length,
+  itemBuilder: (context, index) {
+    final token = _getPageItems()[index];
+    return _buildTableRow(token, index);
+  },
+),
             ],
           ),
         ),

@@ -844,12 +844,12 @@ class _LoanScreenState extends State<LoanScreen> {
                                     children: const [
                                       TextSpan(text: 'I have read and I agree to '),
                                       TextSpan(
-                                        text: 'Binance Loan Service Agreement',
+                                        text: 'BOCK De-Fi Loan Service Agreement',
                                         style: TextStyle(color: Color.fromARGB(255, 122, 79, 223)),
                                       ),
                                       TextSpan(text: ' and '),
                                       TextSpan(
-                                        text: 'Binance Simple Earn Service Agreement',
+                                        text: 'BOCK De-Fi Simple Earn Service Agreement',
                                         style: TextStyle(color: Color.fromARGB(255, 122, 79, 223)),
                                       ),
                                       TextSpan(text: '.'),

@@ -11,7 +11,7 @@ class WebMainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Binance Trading Platform - Web',
+      title: 'BOCK De-Fi Trading Platform - Web',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.amber,

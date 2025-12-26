@@ -1253,7 +1253,7 @@ class _SimpleEarnScreenState extends State<SimpleEarnScreen> {
                                   ),
                                   children: [
                                     TextSpan(
-                                      text: 'Binance Simple Earn Service Terms & Conditions',
+                                      text: 'BOCK De-Fi Simple Earn Service Terms & Conditions',
                                       style: TextStyle(
                                         color: Color.fromARGB(255, 122, 79, 223),
                                         decoration: TextDecoration.underline,

@@ -182,7 +182,7 @@ class _SquareScreenState extends State<SquareScreen> with TickerProviderStateMix
     final random = Random();
     final cryptos = ['BTC', 'ETH', 'BNB', 'ADA', 'DOT', 'SOL', 'MATIC', 'AVAX'];
     final newsTypes = ['Market Update', 'Analysis', 'Breaking News', 'Opinion', 'Tutorial'];
-    final authors = ['BlockchainBaller', 'BinanceOfficial', 'TraderPro', 'MarketAnalyst', 'CoinGuru'];
+    final authors = ['BlockchainBaller', 'BOCK De-Fi Official', 'TraderPro', 'MarketAnalyst', 'CoinGuru'];
 
     for (int i = 0; i < 20; i++) {
       _newsItems.add(NewsItem(
@@ -234,7 +234,7 @@ class _SquareScreenState extends State<SquareScreen> with TickerProviderStateMix
       'Altcoin Season: Which Coins to Watch',
       'Crypto Regulations: What You Need to Know',
       'Web3 Development: Getting Started Guide',
-      'Binance Smart Chain: Complete Tutorial',
+      'BOCK De-Fi Smart Chain: Complete Tutorial',
       'Yield Farming Strategies for 2024',
       'Layer 2 Solutions: Scaling Ethereum',
     ];
@@ -287,20 +287,20 @@ class _SquareScreenState extends State<SquareScreen> with TickerProviderStateMix
 
   String _generateNewsTitle(String crypto) {
     final titles = [
-      'How I Earn \$20 to \$50 from Binance without investing \$0',
+      'How I Earn \$20 to \$50 from BOCK De-Fi without investing \$0',
       '$crypto Price Analysis: Breaking Through Resistance',
       'Major $crypto Update: New Partnership Announced',
       '$crypto Soars 15% After Major Institutional Investment',
       'Technical Analysis: $crypto Shows Bullish Momentum',
       'Breaking: $crypto Adoption Increases by 300%',
-      'Simple ways to earn free money on Binance',
+      'Simple ways to earn free money on BOCK De-Fi',
     ];
     return titles[Random().nextInt(titles.length)];
   }
 
   String _generateNewsContent() {
     final contents = [
-      'When I first started exploring Binance, I was surprised to learn that it isn\'t just a place to trade crypto it also offers many simple ways to earn free money. Over time, I figured out a few reliable methods that consistently gave me between \$20 and \$50 in extra rewards, all without needing to take big risks. Here\'s exactly how I did it, step by step.\n\n1. Binance Learn & Earn...',
+      'When I first started exploring BOCK De-Fi, I was surprised to learn that it isn\'t just a place to trade crypto it also offers many simple ways to earn free money. Over time, I figured out a few reliable methods that consistently gave me between \$20 and \$50 in extra rewards, all without needing to take big risks. Here\'s exactly how I did it, step by step.\n\n1. BOCK De-Fi Learn & Earn...',
       'The cryptocurrency market is showing strong bullish momentum as institutional investors continue to pour money into digital assets. Key resistance levels are being tested as we approach critical support zones.',
       'Latest technical indicators suggest a potential breakout pattern forming. Traders are closely monitoring key resistance levels and volume indicators for confirmation signals.',
       'In a surprising turn of events, major partnerships are being announced that could reshape the crypto landscape. Industry experts believe this could be the catalyst for the next bull run.',
@@ -497,7 +497,7 @@ class _SquareScreenState extends State<SquareScreen> with TickerProviderStateMix
                       ),
                       const SizedBox(width: 12),
                       const Text(
-                        'BINANCE SQUARE',
+                        'BOCK De-Fi SQUARE',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
@@ -606,7 +606,7 @@ class _SquareScreenState extends State<SquareScreen> with TickerProviderStateMix
             ),
             const SizedBox(width: 12),
             const Text(
-              'BINANCE SQUARE',
+              'BOCK De-Fi SQUARE',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16,
@@ -670,7 +670,7 @@ class _SquareScreenState extends State<SquareScreen> with TickerProviderStateMix
                 ),
                 const SizedBox(width: 12),
                 const Text(
-                  'BINANCE SQUARE',
+                  'BOCK D-Fi SQUARE',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -819,7 +819,7 @@ class _SquareScreenState extends State<SquareScreen> with TickerProviderStateMix
                       ),
                       const SizedBox(height: 8),
                       const Text(
-                        'Crypto Enthusiast | Binance Square User',
+                        'Crypto Enthusiast | BOCK De-Fi Square User',
                         style: TextStyle(
                           color: Color(0xFF848E9C),
                           fontSize: 14,
@@ -1760,7 +1760,7 @@ class _SquareScreenState extends State<SquareScreen> with TickerProviderStateMix
               ),
               const SizedBox(height: 16),
               ...List.generate(5, (index) {
-                final trends = ['#Bitcoin', '#Ethereum', '#DeFi', '#NFT', '#BinanceCoin'];
+                final trends = ['#Bitcoin', '#Ethereum', '#DeFi', '#NFT', '#BOCK De-Fi'];
                 final changes = ['+5.2%', '+3.8%', '-1.2%', '+7.1%', '+2.4%'];
                 final isPositive = !changes[index].startsWith('-');
                 
@@ -2293,7 +2293,7 @@ class BinanceSquareApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Binance Square',
+      title: 'BOCK De-Fi Square',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.orange,

@@ -93,7 +93,7 @@ class _OnChainScreenState extends State<OnChainScreen> {
         title: Row(
           children: [
             Image.asset(
-              'assets/binance_logo.png', // You'll need to add this asset
+              'assets/BOCK De-Fi_logo.png', // You'll need to add this asset
               height: 24,
               width: 24,
               errorBuilder: (context, error, stackTrace) => 
@@ -101,7 +101,7 @@ class _OnChainScreenState extends State<OnChainScreen> {
             ),
             const SizedBox(width: 8),
             Text(
-              'BINANCE',
+              'BOCK De-Fi',
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,

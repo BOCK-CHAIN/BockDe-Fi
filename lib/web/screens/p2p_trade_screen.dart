@@ -23,7 +23,7 @@ class _P2PTradeScreenState extends State<P2PTradeScreen> {
   bool isLoading = false;
   Timer? _refreshTimer;
   
-  // Comprehensive currency list from Binance P2P
+  // Comprehensive currency list from BOCK De-Fi P2P
   final List<String> currencies = [
     'Search', 'INR', 'AED', 'AFN', 'ALL', 'AMD', 'AOA', 'ARS', 'AUD', 'AZN', 'BAM', 'BDT', 'BGN', 'BHD', 'BIF', 'BND', 'BOB', 'BRL', 'BSD', 'BWP', 'BYN', 'BZD', 'CAD', 'CDF', 'CHF', 'CLP', 'CNY', 'COP', 'CRC', 'CVE', 'CZK', 'DJF', 'DKK', 'DOP', 'DZD', 'EGP', 'ERN', 'ETB', 'EUR', 'GBP', 'GEL', 'GHS', 'GMD', 'GNF', 'GTQ', 'HKD', 'HNL', 'HTG', 'HUF', 'IDR', 'IQD', 'ISK', 'JMD', 'JOD', 'JPY', 'KES', 'KGS', 'KHR', 'KMF', 'KWD', 'KYD', 'KZT', 'LAK', 'LBP', 'LKR', 'LRD', 'LYD', 'MAD', 'MDL', 'MGA', 'MKD', 'MMK', 'MNT', 'MOP', 'MRU', 'MWK', 'MXN', 'MZN', 'NAD', 'NIO', 'NOK', 'NPR', 'NZD', 'OMR', 'PAB', 'PEN', 'PGK', 'PHP', 'PKR', 'PLN', 'PYG', 'QAR', 'RON', 'RSD', 'RWF', 'SAR', 'SCR', 'SDG', 'SEK', 'SLE', 'SOS', 'SYP', 'THB', 'TJS', 'TMT', 'TND', 'TRY', 'TTD', 'TWD', 'TZS', 'UAH', 'UGX', 'USD', 'UYU', 'UZS', 'VES', 'VND', 'XAF', 'XOF', 'YER', 'ZAR', 'ZMW', 'ZWG'
   ];
@@ -63,7 +63,7 @@ class _P2PTradeScreenState extends State<P2PTradeScreen> {
       // Simulate real API call delay
       await Future.delayed(const Duration(milliseconds: 300));
       
-      // In production, replace this with actual Binance P2P API call
+      // In production, replace this with actual BOCK De-Fi P2P API call
       final orders = await P2PApiService.fetchP2POrders(
         crypto: selectedCrypto,
         fiat: selectedFiat,
@@ -1394,11 +1394,11 @@ class P2POrder {
 }
 
 class P2PApiService {
-  static const String baseUrl = 'https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search';
+  static const String baseUrl = 'https://p2p.BOCK De-Fi.com/bapi/c2c/v2/friendly/c2c/adv/search';
   
   // Mock data for demonstration - replace with actual API calls
   static final List<String> _mockAdvertisers = [
-    'CryptoKing2024', 'TradeExpert', 'BinancePro', 'CoinMaster', 'FastTrader',
+    'CryptoKing2024', 'TradeExpert', 'BOCK De-FiPro', 'CoinMaster', 'FastTrader',
     'SafeTrader', 'CryptoGuru', 'QuickExchange', 'ReliableTrader', 'CoinExpert'
   ];
   
@@ -1423,7 +1423,7 @@ class P2PApiService {
     required int page,
   }) async {
     try {
-      // Simulate API call with real Binance P2P parameters
+      // Simulate API call with real BOCK De-Fi P2P parameters
       final requestBody = {
         "page": page,
         "rows": 10,
@@ -1545,7 +1545,7 @@ class P2PApiService {
   // Method to get real-time price updates
   static Future<Map<String, double>> getCryptoPrices(List<String> symbols) async {
     try {
-      // In production, use a real crypto price API like CoinGecko or Binance API
+      // In production, use a real crypto price API like CoinGecko or BOCK De-Fi API
       // Example: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=pln
       
       // Mock implementation
@@ -1569,7 +1569,7 @@ class P2PApiService {
   // Method to get payment methods for a specific country/fiat
   static Future<Map<String, List<String>>> getPaymentMethods(String fiat) async {
     try {
-      // In production, fetch this from Binance API
+      // In production, fetch this from BOCK De-Fi API
       await Future.delayed(const Duration(milliseconds: 100));
       
       // Mock data based on fiat currency

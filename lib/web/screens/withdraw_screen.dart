@@ -130,7 +130,7 @@ class WithdrawScreen extends StatelessWidget {
                                   ),
                                   SizedBox(height: 4),
                                   Text(
-                                    'Buy on Binance P2P',
+                                    'Buy on BOCK De-Fi P2P',
                                     style: TextStyle(
                                       color: Color(0xFFB0B0B0),
                                       fontSize: 14,
@@ -193,7 +193,7 @@ class WithdrawScreen extends StatelessWidget {
                         SizedBox(height: 24),
                         _buildFAQItem(
                           '2',
-                          'How do I buy Bitcoin locally on Binance P2P?',
+                          'How do I buy Bitcoin locally on BOCK De-Fi P2P?',
                           Icons.add,
                         ),
                         SizedBox(height: 24),
@@ -214,7 +214,7 @@ class WithdrawScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Why Binance',
+                  'Why BOCK De-Fi',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 32,
