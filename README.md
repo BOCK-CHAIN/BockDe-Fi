@@ -1,9 +1,3 @@
-# BockDe-Fi (Web Version) 🌐
-
-This branch contains **only the Web version** of BockDe-Fi built using Flutter Web.
-
----
-
 ## 📥 Clone & Switch Branch
 
 git clone https://github.com/BOCK-CHAIN/BockDe-Fi.git
