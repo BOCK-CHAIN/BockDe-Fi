@@ -20,7 +20,7 @@ class _MobileSpotColoScreenState extends State<MobileSpotColoScreen> {
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
-          'Binance Spot Colosseum',
+          'BOCK De-Fi Spot Colosseum',
           style: TextStyle(
             color: Colors.white,
             fontSize: 18,
@@ -88,7 +88,7 @@ class _MobileSpotColoScreenState extends State<MobileSpotColoScreen> {
           ),
           const SizedBox(height: 12),
           const Text(
-            'BINANCE SPOT COLOSSEUM',
+            'BOCK De-Fi SPOT COLOSSEUM',
             style: TextStyle(
               color: Colors.white,
               fontSize: 16,
@@ -98,7 +98,7 @@ class _MobileSpotColoScreenState extends State<MobileSpotColoScreen> {
           ),
           const SizedBox(height: 8),
           const Text(
-            'Your ultimate hub for Spot trading campaigns on Binance. Dive in, trade crypto, and win a share of the prize pools.',
+            'Your ultimate hub for Spot trading campaigns on BOCK De-Fi. Dive in, trade crypto, and win a share of the prize pools.',
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Color(0xFF8A8E95),
@@ -271,7 +271,7 @@ class _MobileSpotColoScreenState extends State<MobileSpotColoScreen> {
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: const Text(
-                              'BINANCE',
+                              'BOCK De-Fi',
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 10,

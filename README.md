@@ -1,56 +1,25 @@
-📂 Branch Structure
+# BockDe-Fi (Android App) 📱
 
-| Branch | Description |
-|------|------------|
-| `main` | Contains both Web & App source code |
-| `web` | Contains only Web version |
-| `app` | Contains only Android App version |
+This branch contains **only the Android App version** of BockDe-Fi.
 
- 🔧 Prerequisites
+---
 
-Make sure you have:
-
-- Flutter SDK (stable)
-- Dart (comes with Flutter)
-- Chrome browser (for web)
-- Android Studio / Emulator (for app)
-- Git
-
-Check installation:
-flutter doctor
-
-Step 1:git clone https://github.com/BOCK-CHAIN/BockDe-Fi.git
+## 📥 Clone & Switch Branch
+git clone https://github.com/BOCK-CHAIN/BockDe-Fi.git
 cd BockDe-Fi
+git checkout app
 
-Step 2: Ensure you are on main branch:
-git checkout main
-
-Step 3: Install Dependencies
+📦 Install Dependencies
 flutter pub get
 
-Step 4: Run Web Version (Localhost)
-flutter run -d chrome
-This will start the app on:
-http://localhost:xxxx
-
-Run on Android Emulator
-
-Step 1:Open Android Studio
-
-Step 2:Start an Android Emulator
-
-Step 3:Run:
+▶️ Run on Android Emulator
+Ensure emulator is running, then:
 flutter run
 
-Build Android APK
+📦 Build Release APK
 flutter build apk --release
-
-APK will be generated at:
-
+APK location:
 build/app/outputs/flutter-apk/app-release.apk
 
-Install APK on Physical Mobile
-Method 1: USB Transfer
-Copy app-release.apk to your phone
-Enable Install from Unknown Sources
-Tap APK → Install
+📲 Install on Physical Device
+adb install build/app/outputs/flutter-apk/app-release.apk

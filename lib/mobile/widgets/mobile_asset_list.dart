@@ -18,7 +18,7 @@ class MobileAssetList extends StatelessWidget {
     },
     {
       'symbol': 'BNB',
-      'name': 'Binance Coin',
+      'name': 'BOCK De-Fi Coin',
       'balance': '15.20000000',
       'value': '\$4,800.16',
       'change': '+0.85',

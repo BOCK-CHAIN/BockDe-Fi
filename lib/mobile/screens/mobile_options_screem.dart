@@ -18,7 +18,7 @@ class _MobileOptionsScreenState extends State<MobileOptionsScreen> {
     {'symbol': 'ETH', 'name': 'Ethereum', 'price': 4469.9},
     {'symbol': 'BTC', 'name': 'Bitcoin', 'price': 68500.0},
     {'symbol': 'USDT', 'name': 'Tether', 'price': 1.0},
-    {'symbol': 'BNB', 'name': 'Binance Coin', 'price': 625.4},
+    {'symbol': 'BNB', 'name': 'BOCK De-Fi Coin', 'price': 625.4},
     {'symbol': 'SOL', 'name': 'Solana', 'price': 185.2},
   ];
   

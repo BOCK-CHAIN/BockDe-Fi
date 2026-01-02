@@ -837,7 +837,7 @@ class _CoinSubscribeScreenState extends State<CoinSubscribeScreen> {
                           style: TextStyle(fontSize: 14),
                           children: [
                             TextSpan(
-                              text: 'Binance Simple Earn Service Agreement',
+                              text: 'BOCK De-Fi Simple Earn Service Agreement',
                               style: TextStyle(
                                 color: Color.fromARGB(255, 122, 79, 223),
                                 decoration: TextDecoration.underline,

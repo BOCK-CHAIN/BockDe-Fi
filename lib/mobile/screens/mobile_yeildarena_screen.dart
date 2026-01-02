@@ -31,7 +31,7 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
-          'Binance Earn Yield Arena',
+          'BOCK De-Fi Earn Yield Arena',
           style: TextStyle(
             color: Colors.white,
             fontSize: 18,
@@ -164,7 +164,7 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
         
         // Title and description
         const Text(
-          'Binance Earn - Yield Arena',
+          'BOCK De-Fi Earn - Yield Arena',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -294,7 +294,7 @@ class _MobileYieldArenaScreenState extends State<MobileYieldArenaScreen> {
           const SizedBox(height: 12),
           
           Text(
-            'From 2025-09-22 00:00 (UTC) to 2025-10-21 23:59 (UTC), eligible users who hold a minimum of 0.01 USDc in their Binance account(s) for at least 24 hours can enjoy 12% APR rewards.',
+            'From 2025-09-22 00:00 (UTC) to 2025-10-21 23:59 (UTC), eligible users who hold a minimum of 0.01 USDc in their BOCK De-Fi account(s) for at least 24 hours can enjoy 12% APR rewards.',
             style: TextStyle(
               fontSize: 14,
               color: Colors.grey[300],

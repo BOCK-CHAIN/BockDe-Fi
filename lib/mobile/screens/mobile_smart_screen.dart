@@ -34,11 +34,11 @@ class _MobileSmartScreenState extends State<MobileSmartScreen> {
             icon: Icon(Icons.lock_outline, color: Colors.black),
             onPressed: () {},
           ),
-          CircleAvatar(
+          /*CircleAvatar(
             radius: 16,
             backgroundColor: const Color.fromARGB(255, 122, 79, 223),
             child: Text('😎', style: TextStyle(fontSize: 16)),
-          ),
+          ),*/
           SizedBox(width: 16),
         ],
       ),
@@ -108,8 +108,8 @@ class _MobileSmartScreenState extends State<MobileSmartScreen> {
               padding: EdgeInsets.all(16),
               children: [
                 _buildTraderCard(
-                  name: '我是乔治他爹',
-                  subtitle: '乔治',
+                  name: 'Satoshi',
+                  subtitle: 'Sas Capital',
                   subscribers: '35,781 Subscribers',
                   pnl: '+3,990,194.40',
                   roi: '+28.37%',
@@ -119,8 +119,8 @@ class _MobileSmartScreenState extends State<MobileSmartScreen> {
                 ),
                 SizedBox(height: 16),
                 _buildTraderCard(
-                  name: '윤이 좋은',
-                  subtitle: '행운의 일기',
+                  name: 'Andrew',
+                  subtitle: 'Main',
                   subscribers: '40,481 Subscribers',
                   pnl: '+3,822,271.92',
                   roi: '+36.98%',

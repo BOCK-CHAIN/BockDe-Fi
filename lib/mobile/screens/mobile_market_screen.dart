@@ -116,7 +116,7 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
     if (_currentPage >= 1 && _currentPage <= 5) return 'Market';
     if (_currentPage == 6) return 'Alpha';
     if (_currentPage == 7) return 'Grow';
-    if (_currentPage >= 8 && _currentPage <= 12) return 'Square';
+    //if (_currentPage >= 8 && _currentPage <= 12) return 'Square';
     if (_currentPage == 13) return 'Data';
     return 'Favorites';
   }
@@ -127,9 +127,9 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
     if (_currentPage == 3) return 'USD©-M';
     if (_currentPage == 4) return 'COIN-M';
     if (_currentPage == 5) return 'Options';
-    if (_currentPage >= 8 && _currentPage <= 12) {
+    /*if (_currentPage >= 8 && _currentPage <= 12) {
       return ['Square DiscoverTab', 'Square FollowingTabState', 'Square NewsTab', 'Square AcademyTab', 'Square MomentsTab'][_currentPage - 8];
-    }
+    }*/
     return '';
   }
 
@@ -188,7 +188,7 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
                     _buildMainTab('Market', 1),
                     _buildMainTab('Alpha', 6),
                     _buildMainTab('Grow', 7),
-                    _buildMainTab('Square', 8),
+                    //_buildMainTab('Square', 8),
                     _buildMainTab('Data', 13),
                   ],
                 ),
@@ -267,11 +267,11 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
                   MobileGrowScreen(),
                   
                   // 8-12: Square sub-tabs
-                  _buildSquareSubTab('Square DiscoverTab'),
+                 /* _buildSquareSubTab('Square DiscoverTab'),
                   _buildSquareSubTab('Square FollowingTabState'),
                   _buildSquareSubTab('Square NewsTab'),
                   _buildSquareSubTab('Square AcademyTab'),
-                  _buildSquareSubTab('Square MomentsTab'),
+                  _buildSquareSubTab('Square MomentsTab'),*/
                   
                   // 13: Data
                   MobileDataScreen(),
@@ -430,9 +430,9 @@ class _MobileMarketScreenState extends State<MobileMarketScreen>
     );
   }
 
-  Widget _buildSquareSubTab(String tabName) {
+  /*Widget _buildSquareSubTab(String tabName) {
     return MobileSquareScreen(); // You can pass different parameters or create different views
-  }
+  }*/
 
   Widget _buildCryptoAssetItem(CryptoAsset asset) {
     final isPositive = asset.change24h > 0;

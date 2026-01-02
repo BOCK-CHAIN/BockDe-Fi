@@ -1112,7 +1112,7 @@ class SentimentView extends StatelessWidget {
           '09-30 17:04:55',
           'Positive',
           'Hype Growth 112.50%',
-          'OpenEden EDEN Launch, Binance HODLer Airdrop, KuCoin Listing',
+          'OpenEden EDEN Launch, BOCK De-Fi HODLer Airdrop, KuCoin Listing',
           false,
         ),
       ],
@@ -1681,10 +1681,10 @@ class _LeaderboardTabState extends State<LeaderboardTab> {
                           style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(width: 4),
-                        const Text(
+                        /*const Text(
                           '🇨🇦',
                           style: TextStyle(fontSize: 16),
-                        ),
+                        ),*/
                         const SizedBox(width: 4),
                         const Icon(Icons.copy, size: 14, color: Colors.grey),
                       ],

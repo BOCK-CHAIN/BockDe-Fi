@@ -104,7 +104,7 @@ class MobileAccountInfoScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 20),
-                    _buildInfoRow('Binance ID (UID)', '', hasIcon: true),
+                    _buildInfoRow('BOCK De-FI ID (UID)', '', hasIcon: true),
                     SizedBox(height: 12),
                     _buildInfoRow('Reg.Info', '18@gmail.com', hasIcon: true),
                     SizedBox(height: 20),

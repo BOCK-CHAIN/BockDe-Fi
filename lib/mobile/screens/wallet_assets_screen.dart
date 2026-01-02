@@ -270,8 +270,8 @@ class SendTokenScreen extends StatelessWidget {
             _buildOptionCard(
               context,
               icon: Icons.swap_horiz,
-              title: 'Transfer to Binance Exchange',
-              subtitle: 'Transfer assets to your Binance Account',
+              title: 'Transfer to BOCK De-Fi Exchange',
+              subtitle: 'Transfer assets to your BOCK De-Fi Account',
               onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const TransferToBinanceScreen())),
             ),
             const SizedBox(height: 16),
@@ -344,8 +344,8 @@ class ReceiveTokensScreen extends StatelessWidget {
             _buildOptionCard(
               context,
               icon: Icons.swap_horiz,
-              title: 'Transfer from Binance Exchange',
-              subtitle: 'Withdraw assets from your Binance Account',
+              title: 'Transfer from BOCK De-Fi Exchange',
+              subtitle: 'Withdraw assets from your BOCK De-Fi Account',
               onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const TransferFromBinanceScreen())),
             ),
             const SizedBox(height: 16),
@@ -408,8 +408,8 @@ class TransferToBinanceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Transfer to Binance Exchange')),
-      body: const Center(child: Text('Transfer to Binance Exchange Screen')),
+      appBar: AppBar(title: const Text('Transfer to BOCK De-Fi Exchange')),
+      body: const Center(child: Text('Transfer to BOCK De-Fi Exchange Screen')),
     );
   }
 }
@@ -432,8 +432,8 @@ class TransferFromBinanceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Transfer from Binance Exchange')),
-      body: const Center(child: Text('Transfer from Binance Exchange Screen')),
+      appBar: AppBar(title: const Text('Transfer from BOCK De-Fi Exchange')),
+      body: const Center(child: Text('Transfer from BOCK De-Fi Exchange Screen')),
     );
   }
 }

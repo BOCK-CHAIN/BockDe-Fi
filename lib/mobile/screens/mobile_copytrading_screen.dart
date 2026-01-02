@@ -289,9 +289,9 @@ class _MobileCopyTradingScreenState extends State<MobileCopyTradingScreen> {
     final traders = [
       {
         'name': 'UsGguiY',
-        'avatar': '🏴‍☠️',
+        'avatar': 'U',
         'followers': '1000/1000',
-        'badge': '👑',
+        'badge': null,
         'pnl': '+1,685,760.64',
         'pnlColor': Colors.green,
         'roi': '56.19%',
@@ -303,9 +303,9 @@ class _MobileCopyTradingScreenState extends State<MobileCopyTradingScreen> {
       },
       {
         'name': 'YHW1',
-        'avatar': '👨‍💼',
+        'avatar': 'Y',
         'followers': '178/200',
-        'badge': '🏅',
+        'badge': null,
         'hasApi': true,
         'pnl': '+526,757.97',
         'pnlColor': Colors.green,
@@ -318,7 +318,7 @@ class _MobileCopyTradingScreenState extends State<MobileCopyTradingScreen> {
       },
       {
         'name': '0Gravity',
-        'avatar': '🤖',
+        'avatar': 'G',
         'followers': '175/600',
         'badge': null,
         'pnl': '+436,463.82',
@@ -628,7 +628,7 @@ class _MobileCopyTradingScreenState extends State<MobileCopyTradingScreen> {
             ),
           ),
           const SizedBox(width: 16),
-          const Text('🏆', style: TextStyle(fontSize: 32)),
+          const Text('', style: TextStyle(fontSize: 32)),
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.close, color: Colors.grey),

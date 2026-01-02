@@ -128,7 +128,7 @@ class ArenaTab extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text(
-          'Binance Futures Arena',
+          'BOCK De-Fi Futures Arena',
           style: TextStyle(
             color: Colors.black,
             fontSize: 18,
@@ -501,7 +501,7 @@ class ArenaTab extends StatelessWidget {
                   const SizedBox(height: 16),
                   
                   Text(
-                    '• All Promotions are only available to users who are eligible for Binance Futures trading and may not be available or may be restricted in certain jurisdictions. Rewards to certain users depending on legal and regulatory requirements.',
+                    '• All Promotions are only available to users who are eligible for BOCK De-Fi Futures trading and may not be available or may be restricted in certain jurisdictions. Rewards to certain users depending on legal and regulatory requirements.',
                     style: TextStyle(
                       fontSize: isTablet ? 14 : 12,
                       color: Colors.grey[600],
@@ -512,7 +512,7 @@ class ArenaTab extends StatelessWidget {
                   const SizedBox(height: 12),
                   
                   Text(
-                    '• Users are responsible for informing themselves about and observing any restrictions and/or requirements imposed with respect to the access to and use of Binance Futures trading services in each country/region from which the services are accessed.',
+                    '• Users are responsible for informing themselves about and observing any restrictions and/or requirements imposed with respect to the access to and use of BOCK De-Fi Futures trading services in each country/region from which the services are accessed.',
                     style: TextStyle(
                       fontSize: isTablet ? 14 : 12,
                       color: Colors.grey[600],
@@ -696,7 +696,7 @@ class _BattlefieldTabState extends State<BattlefieldTab> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text(
-          'Binance Futures Arena',
+          'BOCK De-Fi Futures Arena',
           style: TextStyle(
             color: Colors.black,
             fontSize: 18,
@@ -1057,7 +1057,7 @@ class RankingTab extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text(
-          'Binance Futures Arena',
+          'BOCK De-Fi Futures Arena',
           style: TextStyle(
             color: Colors.black,
             fontSize: 18,
@@ -1167,9 +1167,9 @@ class RankingTab extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              _buildPodiumUser(2, 'xpl合约收手续费呢', '428', isTablet),
+              _buildPodiumUser(2, 'xpl', '428', isTablet),
               _buildPodiumUser(1, 'User-cef4d', '983', isTablet),
-              _buildPodiumUser(3, '别偷我头像', '422', isTablet),
+              _buildPodiumUser(3, 'Bad', '422', isTablet),
             ],
           ),
         ),
@@ -1216,16 +1216,16 @@ class RankingTab extends StatelessWidget {
             itemCount: 10,
             itemBuilder: (context, index) {
               final users = [
-                {'name': 'User-cef4d', 'points': '983', 'avatar': '😄'},
-                {'name': 'xpl合约收手续费呢', 'points': '428', 'avatar': '👩'},
-                {'name': '别偷我头像', 'points': '422', 'avatar': '👤'},
-                {'name': 'CryptoMaster99', 'points': '387', 'avatar': '🚀'},
-                {'name': 'TradingPro', 'points': '345', 'avatar': '📈'},
-                {'name': 'FuturesKing', 'points': '298', 'avatar': '👑'},
-                {'name': 'MarketWhale', 'points': '276', 'avatar': '🐋'},
-                {'name': 'BullRun2025', 'points': '254', 'avatar': '🐂'},
-                {'name': 'DiamondHands', 'points': '223', 'avatar': '💎'},
-                {'name': 'MoonTrader', 'points': '198', 'avatar': '🌙'},
+                {'name': 'User-cef4d', 'points': '983', 'avatar': 'U'},
+                {'name': 'xpl', 'points': '428', 'avatar': 'X'},
+                {'name': 'BAD', 'points': '422', 'avatar': 'B'},
+                {'name': 'CryptoMaster99', 'points': '387', 'avatar': 'C'},
+                {'name': 'TradingPro', 'points': '345', 'avatar': 'T'},
+                {'name': 'FuturesKing', 'points': '298', 'avatar': 'F'},
+                {'name': 'MarketWhale', 'points': '276', 'avatar': 'M'},
+                {'name': 'BullRun2025', 'points': '254', 'avatar': 'B'},
+                {'name': 'DiamondHands', 'points': '223', 'avatar': 'D'},
+                {'name': 'MoonTrader', 'points': '198', 'avatar': 'M'},
               ];
 
               final user = users[index];
@@ -1542,7 +1542,7 @@ class RegularTasksTab extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: const Text(
-          'Binance Futures Arena',
+          'BOCK De-Fi Futures Arena',
           style: TextStyle(
             color: Colors.black,
             fontSize: 18,

@@ -75,7 +75,7 @@ class MobileDisableScreen extends StatelessWidget {
                   const SizedBox(height: 16),
                   
                   _buildWarningPoint(
-                    '5. In order to reactivate your account, you will need to contact Binance support.',
+                    '5. In order to reactivate your account, you will need to contact BOCK De-Fi support.',
                   ),
                   
                   const SizedBox(height: 16),
@@ -279,7 +279,7 @@ class MobileDisableScreen extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               const Text(
-                'Your account has been successfully disabled. Contact Binance support to reactivate.',
+                'Your account has been successfully disabled. Contact BOCK De-Fi support to reactivate.',
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.black87,
